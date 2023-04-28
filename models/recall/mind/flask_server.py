@@ -28,7 +28,7 @@ def response_return_template(code, message, result=None):
 
 
 @app.route("/topfunny/recommend", methods=['POST'])
-def ner_all():
+def recommend():
     data = request.json
     history_list = data['history']
     country = data['country']
