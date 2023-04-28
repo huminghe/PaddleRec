@@ -25,6 +25,8 @@ class DygraphModel():
 
     def create_model(self, config):
         item_count = config.get("hyper_parameters.item_count", None)
+        country_count = config.get("hyper_parameters.country_count", None)
+        user_country_count = config.get("hyper_parameters.user_country_count", None)
         embedding_dim = config.get("hyper_parameters.embedding_dim", 64)
         hidden_size = config.get("hyper_parameters.hidden_size", 64)
         neg_samples = config.get("hyper_parameters.neg_samples", 100)
@@ -33,26 +35,32 @@ class DygraphModel():
         capsual_iters = config.get("hyper_parameters.capsual.iters", 3)
         capsual_max_k = config.get("hyper_parameters.capsual.max_k", 4)
         capsual_init_std = config.get("hyper_parameters.capsual.init_std", 1.0)
-        MIND_model = net.MindLayer(item_count, embedding_dim, hidden_size,
-                                   neg_samples, maxlen, pow_p, capsual_iters,
-                                   capsual_max_k, capsual_init_std)
+        dropout = config.get("hyper_parameters.dropout", 0.2)
+        MIND_model = net.MindLayer(item_count, country_count, user_country_count, embedding_dim,
+                                   hidden_size, neg_samples, maxlen, pow_p, capsual_iters,
+                                   capsual_max_k, capsual_init_std, dropout)
         return MIND_model
 
     # define feeds which convert numpy of batch data to paddle.tensor 
     def create_feeds_train(self, batch_data):
-        #print(batch_data)
+        # print(batch_data)
         hist_item = paddle.to_tensor(batch_data[0], dtype="int64")
         target_item = paddle.to_tensor(batch_data[1], dtype="int64")
         seq_len = paddle.to_tensor(batch_data[2], dtype="int64")
-        return [hist_item, target_item, seq_len]
+        hist_country = paddle.to_tensor(batch_data[3], dtype="int64")
+        user_country = paddle.to_tensor(batch_data[4], dtype="int64")
+        item_country = paddle.to_tensor(batch_data[5], dtype="int64")
+        return [hist_item, target_item, seq_len, hist_country, user_country, item_country]
 
-    #create_feeds_infer
+    # create_feeds_infer
     def create_feeds_infer(self, batch_data):
         batch_size = batch_data[0].shape[0]
         hist_item = paddle.to_tensor(batch_data[0], dtype="int64")
         target_item = paddle.zeros((batch_size, 1), dtype="int64")
         seq_len = paddle.to_tensor(batch_data[1], dtype="int64")
-        return [hist_item, target_item, seq_len]
+        hist_country = paddle.to_tensor(batch_data[2], dtype="int64")
+        user_country = paddle.to_tensor(batch_data[3], dtype="int64")
+        return [hist_item, target_item, seq_len, hist_country, user_country]
 
     # define optimizer 
     def create_loss(self, hit_prob):
@@ -74,18 +82,17 @@ class DygraphModel():
 
     # construct train forward phase  
     def train_forward(self, dy_model, metrics_list, batch_data, config):
-        hist_item, labels, seqlen = self.create_feeds_train(batch_data)
-        [loss, sampled_logist, sampled_labels
-         ], weight, _, _, _ = dy_model.forward(hist_item, seqlen, labels)
+        hist_item, labels, seqlen, hist_country, user_country, item_country = self.create_feeds_train(batch_data)
+        loss, weight, _, _, _ = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, item_country)
         loss = self.create_loss(loss)
         print_dict = {"loss": loss}
         return loss, metrics_list, print_dict
 
     # construct infer forward phase  
     def infer_forward(self, dy_model, metrics_list, batch_data, config):
-        hist_item, labels, seqlen = self.create_feeds_infer(batch_data)
+        hist_item, labels, seqlen, hist_country, user_country = self.create_feeds_infer(batch_data)
         dy_model.eval()
-        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels)
+        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country)
         # update metrics
         print_dict = None
         return user_cap, cap_weight

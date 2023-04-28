@@ -16,8 +16,10 @@ from __future__ import print_function
 import numpy as np
 from paddle.io import IterableDataset
 import random
+import math
 
-#random.seed(12345)
+
+# random.seed(12345)
 
 
 class RecDataset(IterableDataset):
@@ -27,11 +29,16 @@ class RecDataset(IterableDataset):
         self.maxlen = config.get("hyper_parameters.maxlen", 30)
         self.batch_size = config.get("runner.train_batch_size", 128)
         self.batches_per_epoch = config.get("runner.batches_per_epoch", 1000)
+        self.min_data_len = config.get("hyper_parameters.min_data_len", 1)
+        self.sample_strategy = config.get("hyper_parameter.sample_strategy", 1)
+        self.long_seq_strategy = config.get("hyper_parameter.long_seq_strategy", 1)
+
         self.init()
         self.count = 0
 
     def init(self):
         self.graph = {}
+        self.item_graph = {}
         self.users = set()
         self.items = set()
         for file in self.file_list:
@@ -40,20 +47,25 @@ class RecDataset(IterableDataset):
                     conts = line.strip().split(',')
                     user_id = int(conts[0])
                     item_id = int(conts[1])
-                    time_stamp = int(conts[2])
+                    user_country_id = int(conts[2])
+                    item_country_id = int(conts[3])
+                    time_stamp = int(conts[4])
                     self.users.add(user_id)
                     self.items.add(item_id)
                     if user_id not in self.graph:
                         self.graph[user_id] = []
-                    self.graph[user_id].append((item_id, time_stamp))
+                        self.item_graph[user_id] = []
+                    if item_id not in self.item_graph[user_id]:
+                        self.graph[user_id].append((item_id, time_stamp, user_country_id, item_country_id))
+                        self.item_graph[user_id].append(item_id)
         for user_id, value in self.graph.items():
             value.sort(key=lambda x: x[1])
-            self.graph[user_id] = [x[0] for x in value]
+            self.graph[user_id] = [(x[0], x[2], x[3]) for x in value]
         self.users = list(self.users)
         self.items = list(self.items)
 
     def __iter__(self):
-        random.seed(12345)
+        # random.seed(12345)
         while True:
             user_id_list = random.sample(self.users, self.batch_size)
             if self.count >= self.batches_per_epoch * self.batch_size:
@@ -61,21 +73,36 @@ class RecDataset(IterableDataset):
                 break
             for user_id in user_id_list:
                 item_list = self.graph[user_id]
-                if len(item_list) <= 4:
+                if len(item_list) < self.min_data_len:
                     continue
-                random.seed(12345)
-                k = random.choice(range(4, len(item_list)))
-                item_id = item_list[k]
+                # random.seed(12345)
 
-                if k >= self.maxlen:
-                    hist_item_list = item_list[k - self.maxlen:k]
-                    hist_item_len = len(hist_item_list)
+                if self.long_seq_strategy == 1:
+                    times = 1
                 else:
-                    hist_item_list = item_list[:k] + [0] * (self.maxlen - k)
-                    hist_item_len = k
-                self.count += 1
-                yield [
-                    np.array(hist_item_list).astype("int64"),
-                    np.array([item_id]).astype("int64"),
-                    np.array([hist_item_len]).astype("int64")
-                ]
+                    times = math.floor((len(item_list) + 1) / 4) + 1
+                    times = min(times, 10)
+                for i in range(0, times):
+                    if self.sample_strategy == 1:
+                        k = max(random.choice(range(0, len(item_list))), random.choice(range(0, len(item_list))))
+                    else:
+                        k = random.choice(range(0, len(item_list)))
+                    (item_id, user_country_id, item_country_id) = item_list[k]
+
+                    if k >= self.maxlen:
+                        hist_item_list = [x[0] for x in item_list[k - self.maxlen:k]]
+                        hist_country_list = [x[2] for x in item_list[k - self.maxlen:k]]
+                        hist_item_len = len(hist_item_list)
+                    else:
+                        hist_item_list = [x[0] for x in item_list[0:k]] + [0] * (self.maxlen - k)
+                        hist_country_list = [x[2] for x in item_list[0:k]] + [0] * (self.maxlen - k)
+                        hist_item_len = k
+                    self.count += 1
+                    yield [
+                        np.array(hist_item_list).astype("int64"),
+                        np.array([item_id]).astype("int64"),
+                        np.array([hist_item_len]).astype("int64"),
+                        np.array(hist_country_list).astype("int64"),
+                        np.array([user_country_id]).astype("int64"),
+                        np.array([item_country_id]).astype("int64")
+                    ]

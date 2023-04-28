@@ -19,10 +19,15 @@ import time
 import os
 import warnings
 import logging
+
+import numpy
 import paddle
+import paddle.nn.functional as F
 import sys
 import numpy as np
+from numpy.linalg import norm
 import math
+
 __dir__ = os.path.dirname(os.path.abspath(__file__))
 # sys.path.append(__dir__)
 sys.path.append(
@@ -47,8 +52,17 @@ def parse_args():
     return args
 
 
+def get_author_country_list(path):
+    author_country_list = []
+    with open(path, "r") as rf:
+        for line in rf:
+            value = line.split("\t")[1]
+            author_country_list.append(int(value))
+    return author_country_list
+
+
 def main(args):
-    paddle.seed(12345)
+    # paddle.seed(12345)
 
     # load config
     config = load_yaml(args.config_yaml)
@@ -63,13 +77,13 @@ def main(args):
     start_epoch = config.get("runner.infer_start_epoch", 0)
     end_epoch = config.get("runner.infer_end_epoch", 10)
     batch_size = config.get("runner.infer_batch_size", None)
+    author_country_map_path = config.get("runner.author_country_map_path", None)
     os.environ["CPU_NUM"] = str(config.get("runner.thread_num", 1))
 
     logger.info("**************common.configs**********")
     logger.info(
-        "use_gpu: {}, test_data_dir: {}, start_epoch: {}, end_epoch: {}, print_interval: {}, model_load_path: {}".
-        format(use_gpu, test_data_dir, start_epoch, end_epoch, print_interval,
-               model_load_path))
+        "use_gpu: {}, test_data_dir: {}, start_epoch: {}, end_epoch: {}, print_interval: {}, model_load_path: {}".format(
+            use_gpu, test_data_dir, start_epoch, end_epoch, print_interval, model_load_path))
     logger.info("**************common.configs**********")
 
     place = paddle.set_device('gpu' if use_gpu else 'cpu')
@@ -87,7 +101,9 @@ def main(args):
         logger.info("load model epoch {}".format(epoch_id))
         model_path = os.path.join(model_load_path, str(epoch_id))
         load_model(model_path, dy_model)
-        b = dy_model.item_emb.weight.numpy()
+
+        b = np.ascontiguousarray(numpy.transpose(dy_model.output_softmax_linear.weight.numpy()))
+        # b = dy_model.item_emb.weight.numpy()
 
         import faiss
         if use_gpu:
@@ -111,7 +127,6 @@ def main(args):
                                                         batch_data, config)
 
             user_embs = user_embs.numpy()
-            # print(user_embs)
             target_items = np.squeeze(batch_data[-1].numpy(), axis=1)
 
             if len(user_embs.shape) == 2:
@@ -148,12 +163,12 @@ def main(args):
                             np.reshape(D[i * ni:(i + 1) * ni], -1)))
                     item_list.sort(key=lambda x: x[1], reverse=True)
                     for j in range(len(item_list)):
-                        if item_list[j][0] not in item_list_set and item_list[
-                                j][0] != 0:
+                        if item_list[j][0] not in item_list_set and item_list[j][0] != 0:
                             item_list_set.add(item_list[j][0])
                             item_cor_list.append(item_list[j][0])
                             if len(item_list_set) >= args.top_n:
                                 break
+                    print(str(item_cor_list))
                     iid_list = list(filter(lambda x: x != 0, list(iid_list)))
                     true_item_set = set(iid_list)
                     for no, iid in enumerate(item_cor_list):
@@ -182,8 +197,7 @@ def main(args):
                 metric_str += "hitrate@%d: %.5f, " % (args.top_n, hitrate)
                 logger.info("epoch: {}, batch_id: {}, ".format(
                     epoch_id, batch_id) + metric_str + "speed: {:.2f} ins/s".
-                            format(print_interval * batch_size / (time.time(
-                            ) - interval_begin)))
+                            format(print_interval * batch_size / (time.time() - interval_begin)))
 
         recall = total_recall / total
         ndcg = total_ndcg / total

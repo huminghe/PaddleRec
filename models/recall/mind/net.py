@@ -40,8 +40,7 @@ class Mind_SampledSoftmaxLoss_Layer(nn.Layer):
         self.prob = np.array([0.0] * self.range_max)
         self.batch_size = batch_size
         for i in range(1, self.range_max):
-            self.prob[i] = (np.log(i+2) - np.log(i+1)) / \
-                np.log(self.range_max + 1)
+            self.prob[i] = (np.log(i + 2) - np.log(i + 1)) / np.log(self.range_max + 1)
         self.new_prob = paddle.assign(self.prob.astype("float32"))
         self.log_q = paddle.log(-(paddle.exp((-paddle.log1p(self.new_prob) * 2
                                               * n_sample)) - 1.0))
@@ -72,7 +71,7 @@ class Mind_SampledSoftmaxLoss_Layer(nn.Layer):
         b1 = paddle.shape(labels)[0]
         b2 = paddle.shape(labels)[1]
 
-        all_ids = paddle.concat([labels.reshape((-1, )), neg_samples])
+        all_ids = paddle.concat([labels.reshape((-1,)), neg_samples])
         all_w = paddle.gather(weights, all_ids)
 
         true_w = all_w[:-n_sample].reshape((-1, b2, embedding_dim))
@@ -150,14 +149,13 @@ class Mind_Capsual_Layer(nn.Layer):
                 name="bilinear_mapping_matrix", trainable=True),
             default_initializer=nn.initializer.Normal(
                 mean=0.0, std=self.init_std))
-        self.relu_layer = nn.Linear(self.output_units, self.output_units)
+        self.relu_layer = nn.Linear(self.output_units * 2, self.output_units)
 
     def squash(self, Z):
         """squash
         """
         vec_squared_norm = paddle.sum(paddle.square(Z), axis=-1, keepdim=True)
-        scalar_factor = vec_squared_norm / \
-            (1 + vec_squared_norm) / paddle.sqrt(vec_squared_norm + 1e-8)
+        scalar_factor = vec_squared_norm / (1 + vec_squared_norm) / paddle.sqrt(vec_squared_norm + 1e-8)
         vec_squashed = scalar_factor * Z
         return vec_squashed
 
@@ -169,24 +167,24 @@ class Mind_Capsual_Layer(nn.Layer):
             maxlen = lengths.max()
         row_vector = paddle.arange(
             0, maxlen,
-            1).unsqueeze(0).expand(shape=(batch_size, maxlen)).reshape(
-                (batch_size, -1, maxlen))
+            1).unsqueeze(0).expand(shape=(batch_size, maxlen)).reshape((batch_size, -1, maxlen))
         lengths = lengths.unsqueeze(-1)
         mask = row_vector < lengths
         return mask.astype(dtype)
 
-    def forward(self, item_his_emb, seq_len):
+    def forward(self, item_his_emb, seq_len, user_country_emb):
         """forward
 
         Args:
             item_his_emb : [B, seqlen, dim]
             seq_len : [B, 1]
+            user_country_emb: [B, dim]
         """
         batch_size = item_his_emb.shape[0]
         seq_len_tile = paddle.tile(seq_len, [1, self.k_max])
 
         mask = self.sequence_mask(seq_len_tile, self.maxlen)
-        pad = paddle.ones_like(mask, dtype="float32") * (-2**32 + 1)
+        pad = paddle.ones_like(mask, dtype="float32") * (-2 ** 32 + 1)
         # S*e
         low_capsule_new = paddle.matmul(item_his_emb,
                                         self.bilinear_mapping_matrix)
@@ -230,7 +228,12 @@ class Mind_Capsual_Layer(nn.Layer):
         high_capsule = paddle.reshape(interest_capsule,
                                       [-1, self.k_max, self.output_units])
 
-        high_capsule = F.relu(self.relu_layer(high_capsule))
+        user_features_tile = paddle.tile(user_country_emb, [1, self.k_max])
+        user_features_vec = paddle.reshape(user_features_tile, [-1, self.k_max, self.output_units])
+
+        capsule_concat = paddle.concat([high_capsule, user_features_vec], axis=-1)
+
+        high_capsule = F.relu(self.relu_layer(capsule_concat))
         return high_capsule, W, seq_len
 
 
@@ -240,6 +243,8 @@ class MindLayer(nn.Layer):
 
     def __init__(self,
                  item_count,
+                 country_count,
+                 user_country_count,
                  embedding_dim,
                  hidden_size,
                  neg_samples=100,
@@ -248,11 +253,14 @@ class MindLayer(nn.Layer):
                  capsual_iters=3,
                  capsual_max_k=3,
                  capsual_init_std=1.0,
+                 dropout=0.2,
                  batch_size=None):
         super(MindLayer, self).__init__()
         self.pow_p = pow_p
         self.hidden_size = hidden_size
         self.item_count = item_count
+        self.country_count = country_count
+        self.user_country_count = user_country_count
         self.item_id_range = paddle.arange(end=item_count, dtype="int64")
         self.item_emb = nn.Embedding(
             item_count,
@@ -264,11 +272,29 @@ class MindLayer(nn.Layer):
                     fan_in=item_count, fan_out=embedding_dim)))
         # print(self.item_emb.weight)
         self.embedding_bias = self.create_parameter(
-            shape=(item_count, ),
+            shape=(item_count,),
             is_bias=True,
             attr=paddle.ParamAttr(
                 name="embedding_bias", trainable=False),
             default_initializer=nn.initializer.Constant(0))
+
+        self.country_emb = nn.Embedding(
+            country_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="country_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=country_count, fan_out=embedding_dim)))
+
+        self.user_country_emb = nn.Embedding(
+            user_country_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="user_country_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=user_country_count, fan_out=embedding_dim)))
 
         self.capsual_layer = Mind_Capsual_Layer(
             embedding_dim,
@@ -281,38 +307,77 @@ class MindLayer(nn.Layer):
         self.sampled_softmax = Mind_SampledSoftmaxLoss_Layer(
             item_count, neg_samples, batch_size=batch_size)
 
+        self.dropout = nn.Dropout(p=dropout)
+        self.item_emb_linear = nn.Linear(in_features=2 * embedding_dim, out_features=embedding_dim)
+        self.user_country_emb_linear = nn.Linear(in_features=embedding_dim, out_features=hidden_size)
+
+        self.output_softmax_linear = nn.Linear(in_features=hidden_size, out_features=item_count)
+        self.loss = nn.CrossEntropyLoss()
+
     def label_aware_attention(self, keys, query):
         """label_aware_attention
         """
         weight = paddle.matmul(keys,
                                paddle.reshape(query, [
                                    -1, paddle.shape(query)[-1], 1
-                               ]))  #[B, K, dim] * [B, dim, 1] == [B, k, 1]
+                               ]))  # [B, K, dim] * [B, dim, 1] == [B, k, 1]
         weight = paddle.squeeze(weight, axis=-1)
         weight = paddle.pow(weight, self.pow_p)  # [x,k_max]
-        weight = F.softmax(weight)  #[x, k_max]
-        weight = paddle.unsqueeze(weight, 1)  #[B, 1, k_max]
+        weight = F.softmax(weight)  # [x, k_max]
+        weight = paddle.unsqueeze(weight, 1)  # [B, 1, k_max]
         output = paddle.matmul(
-            weight, keys)  #[B, 1, k_max] * [B, k_max, dim] => [B, 1, dim]
+            weight, keys)  # [B, 1, k_max] * [B, k_max, dim] => [B, 1, dim]
         return output.squeeze(1), weight
 
-    def forward(self, hist_item, seqlen, labels=None):
+    def forward(self, hist_item, seqlen, labels=None, hist_country=None, user_country=None, item_country=None):
         """forward
 
         Args:
             hist_item : [B, maxlen, 1]
             seqlen : [B, 1]
-            target : [B, 1]
+            labels : [B, 1]
+            hist_country : [B, maxlen, 1]
+            user_country : [B, 1]
+            item_country : [B, 1]
         """
-        # print(hist_item)
+
         hit_item_emb = self.item_emb(hist_item)  # [B, seqlen, embed_dim]
-        user_cap, cap_weights, cap_mask = self.capsual_layer(hit_item_emb,
-                                                             seqlen)
+        if self.training:
+            hit_item_emb = self.dropout(hit_item_emb)
+
+        hit_country_emb = self.country_emb(hist_country)
+        if self.training:
+            hit_country_emb = self.dropout(hit_country_emb)
+
+        hit_concat_emb = paddle.concat([hit_item_emb, hit_country_emb], axis=-1)
+        hist_emb = F.relu(self.item_emb_linear(hit_concat_emb))
+
+        user_country_emb = self.user_country_emb(user_country)
+        if self.training:
+            user_country_emb = self.dropout(user_country_emb)
+        user_country_emb = F.relu(self.user_country_emb_linear(user_country_emb))
+
+        user_cap, cap_weights, cap_mask = self.capsual_layer(hist_emb,
+                                                             seqlen,
+                                                             user_country_emb)
+
         if not self.training:
             return user_cap, cap_weights
+
         target_emb = self.item_emb(labels)
+        if self.training:
+            target_emb = self.dropout(target_emb)
+        target_country_emb = self.country_emb(item_country)
+        if self.training:
+            target_country_emb = self.dropout(target_country_emb)
+
+        target_concat_emb = paddle.concat([target_emb, target_country_emb], axis=-1)
+        target_emb = F.relu(self.item_emb_linear(target_concat_emb))
+
         user_emb, W = self.label_aware_attention(user_cap, target_emb)
 
-        return self.sampled_softmax(
-            user_emb, labels, self.item_emb.weight,
-            self.embedding_bias), W, user_cap, cap_weights, cap_mask
+        logits = self.output_softmax_linear(user_emb)
+
+        loss = self.loss(logits, labels)
+
+        return loss, W, user_cap, cap_weights, cap_mask
