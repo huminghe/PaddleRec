@@ -122,9 +122,9 @@ def predict(batch_data, top_n):
     item_list = list(zip(np.reshape(I, -1), np.reshape(D, -1)))
     item_list.sort(key=lambda x: x[1], reverse=True)
     for j in range(len(item_list)):
-        if item_list[j][0] not in item_list_set and item_list[j][0] != 0:
+        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > 0:
             item_list_set.add(item_list[j][0])
-            item_cor_list.append(item_list[j][0])
+            item_cor_list.append(item_list[j])
             if len(item_list_set) >= top_n:
                 break
     return item_cor_list
@@ -156,5 +156,5 @@ def create_predict_data(author_list, country):
 def predict_author_result(author_list, country, top_n):
     batch_data = create_predict_data(author_list, country)
     predict_result = predict(batch_data, top_n)
-    author_udid_list = [reverse_author_id_map.get(x, "0") for x in predict_result]
-    return author_udid_list
+    author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1]) for x in predict_result]
+    return author_info_list
