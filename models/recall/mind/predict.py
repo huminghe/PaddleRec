@@ -110,7 +110,7 @@ UNK_ID = 1
 PADDING_ID = 0
 
 
-def predict(batch_data, top_n):
+def predict(batch_data, top_n, logger):
     user_embs, _ = dy_model_class.infer_forward(dy_model, None,
                                                 batch_data, config)
 
@@ -153,8 +153,8 @@ def create_predict_data(author_list, country):
         np.array([user_country_list]).astype("int64")]
 
 
-def predict_author_result(author_list, country, top_n):
+def predict_author_result(author_list, country, top_n, logger):
     batch_data = create_predict_data(author_list, country)
-    predict_result = predict(batch_data, top_n)
+    predict_result = predict(batch_data, top_n, logger)
     author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1]) for x in predict_result]
     return author_info_list
