@@ -52,7 +52,7 @@ hyper_parameters:
   embedding_dim: 32
   hidden_size: 32
   neg_samples: 256
-  maxlen: 30
+  maxlen: 20
   pow_p: 2.0
   dropout: 0.5
   capsual:
