@@ -110,7 +110,7 @@ UNK_ID = 1
 PADDING_ID = 0
 
 
-def predict(batch_data, top_n, logger):
+def predict(batch_data, top_n, delta, logger):
     user_embs, _ = dy_model_class.infer_forward(dy_model, None,
                                                 batch_data, config)
 
@@ -122,7 +122,7 @@ def predict(batch_data, top_n, logger):
     item_list = list(zip(np.reshape(I, -1), np.reshape(D, -1)))
     item_list.sort(key=lambda x: x[1], reverse=True)
     for j in range(len(item_list)):
-        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > 0:
+        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > delta:
             item_list_set.add(item_list[j][0])
             item_cor_list.append(item_list[j])
             if len(item_list_set) >= top_n:
@@ -154,7 +154,8 @@ def create_predict_data(author_list, country):
 
 
 def predict_author_result(author_list, country, top_n, logger):
+    threshold = -0.2
     batch_data = create_predict_data(author_list, country)
-    predict_result = predict(batch_data, top_n, logger)
-    author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1]) for x in predict_result]
+    predict_result = predict(batch_data, top_n, threshold, logger)
+    author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
     return author_info_list
