@@ -20,11 +20,11 @@ runner:
   train_batch_size: 128
   epochs: 300
   print_interval: 10
-  model_save_path: "output_model_mind_0505"
+  model_save_path: "output_model_mind_0505_s1s1"
   infer_batch_size: 128
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/valid-0421"
-  infer_load_path: "output_model_mind_0505"
+  infer_load_path: "output_model_mind_0505_s1s1"
   infer_start_epoch: 201
   infer_end_epoch: 203
   batches_per_epoch: 1000
@@ -56,5 +56,5 @@ hyper_parameters:
   capsual:
     max_k: 3
   min_data_len: 1
-  sample_strategy: 3
+  sample_strategy: 1
   long_seq_strategy: 1
