@@ -110,7 +110,7 @@ UNK_ID = 1
 PADDING_ID = 0
 
 
-def predict(batch_data, top_n, delta, logger):
+def predict(batch_data, top_n, threshold, logger):
     user_embs, _ = dy_model_class.infer_forward(dy_model, None,
                                                 batch_data, config)
 
@@ -122,7 +122,7 @@ def predict(batch_data, top_n, delta, logger):
     item_list = list(zip(np.reshape(I, -1), np.reshape(D, -1)))
     item_list.sort(key=lambda x: x[1], reverse=True)
     for j in range(len(item_list)):
-        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > delta:
+        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > threshold:
             item_list_set.add(item_list[j][0])
             item_cor_list.append(item_list[j])
             if len(item_list_set) >= top_n:
