@@ -11,3 +11,4 @@ nltk
 h5py
 faiss-cpu
 faiss-gpu
+flask
