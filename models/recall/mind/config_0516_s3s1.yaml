@@ -1,0 +1,60 @@
+# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+runner:
+  train_data_dir: "data/train-0515"
+  train_reader_path: "mind_reader" # importlib format
+  use_gpu: True
+  use_auc: False
+  train_batch_size: 128
+  epochs: 300
+  print_interval: 10
+  model_save_path: "output_model_mind_0516_s3s1"
+  infer_batch_size: 128
+  infer_reader_path: "mind_infer_reader_new" # importlib format
+  test_data_dir: "data/valid-0515"
+  infer_load_path: "output_model_mind_0516_s3s1"
+  infer_start_epoch: 150
+  infer_end_epoch: 200
+  batches_per_epoch: 1000
+  author_country_map_path: "data/author/author_country_seq.txt"
+
+  # distribute_config
+  # sync_mode: "async"
+  # split_file_list: False
+  # thread_num: 1
+
+
+  # hyper parameters of user-defined network
+hyper_parameters:
+  # optimizer config
+  optimizer:
+    class: Adam
+    learning_rate: 0.0003
+    # strategy: async
+  # user-defined <key, value> pairs
+  item_count: 6442
+  country_count: 40
+  user_country_count: 227
+  embedding_dim: 64
+  hidden_size: 64
+  neg_samples: 256
+  maxlen: 30
+  pow_p: 2.0
+  dropout: 0.5
+  capsual:
+    max_k: 3
+  min_data_len: 1
+  sample_strategy: 3
+  long_seq_strategy: 1
