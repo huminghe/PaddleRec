@@ -154,7 +154,7 @@ def create_predict_data(author_list, country):
 
 
 def predict_author_result(author_list, country, top_n, logger):
-    threshold = -0.4
+    threshold = -0.65
     batch_data = create_predict_data(author_list, country)
     predict_result = predict(batch_data, top_n, threshold, logger)
     author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
