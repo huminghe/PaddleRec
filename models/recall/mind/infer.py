@@ -80,13 +80,19 @@ def main(args):
     author_country_map_path = config.get("runner.author_country_map_path", None)
     os.environ["CPU_NUM"] = str(config.get("runner.thread_num", 1))
 
+    print("111")
+
     logger.info("**************common.configs**********")
     logger.info(
         "use_gpu: {}, test_data_dir: {}, start_epoch: {}, end_epoch: {}, print_interval: {}, model_load_path: {}".format(
             use_gpu, test_data_dir, start_epoch, end_epoch, print_interval, model_load_path))
     logger.info("**************common.configs**********")
 
+    print("222")
+
     place = paddle.set_device('gpu' if use_gpu else 'cpu')
+
+    print(place)
 
     dy_model = dy_model_class.create_model(config)
     test_dataloader = create_data_loader(
@@ -209,7 +215,11 @@ def main(args):
         logger.info("epoch: {} done, ".format(epoch_id) + metric_str +
                     "epoch time: {:.2f} s".format(time.time() - epoch_begin))
 
+        print("epoch: {} done, ".format(epoch_id) + metric_str +
+                    "epoch time: {:.2f} s".format(time.time() - epoch_begin))
+
 
 if __name__ == "__main__":
     args = parse_args()
+    print("000")
     main(args)
