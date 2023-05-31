@@ -39,7 +39,6 @@ from utils.utils_single import load_yaml, get_abs_model, create_data_loader, res
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 def parse_args():
     parser = argparse.ArgumentParser("PaddleRec train static script")
