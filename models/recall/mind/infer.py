@@ -40,6 +40,17 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+print('debug', logger.isEnabledFor(logging.DEBUG))
+print('info', logger.isEnabledFor(logging.INFO))
+print('warning', logger.isEnabledFor(logging.WARNING))
+print('error', logger.isEnabledFor(logging.ERROR))
+
+logger.info("info")
+logging.info("info2")
+
+logger.warning("warn")
+logging.warning("warn2")
+
 
 def parse_args():
     parser = argparse.ArgumentParser("PaddleRec train static script")
