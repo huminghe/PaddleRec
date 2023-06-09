@@ -34,7 +34,8 @@ class RecDataset(IterableDataset):
         for file in self.file_list:
             with open(file, "r") as rf:
                 for line in rf:
-                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, time = line.strip().split("\t")
+                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, time = line.strip().split(
+                        "\t")
 
                     hist_item_list = [int(x) for x in hist_items.split(",")]
                     hist_country_list = [int(x) for x in hist_countries.split(",")]
@@ -73,6 +74,6 @@ class RecDataset(IterableDataset):
                     height_list.append(int(height))
 
                     yield output_list + [np.array(seq_lens).astype("int64")] + output_country_list + [
-                        np.array(user_country_list).astype("int64")] + [np.array(eval_list).astype("int64")] + [
-                              np.array(ads_group_list).astype("int64")] + [np.array(brand_list).astype("int64")] + [
-                              np.array(height_list).astype("int64")]
+                        np.array(user_country_list).astype("int64")] + [np.array(ads_group_list).astype("int64")] + [
+                              np.array(brand_list).astype("int64")] + [np.array(height_list).astype("int64")] + [
+                              np.array(eval_list).astype("int64")]
