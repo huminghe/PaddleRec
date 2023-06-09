@@ -22,6 +22,8 @@ class RecDataset(IterableDataset):
         super(RecDataset, self).__init__()
         self.file_list = file_list
         self.maxlen = config.get("hyper_parameters.maxlen", 30)
+        self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
+        self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.init()
 
     def init(self):
@@ -32,7 +34,7 @@ class RecDataset(IterableDataset):
         for file in self.file_list:
             with open(file, "r") as rf:
                 for line in rf:
-                    hist_items, hist_countries, user_country, target_item, time = line.strip().split("\t")
+                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, time = line.strip().split("\t")
 
                     hist_item_list = [int(x) for x in hist_items.split(",")]
                     hist_country_list = [int(x) for x in hist_countries.split(",")]
@@ -45,6 +47,16 @@ class RecDataset(IterableDataset):
                     user_country_list = []
                     seq_lens = []
                     eval_list = []
+                    ads_group_list = []
+                    brand_list = []
+                    height_list = []
+
+                    ads_group = int(ads_group)
+                    if ads_group >= self.ads_group_count:
+                        ads_group = 1
+                    brand = int(brand)
+                    if brand >= self.brand_count:
+                        brand = 1
 
                     length = len(hist_item_list)
                     seq_lens.append(min(self.maxlen, length))
@@ -56,5 +68,11 @@ class RecDataset(IterableDataset):
                     user_country_list.append(int(user_country))
                     eval_list.append([int(target_item)] + [self.padding] * max(0, self.maxlen - 1))
 
+                    ads_group_list.append(ads_group)
+                    brand_list.append(brand)
+                    height_list.append(int(height))
+
                     yield output_list + [np.array(seq_lens).astype("int64")] + output_country_list + [
-                        np.array(user_country_list).astype("int64")] + [np.array(eval_list).astype("int64")]
+                        np.array(user_country_list).astype("int64")] + [np.array(eval_list).astype("int64")] + [
+                              np.array(ads_group_list).astype("int64")] + [np.array(brand_list).astype("int64")] + [
+                              np.array(height_list).astype("int64")]

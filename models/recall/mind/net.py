@@ -172,13 +172,13 @@ class Mind_Capsual_Layer(nn.Layer):
         mask = row_vector < lengths
         return mask.astype(dtype)
 
-    def forward(self, item_his_emb, seq_len, user_country_emb):
+    def forward(self, item_his_emb, seq_len, user_features_emb):
         """forward
 
         Args:
             item_his_emb : [B, seqlen, dim]
             seq_len : [B, 1]
-            user_country_emb: [B, dim]
+            user_features_emb: [B, dim]
         """
         batch_size = item_his_emb.shape[0]
         seq_len_tile = paddle.tile(seq_len, [1, self.k_max])
@@ -228,7 +228,7 @@ class Mind_Capsual_Layer(nn.Layer):
         high_capsule = paddle.reshape(interest_capsule,
                                       [-1, self.k_max, self.output_units])
 
-        user_features_tile = paddle.tile(user_country_emb, [1, self.k_max])
+        user_features_tile = paddle.tile(user_features_emb, [1, self.k_max])
         user_features_vec = paddle.reshape(user_features_tile, [-1, self.k_max, self.output_units])
 
         capsule_concat = paddle.concat([high_capsule, user_features_vec], axis=-1)
@@ -245,6 +245,9 @@ class MindLayer(nn.Layer):
                  item_count,
                  country_count,
                  user_country_count,
+                 ads_group_count,
+                 brand_count,
+                 height_count,
                  embedding_dim,
                  hidden_size,
                  neg_samples=100,
@@ -254,6 +257,7 @@ class MindLayer(nn.Layer):
                  capsual_max_k=3,
                  capsual_init_std=1.0,
                  dropout=0.2,
+                 more_features=False,
                  batch_size=None):
         super(MindLayer, self).__init__()
         self.pow_p = pow_p
@@ -296,6 +300,33 @@ class MindLayer(nn.Layer):
                 initializer=nn.initializer.XavierUniform(
                     fan_in=user_country_count, fan_out=embedding_dim)))
 
+        self.ads_group_emb = nn.Embedding(
+            ads_group_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="ads_group_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=ads_group_count, fan_out=embedding_dim)))
+
+        self.brand_emb = nn.Embedding(
+            brand_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="brand_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=brand_count, fan_out=embedding_dim)))
+
+        self.height_emb = nn.Embedding(
+            height_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="height_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=height_count, fan_out=embedding_dim)))
+
         self.capsual_layer = Mind_Capsual_Layer(
             embedding_dim,
             hidden_size,
@@ -308,8 +339,10 @@ class MindLayer(nn.Layer):
             item_count, neg_samples, batch_size=batch_size)
 
         self.dropout = nn.Dropout(p=dropout)
+        self.more_features = more_features
         self.item_emb_linear = nn.Linear(in_features=2 * embedding_dim, out_features=embedding_dim)
         self.user_country_emb_linear = nn.Linear(in_features=embedding_dim, out_features=hidden_size)
+        self.user_features_emb_linear = nn.Linear(in_features=4 * embedding_dim, out_features=hidden_size)
 
         self.output_softmax_linear = nn.Linear(in_features=hidden_size, out_features=item_count)
         self.loss = nn.CrossEntropyLoss()
@@ -329,7 +362,8 @@ class MindLayer(nn.Layer):
             weight, keys)  # [B, 1, k_max] * [B, k_max, dim] => [B, 1, dim]
         return output.squeeze(1), weight
 
-    def forward(self, hist_item, seqlen, labels=None, hist_country=None, user_country=None, item_country=None):
+    def forward(self, hist_item, seqlen, labels=None, hist_country=None, user_country=None, item_country=None,
+                ads_group=None, brand=None, height=None):
         """forward
 
         Args:
@@ -339,6 +373,9 @@ class MindLayer(nn.Layer):
             hist_country : [B, maxlen, 1]
             user_country : [B, 1]
             item_country : [B, 1]
+            ads_group : [B, 1]
+            brand : [B, 1]
+            height : [B, 1]
         """
 
         hit_item_emb = self.item_emb(hist_item)  # [B, seqlen, embed_dim]
@@ -355,11 +392,24 @@ class MindLayer(nn.Layer):
         user_country_emb = self.user_country_emb(user_country)
         if self.training:
             user_country_emb = self.dropout(user_country_emb)
-        user_country_emb = F.relu(self.user_country_emb_linear(user_country_emb))
+
+        if self.more_features:
+            ads_group_emb = self.ads_group_emb(ads_group)
+            brand_emb = self.brand_emb(brand)
+            height_emb = self.height_emb(height)
+            if self.training:
+                ads_group_emb = self.dropout(ads_group_emb)
+                brand_emb = self.dropout(brand_emb)
+                height_emb = self.dropout(height_emb)
+
+            concat_emb = paddle.concat([user_country_emb, ads_group_emb, brand_emb, height_emb], axis=-1)
+            user_features_emb = F.relu(self.user_features_emb_linear(concat_emb))
+        else:
+            user_features_emb = F.relu(self.user_country_emb_linear(user_country_emb))
 
         user_cap, cap_weights, cap_mask = self.capsual_layer(hist_emb,
                                                              seqlen,
-                                                             user_country_emb)
+                                                             user_features_emb)
 
         if not self.training:
             return user_cap, cap_weights
