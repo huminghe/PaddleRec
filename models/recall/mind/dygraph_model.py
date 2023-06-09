@@ -105,8 +105,8 @@ class DygraphModel():
         hist_item, labels, seqlen, hist_country, user_country, ads_group, brand, height_id = self.create_feeds_infer(
             batch_data)
         dy_model.eval()
-        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, ads_group, brand,
-                                                height_id)
+        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, None, ads_group,
+                                                brand, height_id)
         # update metrics
         print_dict = None
         return user_cap, cap_weight
