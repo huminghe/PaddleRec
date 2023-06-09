@@ -28,7 +28,7 @@ runner:
   infer_start_epoch: 1
   infer_end_epoch: 200
   batches_per_epoch: 1000
-  author_country_map_path: "data/author/author_country_seq.txt"
+  author_country_map_path: "data/author-0609/author_country_seq.txt"
 
   # distribute_config
   # sync_mode: "async"
