@@ -98,7 +98,7 @@ def main(args):
     interval_begin = time.time()
 
     for epoch_id in range(start_epoch, end_epoch):
-        logger.info("load model epoch {}".format(epoch_id))
+        # logger.info("load model epoch {}".format(epoch_id))
         model_path = os.path.join(model_load_path, str(epoch_id))
         load_model(model_path, dy_model)
 
@@ -186,7 +186,7 @@ def main(args):
                         total_hitrate += 1
             total += target_items.shape[0]
 
-            if batch_id % print_interval == 0:
+            if (batch_id + 1) % print_interval == 0:
                 recall = total_recall / total
                 ndcg = total_ndcg / total
                 hitrate = total_hitrate * 1.0 / total

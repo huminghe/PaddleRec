@@ -26,7 +26,7 @@ runner:
   test_data_dir: "data/valid-0609"
   infer_load_path: "output_model_mind_0609_more"
   infer_start_epoch: 1
-  infer_end_epoch: 200
+  infer_end_epoch: 300
   batches_per_epoch: 1000
   author_country_map_path: "data/author-0609/author_country_seq.txt"
 
