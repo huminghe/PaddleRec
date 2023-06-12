@@ -19,7 +19,7 @@ runner:
   use_auc: False
   train_batch_size: 128
   epochs: 500
-  print_interval: 10
+  print_interval: 10000
   model_save_path: "output_model_mind_0609_more"
   infer_batch_size: 128
   infer_reader_path: "mind_infer_reader_new" # importlib format
