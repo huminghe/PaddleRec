@@ -51,22 +51,27 @@ config["config_abs_dir"] = abs_dir
 dy_model_class = load_dy_model_class(config)
 
 use_gpu = config.get("runner.use_gpu", True)
-test_data_dir = config.get("runner.test_data_dir", None)
-print_interval = config.get("runner.print_interval", None)
 model_load_path = config.get("runner.infer_load_path", "model_output")
 start_epoch = config.get("runner.infer_start_epoch", 0)
-end_epoch = config.get("runner.infer_end_epoch", 10)
-batch_size = config.get("runner.infer_batch_size", None)
 maxlen = config.get("hyper_parameters.maxlen", 30)
+
 author_country_map_path = config.get("runner.author_country_map_path", None)
 author_id_map_path = config.get("runner.author_id_map_path", None)
 country_id_map_path = config.get("runner.country_id_map_path", None)
+brand_id_map_path = config.get("runner.brand_id_map_path", None)
+ads_group_id_map_path = config.get("runner.ads_group_id_map_path", None)
+phone_model_id_map_path = config.get("runner.phone_model_id_map_path", None)
+phone_height_id_map_path = config.get("runner.phone_height_id_map_path", None)
+
+ads_group_count = config.get("hyper_parameters.ads_group_count", None)
+brand_count = config.get("hyper_parameters.brand_count", None)
+phone_model_count = config.get("phone_model_count", None)
+
 os.environ["CPU_NUM"] = str(config.get("runner.thread_num", 2))
 
 logger.info("**************common.configs**********")
 logger.info(
-    "use_gpu: {}, test_data_dir: {}, start_epoch: {}, end_epoch: {}, print_interval: {}, model_load_path: {}".format(
-        use_gpu, test_data_dir, start_epoch, end_epoch, print_interval, model_load_path))
+    "use_gpu: {}, start_epoch: {}, model_load_path: {}".format(use_gpu, start_epoch, model_load_path))
 logger.info("**************common.configs**********")
 
 place = paddle.set_device('gpu' if use_gpu else 'cpu')
@@ -92,20 +97,26 @@ else:
     faiss_index.add(b)
 
 
-def get_map(path):
+def get_map(path, num=999999):
     map_result = {}
     reverse_map_result = {}
     with open(path, "r") as rf:
         for line in rf:
             key, value = line.split("\t")
-            map_result[key] = int(value)
-            reverse_map_result[int(value)] = key
+            v = int(value)
+            if v < num:
+                map_result[key] = v
+                reverse_map_result[v] = key
     return map_result, reverse_map_result
 
 
 author_country_map, _ = get_map(author_country_map_path)
 author_id_map, reverse_author_id_map = get_map(author_id_map_path)
 country_id_map, _ = get_map(country_id_map_path)
+brand_id_map, _ = get_map(brand_id_map_path, brand_count)
+ads_group_id_map, _ = get_map(ads_group_id_map_path, ads_group_count)
+phone_model_id_map, _ = get_map(phone_model_id_map_path, phone_model_count)
+phone_height_id_map, _ = get_map(phone_height_id_map_path, phone_model_count)
 UNK_ID = 1
 PADDING_ID = 0
 
@@ -130,15 +141,23 @@ def predict(batch_data, top_n, threshold, logger):
     return item_cor_list
 
 
-def create_predict_data(author_list, country):
+def create_predict_data(author_list, country, ads_group, brand, phone_model):
     author_id_list = [author_id_map.get(x, UNK_ID) for x in author_list]
     author_country_list = [author_country_map.get(x, UNK_ID) for x in author_list]
     country_id = country_id_map.get(country.lower(), UNK_ID)
+    ads_group_id = ads_group_id_map.get(ads_group, UNK_ID)
+    brand_id = brand_id_map.get(brand.lower(), UNK_ID)
+    phone_model_id = phone_model_id_map.get(phone_model.lower(), UNK_ID)
+    phone_height_id = phone_height_id_map.get(phone_model.lower(), 2)
 
     seq_lens = []
     output_list = []
     output_country_list = []
     user_country_list = []
+    ads_group_list = []
+    brand_list = []
+    phone_height_list = []
+    phone_model_list = []
 
     length = len(author_id_list)
     seq_lens.append(min(maxlen, length))
@@ -148,14 +167,20 @@ def create_predict_data(author_list, country):
     output_list.append(np.array([hist_item_list]).astype("int64"))
     output_country_list.append(np.array([hist_country_list]).astype("int64"))
     user_country_list.append(country_id)
+    ads_group_list.append(ads_group_id)
+    brand_list.append(brand_id)
+    phone_height_list.append(phone_height_id)
+    phone_model_list.append(phone_model_id)
 
     return output_list + [np.array([seq_lens]).astype("int64")] + output_country_list + [
-        np.array([user_country_list]).astype("int64")]
+        np.array([user_country_list]).astype("int64")] + [np.array([ads_group_list]).astype("int64")] + [
+               np.array([brand_list]).astype("int64")] + [np.array([phone_height_list]).astype("int64")] + [
+               np.array([phone_model_list]).astype("int64")]
 
 
-def predict_author_result(author_list, country, top_n, logger):
+def predict_author_result(author_list, country, ads_group, brand, phone_model, top_n, logger):
     threshold = -0.75
-    batch_data = create_predict_data(author_list, country)
+    batch_data = create_predict_data(author_list, country, ads_group, brand, phone_model)
     predict_result = predict(batch_data, top_n, threshold, logger)
     author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
     return author_info_list

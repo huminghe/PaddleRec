@@ -27,6 +27,7 @@ def response_return_template(code, message, result=None):
         return {'status': {'code': code, 'message': message}}
 
 
+'''
 @app.route("/topfunny/recommend", methods=['POST'])
 def recommend():
     data = request.json
@@ -36,6 +37,27 @@ def recommend():
     app.logger.info("history: " + str(history_list) + ",   country: " + str(country) + ",   num: " + str(num))
 
     result = predict.predict_author_result(history_list, country, num, app.logger)
+    result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
+
+    return_value = response_return_template(200, 'OK', result)
+    return json.dumps(return_value, ensure_ascii=False)
+'''
+
+
+@app.route("/topfunny/recommend_v2", methods=['POST'])
+def recommend_v2():
+    data = request.json
+    history_list = data['history']
+    country = data['country']
+    brand = data['brand']
+    model = data['model']
+    ads_group = data['ads_group']
+    num = data['num']
+
+    app.logger.info("history: " + str(history_list) + ",   country: " + str(country) + ",   brand: " + str(brand) +
+                    ",   model: " + str(model) + ",   ads_group: " + str(ads_group) + ",   num: " + str(num))
+
+    result = predict.predict_author_result(history_list, country, ads_group, brand, model, num, app.logger)
     result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)
