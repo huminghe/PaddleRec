@@ -24,17 +24,20 @@ class RecDataset(IterableDataset):
         self.maxlen = config.get("hyper_parameters.maxlen", 30)
         self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
+        self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
         self.init()
 
     def init(self):
         padding = 0
         self.padding = padding
+        unk = 1
+        self.unk = unk
 
     def __iter__(self):
         for file in self.file_list:
             with open(file, "r") as rf:
                 for line in rf:
-                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, time = line.strip().split(
+                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, phone_model, time = line.strip().split(
                         "\t")
 
                     hist_item_list = [int(x) for x in hist_items.split(",")]
@@ -51,13 +54,17 @@ class RecDataset(IterableDataset):
                     ads_group_list = []
                     brand_list = []
                     height_list = []
+                    phone_model_list = []
 
                     ads_group = int(ads_group)
                     if ads_group >= self.ads_group_count:
-                        ads_group = 1
+                        ads_group = self.unk
                     brand = int(brand)
                     if brand >= self.brand_count:
-                        brand = 1
+                        brand = self.unk
+                    phone_model = int(phone_model)
+                    if phone_model >= self.phone_model_count:
+                        phone_model = self.unk
 
                     length = len(hist_item_list)
                     seq_lens.append(min(self.maxlen, length))
@@ -72,8 +79,9 @@ class RecDataset(IterableDataset):
                     ads_group_list.append(ads_group)
                     brand_list.append(brand)
                     height_list.append(int(height))
+                    phone_model_list.append(phone_model)
 
                     yield output_list + [np.array(seq_lens).astype("int64")] + output_country_list + [
                         np.array(user_country_list).astype("int64")] + [np.array(ads_group_list).astype("int64")] + [
                               np.array(brand_list).astype("int64")] + [np.array(height_list).astype("int64")] + [
-                              np.array(eval_list).astype("int64")]
+                              np.array(phone_model_list).astype("int64")] + [np.array(eval_list).astype("int64")]

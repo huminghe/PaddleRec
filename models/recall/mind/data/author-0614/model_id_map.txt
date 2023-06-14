@@ -1,0 +1,4248 @@
+[PAD]	0
+[NULL]	1
+sm-a515f	2
+redmi note 8 pro	3
+sm-a715f	4
+stk-l21	5
+sm-g998b	6
+m2102j20sg	7
+sm-a528b	8
+redmi note 9 pro	9
+m2004j19c	10
+sm-g996u	11
+sm-g975f	12
+sm-g950f	13
+redmi note 8	14
+m2101k6g	15
+sm-a217f	16
+m2003j15sc	17
+sm-g991b	18
+sm-a127f	19
+sm-g973f	20
+sm-a125f	21
+sm-a325f	22
+vog-l29	23
+cph1803	24
+mar-lx1a	25
+sm-a525f	26
+sm-a725f	27
+sm-g965f	28
+moto g stylus	29
+sm-n986b	30
+sm-a226b	31
+sm-n960f	32
+motorola one	33
+sm-g781b	34
+v2029	35
+sm-a326b	36
+21081111rg	37
+sm-g998u	38
+redmi note 9s	39
+sm-n975f	40
+sm-g996b	41
+yal-l21	42
+sm-a750f	43
+sm-s908e	44
+sm-g960f	45
+sm-g955f	46
+mar-lx1m	47
+vivo 1906	48
+dub-lx1	49
+sm-s908b	50
+sm-g780g	51
+sm-a107f	52
+rmx2001	53
+sm-a705fn	54
+stk-lx3	55
+cph2239	56
+cph1909	57
+sm-a326u	58
+sm-a505f	59
+m2101k7bg	60
+m2007j20cg	61
+ane-lx1	62
+redmi note 7	63
+rmx3231	64
+2201116tg	65
+m2103k19g	66
+m2006c3lg	67
+bkk-lx2	68
+sm-s901b	69
+m2010j19sg	70
+sm-m115f	71
+redmi 8	72
+sm-a135f	73
+sm-a536b	74
+cph1823	75
+2201117tg	76
+clt-l29	77
+cph2185	78
+sm-a536e	79
+sm-a307fn	80
+cph2269	81
+sm-g977n	82
+sm-a136u	83
+v2027	84
+sm-g610f	85
+sm-g988b	86
+sm-a202f	87
+sm-a315f	88
+sm-g991u	89
+cph2127	90
+nokia g10	91
+sm-n986u	92
+sm-g985f	93
+sm-j810m	94
+m2101k7ag	95
+cph2015	96
+m2006c3mg	97
+sm-s908u	98
+mi a2 lite	99
+2109119dg	100
+ele-l29	101
+cph2219	102
+sm-n981n	103
+sm-f711n	104
+cph2365	105
+redmi note 9 pro max	106
+sm-g780f	107
+v2111	108
+vivo 1904	109
+lm-q730	110
+2201116sg	111
+sm-a225f	112
+sm-a137f	113
+sm-a207f	114
+moto g(20)	115
+mar-lx3a	116
+sm-a505fn	117
+sm-a315g	118
+v2043	119
+rmx2030	120
+sm-m307f	121
+sm-n976n	122
+pra-la1	123
+cph2381	124
+sm-a920f	125
+cph1937	126
+cph1723	127
+moto g stylus 5g	128
+redmi note 8t	129
+sm-m315f	130
+sm-g970f	131
+v2026	132
+lya-l29	133
+mi 9t	134
+infinix x655c	135
+m2012k11ag	136
+sne-lx1	137
+m2006c3mng	138
+sm-a235f	139
+cph2159	140
+vivo 1901	141
+m2006c3lvg	142
+2107113sg	143
+cph2121	144
+cph1969	145
+vivo 1933	146
+sm-a325m	147
+sm-a032m	148
+2201117ty	149
+sm-g935f	150
+sm-a205f	151
+motorola one 5g ace	152
+sm-a135m	153
+ine-lx1r	154
+vivo 1820	155
+sm-n950f	156
+sm-m515f	157
+infinix x683	158
+sm-a826s	159
+sm-a736b	160
+cph2205	161
+m2007j3sy	162
+pixel 6a	163
+jkm-lx1	164
+sm-g965u1	165
+iv2201	166
+sm-a107m	167
+le2111	168
+m2010j19cg	169
+sm-f711b	170
+sm-n770f	171
+mar-lx1b	172
+sm-a526b	173
+sm-a105f	174
+ac2001	175
+sm-a037f	176
+sm-a217m	177
+sm-a125u	178
+stk-l22	179
+21061119ag	180
+m2101k7bl	181
+m2007j3sg	182
+dn2101	183
+rmx2061	184
+sm-a035f	185
+sm-a025f	186
+rmx3511	187
+m2101k9ag	188
+sm-j400f	189
+cph2059	190
+sm-g980f	191
+sm-g998n	192
+sm-g965u	193
+v2109	194
+mi 10	195
+sm-f926b	196
+stk-lx1	197
+sm-a305f	198
+v2036	199
+moto g pure	200
+sm-g960u	201
+sm-g991n	202
+moto e6 play	203
+sm-t515	204
+cph1901	205
+sm-a037u	206
+sm-g990b	207
+sm-n975u	208
+eb2101	209
+sm-g975u	210
+cph2145	211
+lya-l09	212
+sm-a035m	213
+v2205	214
+eml-l09	215
+sm-g986b	216
+sm-s901u	217
+infinix x689b	218
+m2101k6r	219
+vivo 1920	220
+sm-m127f	221
+rmx2180	222
+cph2203	223
+cph2343	224
+sm-g781u	225
+m2101k7bny	226
+sm-n960u	227
+2201116pg	228
+sm-f926n	229
+any-nx1	230
+sm-a127m	231
+de2118	232
+ac2003	233
+sm-g986u	234
+oneplus a6010	235
+rmx3081	236
+cph2251	237
+sm-g930f	238
+moto g(8) power lite	239
+jkm-lx3	240
+vivo 1902	241
+sm-n975u1	242
+v2102	243
+bla-l29	244
+kb2001	245
+sm-n986n	246
+sm-g965n	247
+le2101	248
+armor 7	249
+sm-g925i	250
+sm-g955u	251
+sm-n980f	252
+cph2371	253
+cph2333	254
+m2101k6p	255
+sm-a115f	256
+cph1943	257
+sm-a336e	258
+fig-lx1	259
+vivo 1938	260
+cph2237	261
+sm-a336b	262
+rmx2185	263
+vivo 1907	264
+cph2179	265
+rmx3241	266
+cph1933	267
+v2204	268
+eml-l29	269
+v2130	270
+mi note 10 lite	271
+moto g(8) power	272
+cph1853	273
+sm-n985f	274
+redmi note 7 pro	275
+sm-n971n	276
+sm-a032f	277
+cph2083	278
+sm-a015f	279
+m2101k6i	280
+sm-g990e	281
+sm-g615f	282
+ine-lx2r	283
+jsn-l22	284
+cph1819	285
+sm-a405fn	286
+sm-g973u	287
+v2050	288
+sm-f711u	289
+cph1931	290
+moto g(60)	291
+sm-s908u1	292
+v2037	293
+cph2113	294
+sm-a115m	295
+21121119sg	296
+rmx3263	297
+sm-a520f	298
+vivo 1935	299
+sm-t500	300
+rmx2040	301
+mi 9 lite	302
+moto e(7) plus	303
+vivo 1915	304
+sm-m013f	305
+sm-n970f	306
+sm-g975u1	307
+sm-a225m	308
+mi a3	309
+rmx3363	310
+v2022	311
+infinix x693	312
+sm-g988n	313
+cph1923	314
+cph2043	315
+sm-g981b	316
+sm-j250f	317
+sm-a105m	318
+sm-s906u	319
+vivo 1818	320
+sm-a415f	321
+sm-a215u	322
+m2101k9g	323
+v2059	324
+amn-lx2	325
+cph2373	326
+sm-s906b	327
+rmx3085	328
+vivo 1919	329
+poco f1	330
+infinix x692	331
+sm-n950u	332
+sm-s908n	333
+sm-t970	334
+sm-s918b	335
+v2035	336
+nth-nx9	337
+oneplus a6000	338
+cph1701	339
+sm-g981u	340
+sm-a125n	341
+pixel 6	342
+cph2211	343
+sm-j610f	344
+rmx1921	345
+sm-g770f	346
+moto g(60)s	347
+sm-g998w	348
+moto g51 5g	349
+cph2325	350
+sm-f721b	351
+dub-lx3	352
+rmx3201	353
+hry-lx1t	354
+sm-a525m	355
+cph2387	356
+sm-m215f	357
+sm-a505g	358
+cph1989	359
+21061110ag	360
+m2010j19sy	361
+sm-g781w	362
+rmx2170	363
+kb2003	364
+sm-g781v	365
+sm-a725m	366
+sm-s906n	367
+mrd-lx1	368
+moto g(9) power	369
+sm-a536u	370
+moto g(30)	371
+sm-n960n	372
+cph1911	373
+sm-a605g	374
+mi 9	375
+sc-51b	376
+mrd-lx1f	377
+cph2375	378
+cph2423	379
+rmx2151	380
+rmx2103	381
+v2025	382
+sm-a105fn	383
+sm-f936b	384
+cph1941	385
+sm-s901w	386
+le2121	387
+sm-n950n	388
+moto g22	389
+6165h	390
+ine-lx2	391
+sm-n981b	392
+moto e(7) power	393
+sm-g930v	394
+moto g(9) play	395
+cph2363	396
+sm-a146u	397
+cph2173	398
+action-x3	399
+cph2349	400
+sm-g991w	401
+220333qny	402
+redmi note 5	403
+sm-j710f	404
+ntn-l22	405
+vivo 1806	406
+moto e20	407
+sm-g996n	408
+redmi note 5 pro	409
+sm-s908w	410
+vivo 1804	411
+m2007j20ci	412
+sm-a105g	413
+m2101k7bi	414
+redmi 6a	415
+moto z3	416
+m2103k19pg	417
+sm-a136b	418
+gm1901	419
+sm-a207m	420
+zte blade v1000	421
+pocophone f1	422
+lg-m700	423
+sm-a205u	424
+moto e6s	425
+sm-a307g	426
+sm-g998u1	427
+sm-a426b	428
+v2124	429
+sm-s901e	430
+sm-n970u	431
+sm-g988u	432
+moto g power (2022)	433
+in2011	434
+moto g power (2021)	435
+sm-s906e	436
+cph2473	437
+hd1907	438
+hd1901	439
+m2007j17g	440
+pot-lx1	441
+asus_i005da	442
+cph2119	443
+hma-l29	444
+redmi s2	445
+vivo 1723	446
+cph2095	447
+dlt-h0	448
+mi note 10	449
+220333qag	450
+cph2109	451
+redmi note 6 pro	452
+v2120	453
+cma-lx2	454
+sm-g892a	455
+2201117sy	456
+sc-56b	457
+2201117pg	458
+2201117tl	459
+rne-l21	460
+moto g 5g (2022)	461
+rmx1811	462
+ine-lx1	463
+v2031	464
+sm-j600g	465
+amn-lx9	466
+m2006c3mii	467
+sm-a530f	468
+sm-a102u	469
+sm-a125m	470
+v2131	471
+sm-a260g	472
+rmx1971	473
+moto g(7) plus	474
+sm-j701f	475
+sm-a526u	476
+vivo 1819	477
+v2058	478
+v2041	479
+moto g stylus 5g (2022)	480
+a063	481
+sm-a750gn	482
+mar-lx2	483
+tecno cg8	484
+m2103k19i	485
+sm-g970u	486
+tecno bd4j	487
+cph2197	488
+sm-a305g	489
+dn2103	490
+v2052	491
+sm-a135u	492
+sm-g781n	493
+sm-a025g	494
+fla-lx2	495
+sm-j600fn	496
+sm-a307gn	497
+sm-a908n	498
+clt-l09	499
+v2146	500
+cph2401	501
+sm-j600f	502
+sm-a315n	503
+sm-g981n	504
+sm-n981u	505
+cph2217	506
+cph2135	507
+sm-a730f	508
+sm-a805f	509
+sm-a022f	510
+moto e(7i) power	511
+21091116ug	512
+motorola one macro	513
+eb2103	514
+m2103k19c	515
+rmx2195	516
+sm-g986n	517
+sm-m336bu	518
+oneplus a5000	519
+sm-a507fn	520
+moto e6 (xt2005dl)	521
+moto g 5g	522
+be2029	523
+v2126	524
+infinix x688b	525
+vivo 1910	526
+sm-j700f	527
+infinix x682c	528
+vivo 1724	529
+sm-g781u1	530
+moto g(9) plus	531
+tecno ke5	532
+sm-a325n	533
+v2066	534
+mi 9t pro	535
+cph2477	536
+tecno kd7	537
+rmx3269	538
+sm-a716u	539
+sm-f926u	540
+redmi k20 pro	541
+sm-m317f	542
+21061119dg	543
+v2061	544
+rmx1911	545
+m1908c3jgg	546
+sm-g390f	547
+moto g(100)	548
+sm-m127g	549
+oneplus a3003	550
+poco x2	551
+2201117sg	552
+sm-m305f	553
+sm-m025f	554
+sm-g531bt	555
+redmi note 4	556
+rmx3151	557
+sm-g973u1	558
+lm-v510n	559
+sm-g9650	560
+sm-a205g	561
+moto g(7) power	562
+vog-l04	563
+m2012k11g	564
+moto g(50) 5g	565
+sm-g960n	566
+be2025	567
+tecno ke5k	568
+oneplus a5010	569
+2201123g	570
+rmx3491	571
+in2023	572
+sm-g960w	573
+sm-j810g	574
+v2142	575
+sm-a235m	576
+rmx2020	577
+cph2201	578
+sm-a750fn	579
+sm-a705mn	580
+sm-s901n	581
+tny-al00	582
+sm-a505w	583
+asus_x00td	584
+cph2067	585
+motorola one fusion+	586
+mi 8 lite	587
+vivo 1807	588
+tecno lc8	589
+wtcelero5g	590
+m2010j19si	591
+sm-m325fv	592
+lm-g900	593
+sm-g996u1	594
+moto e(7)	595
+nokia x100	596
+redmi 7	597
+sm-s136dl	598
+sm-a025u	599
+tmaf025g	600
+m2102j20si	601
+sm-j730f	602
+moto g play (2021)	603
+oneplus a6013	604
+cph1801	605
+redmi 6	606
+vog-tl00	607
+redmi 8a	608
+sm-g950u	609
+sm-g973w	610
+cph2213	611
+cph1907	612
+rmx2111	613
+rmx3261	614
+rmx2189	615
+m2101k7ai	616
+gm1911	617
+pra-lx1	618
+vivo 1951	619
+cph2293	620
+v2141	621
+rmx2193	622
+sm-a600fn	623
+mi a2	624
+v2104	625
+sm-j737t	626
+v2134	627
+sm-g611f	628
+21091116i	629
+sm-a037m	630
+cph2001	631
+sm-j810f	632
+tecno kg5k	633
+lm-k500	634
+rmx1992	635
+cph2359	636
+moto g(6)	637
+vog-l09	638
+tfy-lx2	639
+2201117ti	640
+vivo 2019	641
+m2007j17i	642
+sm-e625f	643
+vivo 1716	644
+redmi 7a	645
+rmx3370	646
+m2010j19sl	647
+pixel 7 pro	648
+cph2195	649
+rmx3195	650
+mi 8	651
+cph2223	652
+cph2285	653
+tecno le7	654
+sm-g991u1	655
+sm-j200f	656
+vivo 1811	657
+poco f2 pro	658
+5087z	659
+sm-n976b	660
+motorola one fusion	661
+rmx3171	662
+cph2089	663
+cph2385	664
+cph2273	665
+sm-a705f	666
+v2040	667
+cph1903	668
+cma-lx3	669
+gn2200	670
+sne-lx3	671
+m2012k11ai	672
+sm-m205f	673
+stellar max	674
+sm-n986w	675
+redmi 5a	676
+jsn-al00a	677
+tecno ld7	678
+cph1717	679
+sm-g988u1	680
+sm-g532m	681
+lm-g710	682
+par-lx9	683
+lya-al00	684
+v2055	685
+m2006c3mi	686
+htc desire 650 dual sim	687
+cph2061	688
+sm-g981w	689
+rmx1941	690
+sm-s134dl	691
+sm-a720f	692
+tecno kc2j	693
+cph2271	694
+cph2091	695
+sm-g920f	696
+moto g(8) play	697
+sm-j730gm	698
+gm1900	699
+rmx1807	700
+sm-a236b	701
+sm-a908b	702
+ec211001	703
+sm-f907b	704
+ale-l21	705
+in2013	706
+cph1729	707
+cph1951	708
+cph2125	709
+rmx2156	710
+stf-l09	711
+tecno cg6	712
+sm-t720	713
+i2018	714
+hry-lx1meb	715
+220233l2g	716
+sm-a013m	717
+sm-a326k	718
+vivo 1814	719
+vne-n41	720
+lenovo k13	721
+nx669j	722
+sm-s124dl	723
+sm-g398fn	724
+sm-a515u	725
+asus_i003dd	726
+j9110	727
+ldn-l21	728
+sm-a226br	729
+redmi 8a dual	730
+redmi 6 pro	731
+moto g stylus (2021)	732
+moto g stylus (2022)	733
+rmx3360	734
+2201116si	735
+ldn-lx2	736
+sm-n9600	737
+sm-n950u1	738
+tmrvl4g	739
+lm-x520	740
+cph2249	741
+sm-g990u2	742
+m2012k10c	743
+cph2021	744
+sm-g977b	745
+moto g31	746
+sm-t290	747
+zte blade a5 2020	748
+vivo 1909	749
+moto g(10)	750
+hd1913	751
+sm-a516u	752
+sm-g610y	753
+a37fw	754
+v2116	755
+evr-n29	756
+21061119bi	757
+rmx1801	758
+shark kle-h0	759
+rmx3472	760
+sm-s911b	761
+vivo y31a	762
+lm-x420	763
+i2202	764
+mar-al00	765
+nokia 5.3	766
+cph2247	767
+lm-q720	768
+xig02	769
+m2007j22g	770
+mar-lx3bm	771
+jat-l29	772
+jat-l41	773
+ne2211	774
+t774h	775
+sm-g975n	776
+vivo 1917	777
+22031116ai	778
+m2010j19ci	779
+22081212ug	780
+rmx1805	781
+sm-j415f	782
+vivo 2018	783
+cph2035	784
+jat-lx3	785
+sm-n920s	786
+cph2065	787
+tecno ce7j	788
+rmx3191	789
+cph1917	790
+sm-j700m	791
+sm-m526b	792
+sm-f127g	793
+sm-g960u1	794
+sm-f936n	795
+sm-n975w	796
+sm-m526br	797
+moto g fast	798
+sm-f711w	799
+tmaf035g	800
+sm-j330f	801
+rmx1901	802
+cph2161	803
+mt2111	804
+v2045	805
+sm-n986u1	806
+sm-a022m	807
+sm-a047f	808
+sm-a605fn	809
+sm-a305gt	810
+rmx2063	811
+lenovo tb-8505fs	812
+sm-f916n	813
+i2011	814
+sm-g532f	815
+moto e(6i)	816
+2203129g	817
+moto g 5g plus	818
+21091116ai	819
+pixel 7	820
+sm-g970u1	821
+redmi 5 plus	822
+infinix x697	823
+rmx1851	824
+rne-l22	825
+sm-g973n	826
+asus_i01wd	827
+sm-a305n	828
+zte blade a51	829
+lenovo k12 note	830
+moto g(8) plus	831
+t779w	832
+cph2207	833
+rmx3092	834
+sm-a013g	835
+rmx2202	836
+rmo-nx1	837
+rmx3430	838
+in2021	839
+vfd 820	840
+m2011k2g	841
+21091116ag	842
+nokia 7.2	843
+sm-g981u1	844
+sm-n960u1	845
+ane-lx3	846
+ne2213	847
+cph1979	848
+revvl v+ 5g	849
+t767h	850
+sm-m307fn	851
+moto e(6) plus	852
+sm-j210f	853
+sm-a526w	854
+sm-a025m	855
+xq-as72	856
+shark prs-h0	857
+sm-m325f	858
+mi note 10 pro	859
+be2015	860
+sm-j720f	861
+sm-a426u	862
+oneplus a6003	863
+tecno kf7j	864
+moto e40	865
+sm-g990u	866
+v2110	867
+amn-lx3	868
+le2115	869
+sm-f936u	870
+v2030	871
+jkm-lx2	872
+sm-t733	873
+pixel 2	874
+tfy-lx1	875
+sm-a516n	876
+motorola edge 20 fusion	877
+sm-n9750	878
+xq-bq52	879
+cph2421	880
+sm-g990b2	881
+v2202	882
+sm-a516b	883
+kb2007	884
+sm-m625f	885
+cph2341	886
+m2002j9g	887
+cph1607	888
+moto g(50)	889
+sm-s127dl	890
+sm-e236b	891
+403sh	892
+dub-lx2	893
+lm-g820	894
+tecno le6	895
+rmx3286	896
+cph2409	897
+mi a1	898
+sm-j610fn	899
+a37f	900
+sm-g996w	901
+sm-p610	902
+poco m2 pro	903
+sm-g887n	904
+xq-cc54	905
+itel w6004p	906
+sm-g610m	907
+sm-j415fn	908
+tfy-lx3	909
+sm-t227u	910
+alpha 20	911
+21061119al	912
+rmx3031	913
+m2004j19pi	914
+sm-a716b	915
+moto e	916
+rmx2101	917
+sm-n981u1	918
+t671h	919
+cph1859	920
+fne-nx9	921
+lm-v600	922
+tecno le6h	923
+lm-k410	924
+vivo 1727	925
+rmx3521	926
+sm-a236e	927
+motorola edge 20 lite	928
+21121210g	929
+sm-m225fv	930
+vivo 2005	931
+infinix x657b	932
+sm-a035g	933
+sm-a037g	934
+tecno cf7	935
+bln-l21	936
+hd1903	937
+v2158	938
+sm-m022g	939
+pot-lx3	940
+sm-j410f	941
+vivo 1916	942
+hd1910	943
+rmx3388	944
+evr-l29	945
+v2028	946
+sm-g925f	947
+motorola edge 5g uw (2021)	948
+vivo y21	949
+frd-l09	950
+v2144	951
+a1 alpha 20+	952
+2201117sl	953
+cph2009	954
+sm-g570f	955
+i2012	956
+sm-a235n	957
+rmx1931	958
+sm-g9550	959
+s42	960
+itel l6502	961
+lm-g910	962
+sm-f721n	963
+lm-x525	964
+gm1913	965
+pct-l29	966
+sm-c7000	967
+moto g(7) play	968
+w-k630-eea	969
+moto g(6) plus	970
+zte 8010	971
+infinix x5516b	972
+sm-a326br	973
+v2127	974
+rmx2155	975
+was-lx1a	976
+sm-t510	977
+moto g(6) play	978
+pixel 6 pro	979
+21091116c	980
+lm-g900tm	981
+rmx3381	982
+sm-a716v	983
+v2105	984
+rmx3690	985
+gm 8	986
+22011119uy	987
+ele-l04	988
+rmx2002	989
+tecno kg6p	990
+scv48	991
+sm-t865	992
+rmx3686	993
+moto e5 play	994
+rmx1925	995
+v2060	996
+sm-s326dl	997
+sm-t507	998
+v2153	999
+sm-j260t1	1000
+t767w	1001
+sm-m017f	1002
+sm-a8050	1003
+sm-j510fn	1004
+sm-a146b	1005
+i2019	1006
+lenovo k15 plus	1007
+vivo 1726	1008
+2201122g	1009
+tecno kg5j	1010
+vne-lx2	1011
+sm-n976q	1012
+itel l6006	1013
+cph2413	1014
+v2117	1015
+220733sg	1016
+sm-t220	1017
+infinix x682b	1018
+infinix x690b	1019
+w-v730-eea	1020
+m2006c3lii	1021
+sm-a260f	1022
+sm-a136u1	1023
+redmi note 7s	1024
+le2123	1025
+vivo y67	1026
+motorola one vision	1027
+v2169	1028
+v2207	1029
+scv41	1030
+in2020	1031
+lm-k200	1032
+sm-s102dl	1033
+ele-l09	1034
+vivo 1803	1035
+sm-a205w	1036
+infinix x663	1037
+cph1727	1038
+t602dl	1039
+sm-a236u	1040
+so-01l	1041
+zte a7030	1042
+lld-al10	1043
+rmx1821	1044
+vce-l22	1045
+moto e32	1046
+sm-a605k	1047
+v2132	1048
+sm-a025az	1049
+sov41	1050
+220333qbi	1051
+sm-g965w	1052
+cph1945	1053
+wp6	1054
+motorola edge 20	1055
+lenovo l19111	1056
+v2135	1057
+sm-a320fl	1058
+sm-m536b	1059
+rmx3242	1060
+sm-a202k	1061
+lenovo k12	1062
+sm-m136b	1063
+s62 pro	1064
+g50 plus	1065
+cph2399	1066
+sm-f700n	1067
+nx659j	1068
+sm-n970u1	1069
+v2206	1070
+sm-g955w	1071
+m2006c3li	1072
+6102d	1073
+jny-lx1	1074
+sm-g950w	1075
+sm-j200g	1076
+sm-a605f	1077
+gm1917	1078
+infinix x670	1079
+moto g(7) supra	1080
+sm-f916b	1081
+sm-a025u1	1082
+infinix x660c	1083
+sm-g990w	1084
+a103zt	1085
+sm-n981w	1086
+sm-j410g	1087
+2109119di	1088
+lm-x540	1089
+a1601	1090
+cam-l21	1091
+lm-k920	1092
+motorola edge plus	1093
+sm-g9600	1094
+sm-s918u	1095
+rmx3471	1096
+asus_z01qd	1097
+sm-a705w	1098
+motorola one 5g uw	1099
+sm-g611ff	1100
+nokia 3.4	1101
+moto g71 5g	1102
+sm-a042f	1103
+sm-a526u1	1104
+cph2339	1105
+be2028	1106
+rmx3630	1107
+ea211002	1108
+infinix x657c	1109
+bll-l22	1110
+mi max 2	1111
+kb2005	1112
+lm-g850	1113
+sm-n976v	1114
+sm-j700t	1115
+lenovo l38012	1116
+sm-a336m	1117
+in2025	1118
+rne-l01	1119
+xq-bt52	1120
+moto z2 play	1121
+sm-a505u	1122
+cph2483	1123
+220233l2i	1124
+lm-v500n	1125
+sm-a5260	1126
+sm-j330fn	1127
+nokia 8.3 5g	1128
+moto g200 5g	1129
+asus_x00hd	1130
+any-lx2	1131
+jsn-l23	1132
+cph2505	1133
+rmx2161	1134
+sm-a326u1	1135
+vivo 1603	1136
+cph2357	1137
+be2013	1138
+vtr-l29	1139
+sc-02h	1140
+tecno ch7n	1141
+so-02l	1142
+asus_i001de	1143
+infinix x6511b	1144
+infinix x680b	1145
+sm-f700f	1146
+cph2457	1147
+tecno kf6p	1148
+sm-j610g	1149
+infinix x659b	1150
+sm-j320f	1151
+cph2037	1152
+5007z	1153
+sm-g981v	1154
+801lv	1155
+oppo f1s	1156
+asus_i005d	1157
+jsn-l21	1158
+mrd-lx3	1159
+sm-g7810	1160
+v2140	1161
+sm-g950u1	1162
+s1a	1163
+dua-l22	1164
+sm-f415f	1165
+zte 8030	1166
+lm-g900n	1167
+redmi 5	1168
+sov37	1169
+was-lx1	1170
+rmx1945	1171
+infinix x626b	1172
+v2129	1173
+bkl-l09	1174
+cph2461	1175
+m2007j3sp	1176
+cph1825	1177
+vivo 1802	1178
+sm-a015m	1179
+xq-bc52	1180
+5062z	1181
+sov36	1182
+mi 9 se	1183
+sm-t860	1184
+infinix x652	1185
+vivo y66	1186
+moto e30	1187
+be2011	1188
+sm-m336k	1189
+infinix x6812	1190
+hry-lx1	1191
+sm-s918n	1192
+5030e	1193
+itel w5504	1194
+vivo 1816	1195
+sh-02m	1196
+sm-f936u1	1197
+v2032	1198
+sm-a505gn	1199
+moto g stylus (xt2115dl)	1200
+sm-g950n	1201
+nokia c21 plus	1202
+sm-n920c	1203
+sm-a045f	1204
+sm-g986w	1205
+tecno pr651e	1206
+sm-j530f	1207
+sm-t515n	1208
+sm-n9860	1209
+v2149	1210
+col-l29	1211
+sm-x205	1212
+infinix x6817	1213
+redmi k20	1214
+sm-f721u	1215
+21051182g	1216
+rmx3392	1217
+tecno kf8	1218
+tecno lc6	1219
+nokia 5.4	1220
+lgl355dl	1221
+sm-a037w	1222
+mrd-lx2	1223
+lg-m400	1224
+lm-x430	1225
+2201117si	1226
+v2152	1227
+rmx3393	1228
+cph2235	1229
+asus_i006d	1230
+infinix x689d	1231
+sm-m205fn	1232
+hd1911	1233
+sm-e225f	1234
+tecno ch6n	1235
+htc u12+	1236
+vtr-l09	1237
+sm-a510f	1238
+asus_x008d	1239
+sm-a530w	1240
+vivo 2015	1241
+sm-f707n	1242
+rmx3301	1243
+sm-a716s	1244
+oneplus a3010	1245
+v2038	1246
+sm-t975	1247
+2112123ag	1248
+sm-e426b	1249
+v2023	1250
+sm-m236b	1251
+bac-l21	1252
+sm-j730g	1253
+rmx3235	1254
+xq-as52	1255
+motorola edge 20 pro	1256
+sm-s916b	1257
+sm-s260dl	1258
+cph2337	1259
+sm-a500fu	1260
+sm-j710mn	1261
+jdn2-l09	1262
+asus_i001dc	1263
+cph2069	1264
+ksa-lx9	1265
+sm-g9980	1266
+cph2487	1267
+sm-a217n	1268
+sm-f7110	1269
+sm-a536u1	1270
+2107113si	1271
+hit p10	1272
+sm-a115u	1273
+tecno bb4k	1274
+ec1002	1275
+infinix x695	1276
+jsn-l42	1277
+m2102k1ac	1278
+tecno kg5	1279
+h8266	1280
+sm-g525f	1281
+sm-x200	1282
+sm-j400m	1283
+tecno ke7	1284
+sm-a707f	1285
+i1927	1286
+sm-s911u	1287
+cor-al00	1288
+sm-s906w	1289
+moto g52	1290
+sm-f926u1	1291
+sm-a515w	1292
+lm-f100	1293
+redmi note 5a	1294
+in2015	1295
+6125f	1296
+lm-k420	1297
+2201117pi	1298
+sm-a125u1	1299
+sm-p615	1300
+gm1910	1301
+vne-lx3	1302
+redmi 4x	1303
+sm-a600g	1304
+moto g (5)	1305
+sm-c5000	1306
+shark ktus-h0	1307
+sm-g9900	1308
+t766j	1309
+sm-t583	1310
+moto g play	1311
+sm-a750g	1312
+501so	1313
+moto g(7)	1314
+g011a	1315
+g8342	1316
+sm-a205s	1317
+sm-a715w	1318
+moto c plus	1319
+cph1893	1320
+rmx3624	1321
+cph2005	1322
+dra-lx2	1323
+sm-a115ap	1324
+sh-a01	1325
+sm-t505n	1326
+tecno cd6j	1327
+omix x300	1328
+motorola one action	1329
+moto g42	1330
+tecno bf7	1331
+sm-g9500	1332
+nokia 5.1 plus	1333
+sm-f711u1	1334
+5048u	1335
+sc-03l	1336
+xq-au52	1337
+schok volt sv55	1338
+cph1920	1339
+infinix x6812b	1340
+sm-a520w	1341
+zte 2050	1342
+sm-g935k	1343
+lenovo tb-x606f	1344
+v2053	1345
+bison	1346
+tecno bc2	1347
+gm1925	1348
+u319aa	1349
+scg14	1350
+lm-k520	1351
+sc-41a	1352
+vivo 1718	1353
+moto e6	1354
+211033mi	1355
+huawei vns-l31	1356
+22021211rg	1357
+gm1915	1358
+vivo 1606	1359
+2201116pi	1360
+cph2305	1361
+sm-m326b	1362
+sm-s901u1	1363
+tecno cd7	1364
+vivo 1610	1365
+hisense infinity h40 lite	1366
+sm-g970n	1367
+sm-t225	1368
+tecno lc7	1369
+cph2321	1370
+lenovo tb-x606fa	1371
+nokia g20	1372
+lenovo l79031	1373
+scg02	1374
+asus_x00qd	1375
+p13 blue 2022	1376
+w-v720-ope	1377
+infinix x662	1378
+kb2000	1379
+vivo 2006	1380
+sm-g9910	1381
+sm-j710fq	1382
+nx679j	1383
+le2110	1384
+sm-a710f	1385
+motorola one hyper	1386
+sm-n976u	1387
+sm-t225n	1388
+rne-l03	1389
+lm-v405	1390
+sm-n960w	1391
+22041219ny	1392
+scv38	1393
+sm-t295	1394
+b140dl	1395
+sm-g975w	1396
+a509dl	1397
+nokia g11	1398
+in2017	1399
+redmi y2	1400
+pixel 5	1401
+sm-a307gt	1402
+sm-j260m	1403
+2201116ti	1404
+21091116ui	1405
+art-l28	1406
+rmx3311	1407
+sm-a205gn	1408
+scg08	1409
+b131dl	1410
+503sh	1411
+moto g(8)	1412
+pixel 4a	1413
+sm-a705gm	1414
+tecno ch6	1415
+infinix x687	1416
+sm-g9750	1417
+tecno b1f	1418
+moto z4	1419
+sm-n9500	1420
+vivo 1808	1421
+sm-m205g	1422
+moto z3 play	1423
+sm-a015az	1424
+bla-l09	1425
+sm-a045m	1426
+pixel 3 xl	1427
+hma-l09	1428
+sm-f916u	1429
+v1824a	1430
+sm-a5360	1431
+infinix x656	1432
+sm-n910f	1433
+tecno kc3	1434
+moto g41	1435
+are-l22hn	1436
+nokia 2.4	1437
+ea1002	1438
+rne-l23	1439
+l-51a	1440
+redmi y3	1441
+rmx1833	1442
+v2231	1443
+lenovo k14 plus	1444
+22041216g	1445
+sm-t595	1446
+rmx1825	1447
+v2246	1448
+tecno kc2	1449
+sm-s236dl	1450
+v2143	1451
+infinix x650c	1452
+m2103k19pi	1453
+sm-a305fn	1454
+sm-n910h	1455
+tecno bc2c	1456
+ne2217	1457
+infinix x689c	1458
+ele-al00	1459
+sm-g955u1	1460
+v2108	1461
+itel a661w	1462
+sm-g935s	1463
+infinix x689	1464
+moto e5	1465
+xq-at52	1466
+sm-g570m	1467
+lenovo tb-x606v	1468
+sm-s906u1	1469
+s40pro	1470
+cph2073	1471
+sm-s916u	1472
+i32	1473
+sm-a346e	1474
+nx709s	1475
+lgm-v300l	1476
+rmx3612	1477
+lm-k510	1478
+moto e (xt2052dl)	1479
+sm-j810y	1480
+rmx3660	1481
+cma-lx1	1482
+motorola edge 30	1483
+hwv32	1484
+huawei nxt-l29	1485
+sm-j727t1	1486
+cph2025	1487
+vivo 1713	1488
+rmx3516	1489
+rmx2085	1490
+moto g(40) fusion	1491
+mar-lx3am	1492
+cph2411	1493
+lenovo k53a48	1494
+lm-q710(fgn)	1495
+gm1903	1496
+sm-a605gn	1497
+lm-k525	1498
+cph2263	1499
+701so	1500
+shv48	1501
+lenovo l70081	1502
+sm-m536s	1503
+sc-51a	1504
+sm-t736b	1505
+infinix x663b	1506
+rmx3581	1507
+sm-a505n	1508
+lio-l29	1509
+5030a	1510
+lld-l21	1511
+moto g play (xt2093dl)	1512
+tecno cg7	1513
+moto e32(s)	1514
+cph1809	1515
+w-v745-eea	1516
+power armor 13	1517
+p651 2021	1518
+moto e22i	1519
+sm-g955n	1520
+v2118	1521
+sm-j700h	1522
+g301	1523
+itel a631w	1524
+ec211002	1525
+cph2099	1526
+v2147	1527
+sm-c900f	1528
+infinix x6816	1529
+rmx2086	1530
+infinix pr652b	1531
+moto g go	1532
+g700	1533
+moto g power	1534
+itel p681l	1535
+sm-a226l	1536
+moto e5 plus	1537
+tecno kg5p	1538
+premier5	1539
+rmx2121	1540
+nokia c5 endi	1541
+tecno cd6	1542
+asus_i003d	1543
+tecno ld7j	1544
+bv9900pro	1545
+c3600	1546
+cph2209	1547
+sm-t505	1548
+opg02	1549
+moto g31(w)	1550
+sm-m015g	1551
+moto c	1552
+5061k_eea	1553
+lio-an00	1554
+sm-a310f	1555
+gm 5 plus d	1556
+sm-j530y	1557
+rmx3268	1558
+22041219g	1559
+sm-g928f	1560
+skw-h0	1561
+sc-01m	1562
+le2113	1563
+t671e	1564
+itel a551l	1565
+cph2137	1566
+220333qpg	1567
+rmx2050	1568
+220733sfg	1569
+d11	1570
+rmx3197	1571
+sm-g990w2	1572
+motorola edge	1573
+rmx3710	1574
+g8141	1575
+infinix x683b	1576
+vivo 1921	1577
+sm-m236l	1578
+in2010	1579
+u693cl	1580
+lm-x320	1581
+22120rn86g	1582
+sm-t385m	1583
+nokia c30	1584
+lld-l31	1585
+sm-g390w	1586
+ags2-w09	1587
+moto g (5s) plus	1588
+motorola edge (2021)	1589
+mi mix 2s	1590
+lenovo l38043	1591
+gt20	1592
+cph2139	1593
+sm-g9860	1594
+sm-a025a	1595
+v2151	1596
+mha-l29	1597
+rmx3561	1598
+pot-lx1a	1599
+motorola edge 30 ultra	1600
+m2102k1g	1601
+nokia g400 5g	1602
+2107119dc	1603
+cph1879	1604
+rky-lx3	1605
+rmx1827	1606
+sm-a205yn	1607
+t799b	1608
+sm-g970w	1609
+22021211ri	1610
+22101316up	1611
+22031116bg	1612
+t780h	1613
+sm-m105g	1614
+sm-m105f	1615
+v2157	1616
+rmx3501	1617
+tecno cg6j	1618
+sm-s115dl	1619
+sm-s426dl	1620
+m2104k10i	1621
+r2022	1622
+220333ql	1623
+vivo 1714	1624
+rmx3461	1625
+sm-a536w	1626
+vivo 1918	1627
+was-lx2j	1628
+sm-s536dl	1629
+vs987	1630
+oppo a57	1631
+v2039	1632
+itel a661l	1633
+lenovo l78051	1634
+infinix x698	1635
+vivo 1611	1636
+so-01m	1637
+sm-m336b	1638
+cph1725	1639
+sm-j701m	1640
+w-k560-tvm	1641
+ntn-lx3	1642
+omix x500	1643
+sm-g986u1	1644
+a23 max	1645
+rmx2027	1646
+redmi 3s	1647
+ane-lx2	1648
+oppo a37f	1649
+armor 8 pro	1650
+sm-g988w	1651
+cph2447	1652
+j9210	1653
+cph1609	1654
+sm-n9810	1655
+infinix x6811	1656
+rmx2117	1657
+motorola edge plus 5g uw (2022)	1658
+v2221	1659
+ne2215	1660
+sm-s515dl	1661
+moto g82 5g	1662
+sm-c710f	1663
+rmp2103	1664
+vivo 1908	1665
+sm-t560nu	1666
+tecno kg7h	1667
+vivo 1601	1668
+cph1821	1669
+t790w	1670
+vivo 1939	1671
+sm-m135fu	1672
+h8216	1673
+sm-g990u1	1674
+cph1919	1675
+nokia 6.1 plus	1676
+sm-c701f	1677
+c5l max	1678
+v1930	1679
+6102h	1680
+bnd-l21	1681
+sov39	1682
+asus_x017da	1683
+lm-k300	1684
+v2139	1685
+lgl322dl	1686
+infinix x688c	1687
+rmx3371	1688
+asus_ai2202	1689
+22041219c	1690
+infinix x650d	1691
+s96pro	1692
+sm-s916n	1693
+lgl455dl	1694
+sm-a426u1	1695
+motorola one power	1696
+gs110	1697
+zte 9030	1698
+gt-i9500	1699
+v2065	1700
+cph2123	1701
+sm-t870	1702
+sm-j737t1	1703
+scv39	1704
+sm-j737s	1705
+eva-l09	1706
+g8142	1707
+sm-n9005	1708
+lm-f100n	1709
+samsung-sm-g891a	1710
+sm-m405f	1711
+p13 blue max 128 gb	1712
+asus_z01rd	1713
+g501	1714
+rmx3063	1715
+sm-g532g	1716
+live 4	1717
+infinix x687b	1718
+sm-j260f	1719
+lenovo tb-x306x	1720
+v2026_21	1721
+ldn-l01	1722
+g60	1723
+bv9900	1724
+m2006c3mt	1725
+alfa10tb	1726
+cph1851	1727
+sm-s367vl	1728
+sm-a600f	1729
+v2114	1730
+v2033	1731
+tecno ke5j	1732
+redmi k30 5g	1733
+zte blade a5 2019	1734
+sm-g930w8	1735
+nokia g21	1736
+tecno kc8	1737
+infinix x626	1738
+cph1877	1739
+lm-q630	1740
+shark par-h0	1741
+sm-a136w	1742
+sm-g531h	1743
+dra-lx3	1744
+redmi note 10 lite	1745
+lgmp260	1746
+a600dl	1747
+so-41a	1748
+t601dl	1749
+asus_z01kda	1750
+sm-s918u1	1751
+sm-a546e	1752
+blade a7s 2020-t	1753
+motorola edge 30 pro	1754
+m2102k1c	1755
+nokia 6.1	1756
+lm-v409n	1757
+22041216i	1758
+moto g (5) plus	1759
+infinix x665b	1760
+tecno kd6	1761
+scg01	1762
+22071212ag	1763
+infinix x690	1764
+sov40	1765
+gt-i9506	1766
+cor-l29	1767
+mi cc9 pro	1768
+g310	1769
+v2068	1770
+sm-a750c	1771
+lenovo tb-8504x	1772
+sm-n9208	1773
+sm-j500fn	1774
+g3223	1775
+sm-s205dl	1776
+sm-s9010	1777
+v2046	1778
+sm-m215g	1779
+sm-f721w	1780
+s62	1781
+5032w	1782
+tecno ke6j	1783
+v2201	1784
+shg05	1785
+cph2481	1786
+sm-a7050	1787
+m2101k9ai	1788
+cph1912	1789
+nokia g50	1790
+sm-f900f	1791
+sne-lx2	1792
+jny-lx2	1793
+vivo y93	1794
+sc-04l	1795
+infinix x669	1796
+e6653	1797
+cph1715	1798
+sm-j415g	1799
+lm-q510n	1800
+sm-m135f	1801
+vivo 1725	1802
+sm-a025v	1803
+any-lx3	1804
+infinix x676c	1805
+oneplus nord	1806
+rmx3395	1807
+asus_i005dc	1808
+sm-a305gn	1809
+tecno le7n	1810
+asus_i001d	1811
+sm-t590	1812
+so-01k	1813
+hd1925	1814
+wp5	1815
+trt-l21a	1816
+5059d	1817
+infinix x680	1818
+mar-lx2j	1819
+diamond	1820
+5002b	1821
+tas-l29	1822
+k10000 max	1823
+lg-m250	1824
+cph2467	1825
+nokia 9	1826
+k101	1827
+asus_x018d	1828
+moto e (4) plus	1829
+nx573j	1830
+j8110	1831
+v350c	1832
+lenovo k33a42	1833
+lenovo yt-x705l	1834
+sm-a910f	1835
+asus_i001da	1836
+sm-a505gt	1837
+tecno ci6	1838
+skr-h0	1839
+v2145	1840
+ta-1004	1841
+lld-al20	1842
+vivo 1907_19	1843
+v2240	1844
+s52	1845
+sm-a720s	1846
+was-lx2	1847
+sl101ae	1848
+oppo a37m	1849
+n20pro	1850
+nokia x10	1851
+6025h_eea	1852
+sm-a516v	1853
+tecno ch9	1854
+venus_v3_5580	1855
+21121119sc	1856
+cph2013	1857
+ldn-lx3	1858
+tecno kf6i	1859
+shark ksr-h0	1860
+s86	1861
+v2228	1862
+h8166	1863
+m2104k10ac	1864
+mi 9 transparent edition	1865
+z831	1866
+lenovo k12 pro	1867
+cph2495	1868
+tecno cc9	1869
+sm-a528n	1870
+w-v750bn-eea	1871
+g3221	1872
+asus_i002d	1873
+in_note1	1874
+infinix x6810	1875
+sm-j250g	1876
+scg06	1877
+moto x4	1878
+asus_x00pd	1879
+i4312	1880
+lio-n29	1881
+tecno pr651h	1882
+pra-lx2	1883
+vivo 1929	1884
+via_f20	1885
+sm-j500f	1886
+cph1938	1887
+xt1635-02	1888
+zte a71 5g	1889
+sm-a145r	1890
+sm-a146p	1891
+sm-g770u1	1892
+nx651j	1893
+itel l6501	1894
+rmx2021	1895
+rmx2081	1896
+sm-a205fn	1897
+sh-01l	1898
+22041216c	1899
+redmi 4	1900
+lenovo k8 note	1901
+5007g	1902
+pixel 3a xl	1903
+v2042	1904
+moto g72	1905
+ta-1021	1906
+infinix x671b	1907
+infinix x6816c	1908
+lg-m320	1909
+vivax_tpc-105_4g	1910
+lenovo tb-j616f	1911
+m2012k11i	1912
+vivo v3	1913
+fdr-a05l	1914
+vivo 1812	1915
+lm-g810	1916
+sm-a505fm	1917
+lg-k430	1918
+5028d_eea	1919
+m6t	1920
+pixel 3a	1921
+a102op	1922
+4188c	1923
+lm-v450	1924
+cph2023	1925
+lm-x410.f	1926
+sm-a716u1	1927
+5130e	1928
+infinix x652b	1929
+h8416	1930
+tecno kf6j	1931
+lg-m200	1932
+asus_ai2201_c	1933
+tecno ke6	1934
+infinix x612b	1935
+sm-a516u1	1936
+t799h	1937
+asus_x01bda	1938
+sm-p200	1939
+5007u	1940
+2211133g	1941
+infinix x665e	1942
+pixel 4 xl	1943
+sm-a3360	1944
+asus_z012s	1945
+hisense e31 lite	1946
+motorola one zoom	1947
+xq-at51	1948
+sla-l22	1949
+sm-a515u1	1950
+hisense infinity h50	1951
+nx666j	1952
+infinix x680d	1953
+ae9950	1954
+scv40	1955
+cph2455	1956
+ppa-lx2	1957
+sm-a546u	1958
+5062w	1959
+lm-g820n	1960
+sm-t585	1961
+sm-a4260	1962
+scv49	1963
+infinix x695d	1964
+i2127	1965
+tecno cc7	1966
+le2125	1967
+x9009	1968
+sm-j320h	1969
+sm-j330g	1970
+sm-g715u1	1971
+itel w6004	1972
+via_e4	1973
+vivo 1801	1974
+21091116ac	1975
+sm-e135f	1976
+sm-a805n	1977
+nokia 2.3	1978
+s12 lite	1979
+sm-a326w	1980
+u705aa	1981
+5048i	1982
+le2127	1983
+yal-l41	1984
+t810s	1985
+5002h_eea	1986
+note 9p	1987
+m2101k9r	1988
+z42	1989
+sm-a022g	1990
+aspera_r9	1991
+lm-g710n	1992
+l-01l	1993
+mix 2	1994
+v2168	1995
+v2057	1996
+cph2199	1997
+sm-g610l	1998
+actab1422	1999
+eva-l19	2000
+h8276	2001
+sm-j600gt	2002
+infinix x652a	2003
+infinix x6815b	2004
+ntn-lx1	2005
+asus_x00tdb	2006
+m2007j17c	2007
+gm 8 d	2008
+powermaxp600s	2009
+sm-n935f	2010
+le2100	2011
+atu-l22	2012
+sm-a530n	2013
+redmi note 5a prime	2014
+hisense infinity h30	2015
+m2012k11ac	2016
+helium pro	2017
+pixel 3	2018
+22011119ti	2019
+tecno ac8	2020
+v1818ca	2021
+n1374dl	2022
+asus_i004d	2023
+sm-t580	2024
+sm-j337v	2025
+sm-t387w	2026
+g3123	2027
+m2105k81ac	2028
+sm-t725	2029
+lm-q710.fg	2030
+sm-j120f	2031
+shg03	2032
+i2126	2033
+5048a	2034
+nen-l22	2035
+sc-05l	2036
+cph1983	2037
+tecno lg6n	2038
+f3211	2039
+trt-lx2	2040
+w-v755-eea	2041
+live	2042
+tecno kg6k	2043
+power 3	2044
+rmx2076	2045
+scv45	2046
+i2017	2047
+sm-m426b	2048
+moto e (4)	2049
+a002op	2050
+sm-e426s	2051
+g3212	2052
+zte 9000	2053
+tecno kb7j	2054
+oppo a79kt	2055
+6156d	2056
+redmi y1	2057
+lm-g710vm	2058
+lgms330	2059
+23021raaeg	2060
+tecno be6	2061
+sm-f907n	2062
+c21 pro	2063
+100071485	2064
+joy 4	2065
+a001xm	2066
+lon-l29	2067
+sm-a125w	2068
+ags-w09	2069
+hd1900	2070
+jkm-al00a	2071
+v2054	2072
+fig-la1	2073
+moto g32	2074
+vivo 1719	2075
+jat-lx1	2076
+s59pro	2077
+moto g play - 2023	2078
+rmx2163	2079
+realme 5 series	2080
+s86pro	2081
+tank_p55	2082
+htc desire 12	2083
+t770b	2084
+mi 10 pro	2085
+lm-k400	2086
+sm-g9730	2087
+infinix x572	2088
+dra-lx9	2089
+sm-a146m	2090
+mha-l09	2091
+gm6	2092
+phantom6s	2093
+sm-s111dl	2094
+zte blade v10 vita	2095
+sm-g887f	2096
+sc-03k	2097
+sm-a536v	2098
+scg09	2099
+infinix x657	2100
+cph1831	2101
+p13_blue_plus	2102
+21121119vl	2103
+w-v830-eea	2104
+zte a7020	2105
+bkk-al10	2106
+meizu x8	2107
+v2070	2108
+sm-a135u1	2109
+sm-g610k	2110
+tecno ce9	2111
+tecno lf7	2112
+22101316i	2113
+s7-sh	2114
+t671o	2115
+sm-a115w	2116
+note_1	2117
+so-04j	2118
+redmi k30	2119
+v2125	2120
+rmx1993	2121
+cp3705as	2122
+n152dl	2123
+asus_z01gs	2124
+lenovo tb-j606f	2125
+22071219cg	2126
+sc-51c	2127
+m2007j3si	2128
+sm-t555	2129
+lp-01	2130
+220733sl	2131
+sm-s506dl	2132
+901so	2133
+redmi k20 pro premium edition	2134
+moto g62 5g	2135
+vky-l09	2136
+22101320g	2137
+htc desire 728g dual sim	2138
+cph2389	2139
+pixel 4a (5g)	2140
+nokia xr20	2141
+bv9900e	2142
+v2069	2143
+fla-lx1	2144
+v1981a	2145
+g312	2146
+sm-t976b	2147
+redmi k30 pro	2148
+sm-j250m	2149
+oppo a83t	2150
+armor_3wt	2151
+5102l	2152
+sm-g892u	2153
+via_s30_0	2154
+moto e13	2155
+itel a571l	2156
+armor 11 5g	2157
+lge-nx9	2158
+infinix x652c	2159
+vivo y81s	2160
+fig-lx2	2161
+hisense h50 lite	2162
+nokia 7 plus	2163
+sm-g991q	2164
+ana-an00	2165
+cph2469	2166
+t775b	2167
+bnd-al10	2168
+le2117	2169
+p650 2021	2170
+vne-lx1	2171
+sm-f926w	2172
+sm-g715fn	2173
+v2115	2174
+sm-a750n	2175
+lenovo tb-x704l	2176
+b130dl	2177
+mi max 3	2178
+rmx2042	2179
+hisense infinity h50s 5g	2180
+t782h	2181
+gm 9 pro	2182
+sm-j260g	2183
+sc-53a	2184
+sc-52b	2185
+phone 2	2186
+neffos_y7	2187
+sm-s9080	2188
+sog04	2189
+sm-t813	2190
+t781	2191
+s3-sh	2192
+infinix x680f	2193
+a11 pro max	2194
+sm-g930s	2195
+u705ac	2196
+t776o	2197
+ags-l09	2198
+tecno kh6	2199
+lgm-g600l	2200
+i2009	2201
+note 9	2202
+sm-n7505	2203
+aum-al20	2204
+lm-q610.fgn	2205
+i2208	2206
+p13_blue	2207
+mi mix 3 5g	2208
+sm-s9060	2209
+v2101	2210
+bv4900	2211
+sm-f721u1	2212
+tecno b1g	2213
+sm-g9960	2214
+u616at	2215
+itel p682lp	2216
+zte blade v10	2217
+6125d	2218
+sm-s767vl	2219
+infinix x675	2220
+so-01j	2221
+mh-t6000	2222
+2207117bpg	2223
+sm-a305yn	2224
+par-lx1m	2225
+sm-n970w	2226
+nokia c01 plus	2227
+a55	2228
+pixel	2229
+so-41b	2230
+mi 8 pro	2231
+tecno ca7	2232
+tecno kg8	2233
+redmi 4a	2234
+alcatel_5004r	2235
+sm-a6060	2236
+vivo y85a	2237
+22021211rc	2238
+infinix x662b	2239
+bah2-w19	2240
+tecno bd4a	2241
+infinix x6826b	2242
+pixel 2 xl	2243
+cph2471	2244
+tecno ci8n	2245
+sc-02k	2246
+nx729j	2247
+tecno kg7n	2248
+22101316g	2249
+wp15	2250
+htc one	2251
+sm-a215u1	2252
+w-v680-eea	2253
+nokia 8.1	2254
+tab_p8	2255
+max 3	2256
+nokia 8 sirocco	2257
+so-52b	2258
+so-52a	2259
+sm-s215dl	2260
+eva-dl00	2261
+de2117	2262
+tecno cd6s	2263
+ls1542qwn	2264
+s48c	2265
+lg-k350	2266
+sm-c9000	2267
+sm-j111f	2268
+xt2201-2	2269
+tecno bd4	2270
+sm-a102u1	2271
+sm-g935l	2272
+sm-a115az	2273
+t775h	2274
+h9436	2275
+rmx3265	2276
+le2120	2277
+sm-x700	2278
+stratus_c5_elite	2279
+asus_x017d	2280
+p13 blue maxl 2021	2281
+active 3	2282
+cph1955	2283
+v2154	2284
+moto g (4)	2285
+g3311	2286
+sm-g9880	2287
+els-nx9	2288
+ta-1053	2289
+z981	2290
+xq-au51	2291
+vivo 1940	2292
+are-al00	2293
+sm-j415n	2294
+rmx2032	2295
+sm-j737p	2296
+huawei vns-l21	2297
+tecno la7	2298
+k9 pro	2299
+scg10	2300
+asus_x01ad	2301
+zte a2021l	2302
+bah2-l09	2303
+tecno lf7n	2304
+agm a8	2305
+m2103k19py	2306
+v2043_21	2307
+tab 8	2308
+2210132g	2309
+v2203	2310
+sm-g930t	2311
+tecno kf6	2312
+neffos_c9a	2313
+sm-n920k	2314
+gm 5 plus	2315
+vog-al00	2316
+tecno ce8	2317
+tecno ce7	2318
+rmx3203	2319
+pot-lx1af	2320
+801so	2321
+tecno ch9n	2322
+2201116sc	2323
+v2186a	2324
+dra-l21	2325
+lm-q920n	2326
+sm-n9700	2327
+trident a75 pro max	2328
+os105	2329
+dli-l42	2330
+motog3	2331
+s61	2332
+sm-g920w8	2333
+infinix x695c	2334
+h3113	2335
+twist 4 fit	2336
+t766s	2337
+t766u	2338
+infinix x627	2339
+lt p10i	2340
+so-52c	2341
+infinix x655f	2342
+x600 nfc	2343
+a1 alpha 21	2344
+sm-g900v	2345
+sm-s911n	2346
+huawei cun-l03	2347
+huawei cun-l01	2348
+tecno kf6n	2349
+moto e5 cruise	2350
+sm-g930k	2351
+rmx3312	2352
+ip12 pro+	2353
+a5_pro	2354
+vivo y85	2355
+crt-lx1	2356
+sm-f916u1	2357
+sm-f936w	2358
+oppo a83	2359
+xq-bc62	2360
+sm-j327t1	2361
+gt-i9505	2362
+g3112	2363
+w-v600	2364
+fly5_lite	2365
+sm-g973c	2366
+revvlry+	2367
+lava le9830	2368
+zte 7540n	2369
+lenovo tb-8505x	2370
+x400	2371
+rmx2075	2372
+sm-t285	2373
+sm-g935u	2374
+p609	2375
+samsung-sm-g930a	2376
+motorola one 5g uw ace	2377
+t770h	2378
+sm-a102w	2379
+bv9700pro	2380
+lgl722dl	2381
+pixel 5a	2382
+cph1881	2383
+hisense e60	2384
+cph2307	2385
+vivo 1851	2386
+vivo 1817	2387
+sog03	2388
+xp8800	2389
+was-tl10	2390
+bv9800	2391
+a002so	2392
+vivo v3max	2393
+f8331	2394
+pbam00	2395
+sc-01l	2396
+hisense u50	2397
+5505	2398
+so-51a	2399
+vivo 1823	2400
+htc u20 5g	2401
+sm-s918w	2402
+sm-t830	2403
+sm-g736b	2404
+n150dl	2405
+mi play	2406
+sm-p613	2407
+lg-m327	2408
+sm-m107f	2409
+samsung-sm-j727a	2410
+t774b	2411
+t773o	2412
+af9020	2413
+scg07	2414
+moto g53 5g	2415
+sm-a405s	2416
+hisense infinity h50 zoom	2417
+bnd-l34	2418
+i2203	2419
+lenovo l10041	2420
+v2150	2421
+sog01	2422
+tecno lg7n	2423
+astro 55r	2424
+infinix x573	2425
+trt-lx3	2426
+sm-t875	2427
+p13 blue max pro 256 gb	2428
+c5 plus	2429
+5024f	2430
+sm-n910c	2431
+scv42	2432
+sm-x906b	2433
+moto g(10) power	2434
+lnd-l29	2435
+nokia 1.4	2436
+sm-a037u1	2437
+a101op	2438
+a101xm	2439
+4087u_eea	2440
+lenovo a6020a40	2441
+smooth 6.1	2442
+tecno cg7n	2443
+s58pro	2444
+sm-g920i	2445
+revvlry	2446
+100011886	2447
+sm-g885f	2448
+s19 max	2449
+venus z40	2450
+huawei can-l01	2451
+joy 3	2452
+redmi note 3	2453
+5056d	2454
+via x20	2455
+sm-x800	2456
+sm-j510fq	2457
+p13 blue max pro	2458
+sc-52a	2459
+infinix x655	2460
+sm-t378v	2461
+wp21	2462
+sov32	2463
+neo-u1	2464
+5030f_eea	2465
+so-53b	2466
+ulesson_education_tab	2467
+zte blade a31	2468
+armor_7	2469
+sm-g615fu	2470
+sm-a320f	2471
+clt-l04	2472
+frl-l22	2473
+sm-a505u1	2474
+w-k610-fra	2475
+vivo 1920_20	2476
+a70	2477
+sm-g611s	2478
+asus_ai2201_a	2479
+col-al10	2480
+v2225	2481
+sm-g930p	2482
+ravoz z7 pro	2483
+via_e30	2484
+sm-t350	2485
+vivo y17	2486
+crt-lx2	2487
+sm-g611mt	2488
+hisense infinity h12	2489
+infinix x672	2490
+lenovo k13 note	2491
+sm-a115a	2492
+5061u	2493
+ane-al00	2494
+hisense e40	2495
+a9 pro	2496
+qs5509a	2497
+sm-g715w	2498
+sm-x808u	2499
+22041219pi	2500
+tecno kd7h	2501
+nokia c2	2502
+d6653	2503
+sm-c7100	2504
+motorola edge 30 neo	2505
+blade a51	2506
+sm-e025f	2507
+nokia x20	2508
+ae9010	2509
+ex8s1	2510
+901zt	2511
+sm-j727v	2512
+6501	2513
+vky-l29	2514
+lenovo k14	2515
+tecno kh7	2516
+100003561	2517
+atu-l31	2518
+aum-l29	2519
+lenovo tb-x306f	2520
+vivo 2007	2521
+sm-t735	2522
+infinix x6516	2523
+sm-a9200	2524
+sm-j415gn	2525
+sm-s911w	2526
+hammer_energy_2	2527
+t781spp	2528
+kyv48	2529
+lava z66	2530
+infinix x6819	2531
+706sh	2532
+lg-x210	2533
+lava lzx404	2534
+cph2465	2535
+sm-a215w	2536
+5048y	2537
+scg11	2538
+sm-a705yn	2539
+sh-03k	2540
+sm-j701mt	2541
+sm-x900	2542
+asus_x00id	2543
+ravoz z3 lite	2544
+power armor 14	2545
+v2170a	2546
+ravoz z8	2547
+rky-lx2	2548
+g8341	2549
+sm-j737vpp	2550
+oppo a33m	2551
+lm-x420n	2552
+sm-j510h	2553
+v341u	2554
+surface duo	2555
+rmx3661	2556
+gionee m12	2557
+sm-g903f	2558
+hammer_blade_3	2559
+a23	2560
+v2238	2561
+via_a3_plus	2562
+cmr-al19	2563
+hisense rocks 6	2564
+lenovo k520	2565
+5102o	2566
+w-v730-tvm	2567
+v20	2568
+w-v750bn-tvm	2569
+wp17	2570
+mya-al10	2571
+sm-a426n	2572
+a102sh	2573
+lgl555dl	2574
+sm-a136s	2575
+in_2b	2576
+sog07	2577
+lg-h870	2578
+samsung-sm-j327a	2579
+rmx3563	2580
+rmp2102	2581
+5028a	2582
+z982	2583
+a22	2584
+tecno cg8h	2585
+m2007j22c	2586
+a80pro	2587
+v2230	2588
+v2214	2589
+scv37	2590
+pot-lx2j	2591
+yes altitude 4	2592
+gm1920	2593
+motorola razr (2020)	2594
+sc-01k	2595
+sc-02m	2596
+bl7000	2597
+tecno ch7	2598
+sm-a102n	2599
+apex3	2600
+par-lx1	2601
+rmo-nx3	2602
+vivo 1609	2603
+lm-q710.fgn	2604
+ags2-l03	2605
+sm-n950w	2606
+a204so	2607
+sm-t387t	2608
+g3412	2609
+nokia 3.2	2610
+5007w	2611
+wp7	2612
+v2024	2613
+xq-ct72	2614
+mi max	2615
+ta-1024	2616
+wp12 pro	2617
+sm-a015t1	2618
+quantum q20	2619
+rmx2144	2620
+xq-ad52	2621
+infinix x6821	2622
+220233l2c	2623
+sh-51b	2624
+sm-a042m	2625
+2212arnc4l	2626
+s97pro	2627
+c21	2628
+cph2415	2629
+mi 6	2630
+gt-n5110	2631
+x600	2632
+infinix x624b	2633
+tecno ch6i	2634
+meizu note8	2635
+hry-al00ta	2636
+redmi 8a pro	2637
+sc-53c	2638
+infinix x604	2639
+v1932a	2640
+i2201	2641
+trt-l53	2642
+zte a7040	2643
+sm-a606y	2644
+lml212vl	2645
+f-04k	2646
+hammer_energy_2_2022	2647
+lgus215	2648
+mipad	2649
+sm-j730fm	2650
+e6910	2651
+rmx3623	2652
+asus_ai2203_d	2653
+r3	2654
+fla-lx3	2655
+rmx1831	2656
+cp3705a	2657
+shv42	2658
+sm-j710gn	2659
+blade a31	2660
+xq-ad51	2661
+tecno bd4i	2662
+rmx2194	2663
+pixel 4	2664
+sm-g611m	2665
+hisense u963	2666
+m2010j19sc	2667
+sm-g930u	2668
+tecno kc1	2669
+22071219ci	2670
+tecno be8	2671
+lm-q520n	2672
+tecno kg7	2673
+sm-j500n0	2674
+primo r6 max	2675
+yal-al00	2676
+astro 4 pro	2677
+primo r8	2678
+motorola edge (2022)	2679
+n40pro	2680
+22041219i	2681
+symphony z22	2682
+shark kle-a0	2683
+sov38	2684
+cag-l23	2685
+t790z	2686
+nx629j	2687
+lm-t600l	2688
+boost	2689
+9c	2690
+21091116uc	2691
+cph1921	2692
+l622	2693
+lm-x120	2694
+zte a2021g	2695
+infinix x658e	2696
+q3-eea	2697
+sm-a145m	2698
+jelly2	2699
+g91s	2700
+y7	2701
+sm-n900t	2702
+sm-a300fu	2703
+602so	2704
+tecno kf6k	2705
+v2239	2706
+sm-g925s	2707
+sm-a346b	2708
+a7 pro	2709
+rmx3372	2710
+sm-m045f	2711
+mga-lx9	2712
+tecno kb8	2713
+23013rk75c	2714
+u318aa	2715
+tecno ci6n	2716
+sm-g885s	2717
+a103op	2718
+hisense f23	2719
+nokia 6.2	2720
+s88pro	2721
+t phone	2722
+v1945a	2723
+v10	2724
+sm-a245f	2725
+sm-a546b	2726
+xq-bc72	2727
+23021raa2y	2728
+p13 blue maxl 2022	2729
+f1f	2730
+atu-lx3	2731
+alp-l29	2732
+g702	2733
+lenovo tb3-850f	2734
+vivo 2004	2735
+cph2031	2736
+redmi go	2737
+frd-l19	2738
+be2026	2739
+be2012	2740
+bison pro	2741
+infinix x660b	2742
+meizu m6s	2743
+u626aa	2744
+venus v7	2745
+hey-w09	2746
+sm-c7108	2747
+ta-1038	2748
+22126rn91y	2749
+basic	2750
+sm-p580	2751
+hisense infinity h40 rock	2752
+a003sh	2753
+sm-g920p	2754
+ph-1	2755
+sm-p619	2756
+5030u	2757
+lm-x210apm	2758
+sm-j720m	2759
+mp13	2760
+v2217	2761
+cmr-al09	2762
+22111317pg	2763
+nokia 7.1	2764
+tecno cc6	2765
+sm-g8850	2766
+5102k	2767
+sm-a236m	2768
+sm-j260a	2769
+16th	2770
+sm-t978u	2771
+vs996	2772
+22101317c	2773
+nokia 1.3	2774
+infinix x653	2775
+e7110	2776
+blade v8q	2777
+5024d_eea	2778
+u328aa	2779
+wp19	2780
+htc desire 830 dual sim	2781
+sm-t503	2782
+bv9800pro	2783
+hit p10a	2784
+htc 2ps6200	2785
+sm-g600fy	2786
+lm-x220	2787
+sm-a600a	2788
+lg-h910	2789
+d-41a	2790
+5002x	2791
+g50	2792
+23030rac7y	2793
+ane-lx2j	2794
+sm-a600t1	2795
+infinix x6512	2796
+lm-v350	2797
+v2044	2798
+elite t8plus	2799
+lenovo tb-x505f	2800
+z839	2801
+s60pro	2802
+fig-lx3	2803
+x4	2804
+lg-h930	2805
+mya-l41	2806
+asus_z012d	2807
+sm-a015u1	2808
+6025d_eea	2809
+hisense infinity e30 lite	2810
+z6252ca	2811
+sm-t819y	2812
+tecno bd2p	2813
+22087ra4di	2814
+infinix x6511e	2815
+rmx3474	2816
+a7s	2817
+infinix x6823c	2818
+sm-x706b	2819
+vivo 1914	2820
+5031g	2821
+v350u	2822
+g300	2823
+elite b65	2824
+tecno ci7n	2825
+lenovo tb-x705l	2826
+harry	2827
+redmi k30 pro zoom edition	2828
+sm-a236u1	2829
+rc608l	2830
+bv6300	2831
+sm-a536n	2832
+asus_a001d	2833
+gs190	2834
+v1965a	2835
+h4493	2836
+infinix x612	2837
+zte blade a5 2019ru	2838
+t676k	2839
+sm-t378l	2840
+sov43	2841
+cph2303	2842
+sm-j320fn	2843
+2209116ag	2844
+via_g4	2845
+5007a	2846
+g91	2847
+ravoz z5 pro	2848
+lg-h872	2849
+mya-l11	2850
+moto g73 5g	2851
+z9	2852
+cam-l23	2853
+infinix x6811b	2854
+aris	2855
+any-lx1	2856
+agora xi	2857
+5002h_tr	2858
+aligator s5540	2859
+tecno rb6s	2860
+sm-a336n	2861
+lg-q710al	2862
+gocam_g301	2863
+p652 pro	2864
+in1	2865
+infinix x689f	2866
+22111317i	2867
+2203121c	2868
+sm-g935t	2869
+cph2419	2870
+n5502l	2871
+sm-n915f	2872
+sm-t835n	2873
+samsung-sm-g935a	2874
+rc609l	2875
+a001zt	2876
+i3312	2877
+sm-m115m	2878
+g	2879
+sc-54a	2880
+w-v770	2881
+motorola edge plus (2022)	2882
+wp13	2883
+h8314	2884
+cph1835	2885
+cph1805	2886
+i1928	2887
+sov35	2888
+hisense e50	2889
+sm-t307u	2890
+z30 pro	2891
+mi 8 se	2892
+lm-q925k	2893
+sm-j337w	2894
+black_z	2895
+i2206	2896
+asus_i001db	2897
+sm-g715a	2898
+motorola razr	2899
+lenovo k8 plus	2900
+v2158a	2901
+vivo 1805	2902
+vivo 1815	2903
+sm-a3050	2904
+rmx1903	2905
+cph1613	2906
+sm-j510f	2907
+lg-h873	2908
+sm-a920n	2909
+lm-x410(fg)	2910
+zte a2022pg	2911
+dra-lx5	2912
+sl100ea	2913
+agr-w09	2914
+c55 pro	2915
+sm-a013f	2916
+sm-j530g	2917
+lenovo tb-x505x	2918
+sm-f700u	2919
+sm-t835	2920
+itel l5002p	2921
+htc desire 826 dual sim	2922
+2210129sg	2923
+22061218c	2924
+moto g pro	2925
+tecno in5	2926
+s9863a1h10_natv	2927
+nen-lx1	2928
+sm-g920s	2929
+sm-e700f	2930
+g8441	2931
+6056h	2932
+moto e(6s)	2933
+sm-j120g	2934
+hammer_energy_18x9	2935
+cph2451	2936
+sm-a520l	2937
+lm-q910	2938
+vfd 710	2939
+venus z20	2940
+sc-02j	2941
+tecno ci8	2942
+sm-j3110	2943
+g510	2944
+mt-t8b22	2945
+n5002l	2946
+x95pro	2947
+vivo 1612	2948
+sm-t727v	2949
+p13_blue_max	2950
+w-v720-eea	2951
+a502dl	2952
+nokia x30 5g	2953
+elite t8	2954
+sm-t878u	2955
+bln-l22	2956
+sh-rm12	2957
+vie-l29	2958
+sh-m08	2959
+dra-l01	2960
+sm-j500m	2961
+asus_i001dd	2962
+mrd-lx1n	2963
+2106118c	2964
+21121210c	2965
+sm-a145f	2966
+sm-g530fz	2967
+sm-a015g	2968
+moto z (2)	2969
+venus e5	2970
+robby	2971
+d6603	2972
+a202so	2973
+lg-h990	2974
+motorola edge 30 fusion	2975
+rmx2205	2976
+infinix x676b	2977
+lenovo tb128fu	2978
+sm-s911u1	2979
+p13 blue max lite 2022	2980
+sm-g9280	2981
+m1906g7g	2982
+celero5g	2983
+motorola one vision plus	2984
+core-x4	2985
+scv36	2986
+sm-j727p	2987
+sm-a115u1	2988
+sm-g9350	2989
+22071219ai	2990
+tecno cd8	2991
+gionee s11 lite	2992
+f-51b	2993
+tecno kg6	2994
+ags2-w19	2995
+tecno le8	2996
+5007u_eea	2997
+ana-nx9	2998
+tecno lb7	2999
+z6400c	3000
+ox-p010	3001
+rmx3193	3002
+tecno ch6h	3003
+infinix x625c	3004
+t766h	3005
+itel l5002	3006
+3917jr	3007
+m5go	3008
+itel l6005	3009
+bac-l03	3010
+sc-53b	3011
+sh-03j	3012
+infinix x665	3013
+t701dl	3014
+cph1871	3015
+via_a1_plus	3016
+sov42	3017
+unknown	3018
+m6 mini	3019
+moto e22	3020
+so-02k	3021
+ale-l23	3022
+sm-t385l	3023
+cph2036	3024
+x50	3025
+rmx1991	3026
+primo nf5	3027
+p50	3028
+zte blade a7 2020	3029
+a3_pro	3030
+power armor x11 pro	3031
+sm-j400g	3032
+sm-a015v	3033
+bee 3	3034
+tecno b1	3035
+xq-ct54	3036
+huawei gra-l09	3037
+pafm00	3038
+moto g23	3039
+sm-j700t1	3040
+note 20	3041
+6165s	3042
+infinix x666b	3043
+rmx3512	3044
+shark ksr-a0	3045
+blu studio xl	3046
+s91 pro	3047
+5028d	3048
+tecno kg5h	3049
+io pro	3050
+htc u11	3051
+asus_x00dda	3052
+navon_spt1100	3053
+sh-54b	3054
+hisense infinity h50 lite	3055
+v2237	3056
+infinix x6826	3057
+infinix x6825	3058
+moto g (5s)	3059
+infinix x6831	3060
+mi mix 3	3061
+s41	3062
+tecno bb2	3063
+tecno p904	3064
+htc desire 20 pro	3065
+star 5	3066
+els-n39	3067
+sh-51a	3068
+lenovo l78071	3069
+sm-n920p	3070
+x522	3071
+cph2449	3072
+xq-cq54	3073
+a103so	3074
+rp01	3075
+tecno lb8	3076
+sm-t385	3077
+armor_x3	3078
+in2019	3079
+scg15	3080
+hma-al00	3081
+g512	3082
+tecno lb8a	3083
+m6a	3084
+sm-g160n	3085
+neffos x20 pro	3086
+z559dl	3087
+sm-j327t	3088
+vivo xi	3089
+lenovo tb-x6c6f	3090
+100043279	3091
+hisense e50 lite	3092
+tecno kb2j	3093
+p00c	3094
+lenovo tb-x304l	3095
+padm00	3096
+cph2353	3097
+s20iq19	3098
+t790b	3099
+sttm21vapp	3100
+so-03j	3101
+cph2407	3102
+vivo 1908_19	3103
+sm-t387v	3104
+m2002j9e	3105
+sm-a600n	3106
+h4113	3107
+sm-x806b	3108
+hisense e60 lite	3109
+dlt-a0	3110
+lm-x510wm	3111
+sm-g977u	3112
+king_kong_3	3113
+zte a2022l	3114
+ae9120	3115
+lgm-x600k	3116
+6159k	3117
+konnect_556	3118
+itel s663lc	3119
+sc51aa	3120
+l503f plus	3121
+agm_h3	3122
+lenovo l38111	3123
+v1916a	3124
+evr-al00	3125
+5029y_eea	3126
+power_5	3127
+sm-e146b	3128
+infinix x665c	3129
+z33	3130
+v1901a	3131
+rmx3572	3132
+sm-n900s	3133
+nokia c2 tennen	3134
+shv45	3135
+itel p651l	3136
+tab 11	3137
+a95	3138
+kyv41	3139
+tecno bd4h	3140
+itel s661lp	3141
+sm-g532mt	3142
+akus pro	3143
+w-k630-tru	3144
+sm-g920l	3145
+itel a662l	3146
+a003zt	3147
+sm-g928g	3148
+zte 8045	3149
+a100	3150
+mi mix 2	3151
+hisense e20s	3152
+tab-8us2	3153
+f5121	3154
+kz vergaser	3155
+v2222	3156
+scv46	3157
+d-01j	3158
+lex626	3159
+sm-n920i	3160
+tecno ka7	3161
+tecno kb2	3162
+shg01	3163
+pcs02	3164
+p650 pro	3165
+t40 plus_eea	3166
+dialogtabpro	3167
+sm-g935v	3168
+kyg01	3169
+sm-m105m	3170
+ldn-tl10	3171
+sm-a546u1	3172
+gs290	3173
+a001lg	3174
+motorola one 5g	3175
+h3123	3176
+vivo y79	3177
+atu-l42	3178
+sm-g935w8	3179
+z6356t	3180
+6125h	3181
+scg13	3182
+itel l5007	3183
+l-01j	3184
+shark prs-a0	3185
+asus_z01hda	3186
+lenovo tb-x606x	3187
+sh-02j	3188
+infinix x603	3189
+sm-j260az	3190
+infinix x650	3191
+23028ra60l	3192
+symphony z18	3193
+armor x9	3194
+wp16	3195
+f21 pro	3196
+sov42-u	3197
+gionee s12	3198
+h8324	3199
+a2020n3	3200
+lt-note 30	3201
+so-03k	3202
+ec211003	3203
+so-02j	3204
+hd1905	3205
+alp-l09	3206
+mars	3207
+i10_pro	3208
+m2002j9s	3209
+sm-t738u	3210
+4187d	3211
+bv6300pro	3212
+h1a1000	3213
+v2162	3214
+so-51c	3215
+pgt-n19	3216
+g3421	3217
+sm-g977t	3218
+via_f3	3219
+p1060x	3220
+zte blade a52	3221
+6025a	3222
+via_a1	3223
+zte blade a7 2019	3224
+infinix x6515	3225
+sm-g9700	3226
+v2006	3227
+v1914a	3228
+twist metal 32gb	3229
+lava le9810	3230
+sm-m205m	3231
+220733si	3232
+vestel_5000_dual	3233
+w7	3234
+lenovo l19041	3235
+hammer_blade_5g	3236
+cph1721	3237
+vivax fly6	3238
+med-lx9	3239
+itel l5007s	3240
+f3112	3241
+6165a	3242
+asus_z010d	3243
+a801	3244
+peem00	3245
+rmx3571	3246
+5029f	3247
+infinix x6815c	3248
+huawei tit-u02	3249
+wiko t50	3250
+g51 plus	3251
+bll-l23	3252
+sm-t595n	3253
+rmx2173	3254
+htc u11 life	3255
+sm-g920v	3256
+e10_pro	3257
+s88plus	3258
+infinix x6827	3259
+lenovo tb-x704f	3260
+asus_ai2201_f	3261
+huawei nmo-l22	3262
+m762g	3263
+5164d	3264
+gm8 go	3265
+pdcm00	3266
+mp18	3267
+micromax e7533	3268
+lg-h820pr	3269
+sm-s757bl	3270
+s5502l	3271
+vivo 2015_21	3272
+tecno kc6	3273
+samsung-sm-g925a	3274
+infinix x606c	3275
+tecno ki5k	3276
+c25	3277
+legend	3278
+h9493	3279
+e602	3280
+m2004j7ac	3281
+so-05k	3282
+neon_ray_pro	3283
+sm-a73 5g	3284
+t phone pro	3285
+sm-g8870	3286
+samsung-sm-n920a	3287
+sm-j737v	3288
+sc-02g	3289
+vivo y51	3290
+100003562	3291
+one a2003	3292
+6127i	3293
+i2022	3294
+armor 10 5g	3295
+mi 5x	3296
+tecno w5006s	3297
+lenovo tb-8505xs	3298
+lenovo a7020a48	3299
+lm-x210cmr	3300
+kob-l09	3301
+bison gt	3302
+v1818a	3303
+t671f	3304
+infinix x608	3305
+s6506	3306
+sm-m305m	3307
+gx290	3308
+v2227a	3309
+itel l5505	3310
+oppo r9s	3311
+halo4	3312
+cpn-l09	3313
+zte blade a52 lite	3314
+lm-x625n	3315
+22101320i	3316
+v1955a	3317
+sm-t575	3318
+poco x3 nfc	3319
+tecno id3k	3320
+sm-j337p	3321
+i2214	3322
+so-03l	3323
+sm-j500g	3324
+sm-j600gf	3325
+sm-p205	3326
+w-k610-tvm	3327
+itel a509wm	3328
+4188r	3329
+micromax_hs3	3330
+aquaris u2 lite	3331
+via_m4	3332
+lenovo l38041	3333
+nokia 3.1 plus	3334
+sm-p615n	3335
+p13 blue max 128 gb 2022	3336
+p13 blue 2021	3337
+nokia 3.1	3338
+sm-m146b	3339
+nokia 1 plus	3340
+p13 blue max pro lite 2022	3341
+5130m	3342
+plk-ul00	3343
+sm-g970x	3344
+p61	3345
+v340u	3346
+infinix x655d	3347
+4063f	3348
+power armor14 pro	3349
+sm-a145p	3350
+sm-g930vl	3351
+2211133c	3352
+lm-q610(fgn)	3353
+venus v6	3354
+sugar t30	3355
+note 12p	3356
+vs501	3357
+sm-m022f	3358
+mya-l22	3359
+shv39	3360
+plk-l01	3361
+zte blade a512	3362
+g9 pro	3363
+huawei lua-u22	3364
+rmp2105	3365
+titan p15000 pro 5g	3366
+itel p651w	3367
+5061u_tr	3368
+sm-g550t	3369
+a11	3370
+sm-a500h	3371
+22101316ug	3372
+gionee s10 lite	3373
+wiko t10	3374
+htc u11 plus	3375
+sm-x205n	3376
+sm-a810f	3377
+v2031_21	3378
+mobility3g	3379
+bah-l09	3380
+infinix x6823	3381
+6102a	3382
+huawei nmo-l31	3383
+vivo 1912	3384
+art-l29	3385
+nokia 4.2	3386
+mha-al00	3387
+mp01	3388
+nx709j	3389
+archos t 101x 4g	3390
+primo hm5	3391
+sm-j727f	3392
+sm-a72 5g	3393
+bv4900pro	3394
+pct-al10	3395
+htc desire 21 pro 5g	3396
+gm1905	3397
+tw102	3398
+5041c	3399
+zte blade a0722	3400
+htc desire 626 dual sim	3401
+stg_p10	3402
+5030d_eea	3403
+vivo y71	3404
+sc-02l	3405
+viva	3406
+rp05	3407
+2107113sr	3408
+m8l 2022	3409
+scg05	3410
+6125a	3411
+sm-f916w	3412
+a104sh	3413
+t810h	3414
+blade a5 2020-t	3415
+a55 pro	3416
+lenovo yt-x705f	3417
+v1816a	3418
+lg-h871s	3419
+sm-p905	3420
+bac-l23	3421
+redmi note 4x	3422
+infinix x605	3423
+vivo v9	3424
+htc one m9	3425
+a80plus	3426
+zte 9045	3427
+sm-j320g	3428
+redmi 9	3429
+sm-g930r4	3430
+p00i	3431
+bbf100-6	3432
+v1821a	3433
+bl5000	3434
+kyocera-e6920	3435
+nokia t20	3436
+stellar m1	3437
+a60pro	3438
+i2212	3439
+was-lx3	3440
+lm-q620	3441
+alcatel_5004c	3442
+s21 ultra 4g 2021_eea	3443
+e6633	3444
+mx6	3445
+m2007j1sc	3446
+cph2077	3447
+m2006c3lc	3448
+azimut 3 lite	3449
+rmx1973	3450
+pbem00	3451
+f-03k	3452
+x85	3453
+5004s	3454
+ea211001	3455
+neo	3456
+sog05	3457
+frd-l14	3458
+6025d	3459
+sm-c7010	3460
+5080x	3461
+xt2241-1	3462
+lg-h871	3463
+lg-h815	3464
+t8pro	3465
+lenovo k53b36	3466
+xbot_senior	3467
+s21+ uitra	3468
+f2	3469
+fp3	3470
+s35t	3471
+xt1710-02	3472
+sm-f707b	3473
+v2s+	3474
+hpp-l55b	3475
+aris pro	3476
+sm-s9180	3477
+multilaser_f_pro_2	3478
+xq-bq72	3479
+sm-t815	3480
+huawei lua-l21	3481
+multilaser_gmax_2	3482
+lm-x415l	3483
+sh-41a	3484
+tecno ia5	3485
+lenovo tb-8506x	3486
+13 pro max	3487
+rmx3506	3488
+lenovo tb-8505f	3489
+cam-l03	3490
+pocket	3491
+sm-t597w	3492
+shv47	3493
+t603dl	3494
+vs835	3495
+tecno kf6m	3496
+tecno rb8s	3497
+5024d	3498
+a90	3499
+hisense h12	3500
+inkosi_pro	3501
+e5823	3502
+pbbm30	3503
+sunshine_t1_elite	3504
+gionee s10l	3505
+sm-g928k	3506
+lg-k420	3507
+vivo 1937	3508
+sm-g550fy	3509
+via a4	3510
+a507dl	3511
+s55	3512
+s59	3513
+z5156cc	3514
+s98	3515
+mp08	3516
+rmx3366	3517
+pclm10	3518
+v2219	3519
+tecno 7cs	3520
+tecno bc1s	3521
+k10	3522
+sm-t295n	3523
+infinix x690c	3524
+sm-n9200	3525
+pra-tl10	3526
+vtl-202101	3527
+fs8010	3528
+fs8001	3529
+801fj	3530
+ane	3531
+sm-a520s	3532
+lg-k500	3533
+c6l	3534
+sm-j730k	3535
+l-5	3536
+sm-g885y	3537
+xq-be42	3538
+phone	3539
+lenovo z90a40	3540
+vfd 730	3541
+tecno lc6a	3542
+sm-j737a	3543
+vivo y97	3544
+venus z30	3545
+sm-n935l	3546
+sm-t395	3547
+moto g(9)	3548
+swift 2 plus	3549
+t766a	3550
+m2012k11c	3551
+quest	3552
+sm-a205u1	3553
+legend max	3554
+lenovo tb-x104f	3555
+u feel	3556
+note_7p	3557
+a202zt	3558
+neo-l29	3559
+nokia g11 plus	3560
+x700	3561
+sh-01k	3562
+lg-h870s	3563
+sm-j260fu	3564
+h3413	3565
+sc-52c	3566
+a101bm	3567
+x-treme pq39	3568
+itel s32	3569
+kingkong 7	3570
+tecno ck6n	3571
+sm-m127n	3572
+armor x9 pro	3573
+b1 pro	3574
+bold m7	3575
+n30	3576
+2201116sr	3577
+htc desire 19+	3578
+g3116	3579
+sm-t550	3580
+sm-j330l	3581
+moto g(7) optimo maxx(xt1955dl)	3582
+t790y	3583
+opg04	3584
+asus_x00ld	3585
+pchm10	3586
+sm-j500h	3587
+nokia c21	3588
+hpp-gs1	3589
+a1 plus	3590
+w-k630-ope	3591
+sm-a600u	3592
+cph1905	3593
+cph2071	3594
+cph2048	3595
+p13_max_blue	3596
+x30	3597
+b3-a40	3598
+huawei mla-l11	3599
+g51	3600
+g61	3601
+ea211005	3602
+ravoz r9	3603
+lava lxx503	3604
+motorola razr 5g	3605
+rmx1927	3606
+moto e5 (xt1920dl)	3607
+vmos	3608
+cph1605	3609
+a201op	3610
+hi6210sft	3611
+aura power 4g plus	3612
+v2048	3613
+lg-g710	3614
+lm-x440zmw	3615
+peqm00	3616
+dua-al00	3617
+wp2	3618
+fp4	3619
+lg-k220	3620
+lenovo tb-j706l	3621
+sm-a146w	3622
+sm-g900f	3623
+s1	3624
+via_s	3625
+x2	3626
+sm-t805	3627
+sm-t820	3628
+cph1707	3629
+a70 pro	3630
+pfem10	3631
+ta-1012	3632
+cp3648at	3633
+lm-x415k	3634
+note 10	3635
+rmx2200	3636
+ta-1032	3637
+sm-t517p	3638
+hammer_iron_3_lte	3639
+htc desire 628 dual sim	3640
+sm-f900u1	3641
+mumu	3642
+m10_max	3643
+infinix x6816d	3644
+gionee f205	3645
+tecno ab7	3646
+sm-g5520	3647
+z999	3648
+sm-a500m	3649
+conexis x2	3650
+bll-l21	3651
+a83	3652
+a85	3653
+zb631kl	3654
+itel w6503	3655
+lg-x230	3656
+infinix x6820	3657
+lenovo xt2081-4	3658
+pgam10	3659
+sm-g928t	3660
+sm-a346m	3661
+sm-a2070	3662
+sm-a505yn	3663
+s6+	3664
+s6003l	3665
+tecno ke5s	3666
+power 5	3667
+sm-j727t	3668
+scv43	3669
+bv5900	3670
+sla-l02	3671
+h3223	3672
+lava lmx06	3673
+tecno kb7	3674
+lio-al00	3675
+hlte103e	3676
+22111317g	3677
+h3213	3678
+t781s	3679
+vog-al10	3680
+cam-tl00h	3681
+infinix x606b	3682
+5003d_eea	3683
+mi 6x	3684
+nexus 5	3685
+zte a2019g pro	3686
+s12pro	3687
+tecno ki7	3688
+p13 blue max 2020	3689
+s8-kc	3690
+note 20 pro	3691
+lenovo k33a48	3692
+zte a2020n3 pro	3693
+sm-c5010	3694
+tecno kh7n	3695
+sm-n9000q	3696
+lm-q850	3697
+c103	3698
+infinix x627v	3699
+asus_i005db	3700
+lm-x210(g)	3701
+lenovo tb-x104l	3702
+m30	3703
+zte a2121l	3704
+g3226	3705
+e2306	3706
+tecno l9 plus	3707
+sm-t867u	3708
+gt_888	3709
+v22	3710
+sm-f9360	3711
+zte ba520	3712
+zte blade a6	3713
+infinix x668	3714
+vivo s1	3715
+lm-v350n	3716
+nokia g60 5g	3717
+nam-lx9	3718
+d55l	3719
+bah-w09	3720
+nexus 5x	3721
+220743fi	3722
+xq-bc42	3723
+xq-bt44	3724
+k15 pro	3725
+armor 12 5g	3726
+lenovo tb-x304f	3727
+lm-q927l	3728
+bv9100	3729
+h3321	3730
+hisense h30 lite	3731
+g50 mega 2022	3732
+sm-j337t	3733
+lm-t600	3734
+lg-m320g	3735
+knt-ul10	3736
+itel s13	3737
+so-02h	3738
+l201-eea	3739
+lancelot	3740
+sm-m135m	3741
+turkcell t70	3742
+m685y4	3743
+itel a41	3744
+micromax in note 1	3745
+lm-x210	3746
+nokia c20 plus	3747
+5002d_eea	3748
+4187m	3749
+4187u	3750
+hammer_explorer_pro	3751
+v2020a	3752
+cdy-nx9b	3753
+v2166	3754
+cph2081	3755
+ravoz v2	3756
+v2160	3757
+so-51b	3758
+x13	3759
+m2006j10c	3760
+cp3706as	3761
+2209129sc	3762
+5007s	3763
+lenovo l38082	3764
+tecno lg8n	3765
+sog02	3766
+eabf22206a	3767
+cph1611	3768
+armor x5 pro	3769
+c23 pro	3770
+m40se_row	3771
+infinix x6511	3772
+sm-p585n0	3773
+702so	3774
+702sh	3775
+kyt32	3776
+a7	3777
+s22 flip	3778
+e940-2795-00	3779
+tecno cd8j	3780
+nokia c3	3781
+gm 9 pro d	3782
+infinix x510	3783
+j8	3784
+lm-k610im	3785
+sc-42a	3786
+m1	3787
+sm-j530s	3788
+sm-n975c	3789
+lenovo tb-x505l	3790
+sm-n915fy	3791
+vivo 1707	3792
+g8232	3793
+zs661ks	3794
+tecno p703	3795
+rx7 mini	3796
+rmx1809	3797
+meizu m6	3798
+dt50	3799
+22081283g	3800
+e6853	3801
+lg-h932	3802
+sm-g9810	3803
+ta-1020	3804
+t702	3805
+infinix x668c	3806
+meizu c9	3807
+meizu m10	3808
+note 12	3809
+rmx3562	3810
+ultramintt a5	3811
+5029d_eea	3812
+5029e	3813
+jmm-l22	3814
+blade v ultra	3815
+stg s30	3816
+a30	3817
+sm-t597p	3818
+sm-g5510	3819
+sm-a500f	3820
+clt-al00	3821
+k15_plus	3822
+sm-p585	3823
+a80	3824
+infinix x6511g	3825
+x5_soul_style	3826
+kyv44	3827
+kyv46	3828
+kyv47	3829
+rmx2183	3830
+primo gh8	3831
+huawei mt7-tl10	3832
+c6 2020	3833
+itel w6501	3834
+sm-g928c	3835
+sm-g928v	3836
+sm-g9250	3837
+infinix x6826c	3838
+tc77	3839
+nokia g22	3840
+mione_pro	3841
+lenovo a7010a48	3842
+5030m	3843
+tecno ba2	3844
+5031d	3845
+s60	3846
+general mobile 4g	3847
+d5503	3848
+lgms210	3849
+s90	3850
+mp05	3851
+rmx3361	3852
+rmx2071	3853
+v1818ct	3854
+bv4000pro	3855
+core-t4	3856
+sm-g930l	3857
+agm a9 ru	3858
+kazam trooper 555	3859
+shg08	3860
+hry-lx2	3861
+lenovo tb-j606l	3862
+lenovo k11 power	3863
+joy 2+	3864
+mito a67	3865
+100011885	3866
+vivo y51a	3867
+sm-j320w8	3868
+t10s	3869
+tecno pr651	3870
+cph2437	3871
+tecno ki5q	3872
+c22	3873
+gtel infinity 9	3874
+via_a1_1	3875
+spirit_plus	3876
+x550	3877
+sm-j810gf	3878
+sm-g570y	3879
+bv5100pro	3880
+wtvis01	3881
+f-52a	3882
+omega x	3883
+sm-t835c	3884
+rmx3262	3885
+lm-x220pm	3886
+lg-m470	3887
+sc-04j	3888
+retroid pocket 2+	3889
+sm-t365	3890
+redmi k30i 5g	3891
+lava z61p	3892
+pro 7 plus	3893
+5102b	3894
+note 7	3895
+bv4900s	3896
+atu-l21	3897
+ars-l22	3898
+f-41a	3899
+lgm-v300k	3900
+s5pro	3901
+nx907j	3902
+huawei kii-l22	3903
+lg-h525	3904
+le x522	3905
+f5321	3906
+vs995	3907
+sm-s727vl	3908
+cro-l22	3909
+note_1_pro	3910
+bkk-l21	3911
+mrx-w09	3912
+handheld	3913
+m7i	3914
+ea500plus	3915
+itel w5505	3916
+sm-j510gn	3917
+22101316c	3918
+v2178a	3919
+i4113	3920
+sm-g960xu	3921
+logic l61	3922
+sm-j260gu	3923
+m1 4g	3924
+sm-j327w	3925
+sm-j327u	3926
+tecno la7 pro	3927
+t671g	3928
+sh-04l	3929
+celero5g+	3930
+t676h	3931
+pixel 7a	3932
+bphone b86	3933
+sm-j337vpp	3934
+sm-j320m	3935
+sm-a5460	3936
+lm-q630n	3937
+armor x8	3938
+ags2-l09	3939
+armor 8	3940
+z506	3941
+bv8800	3942
+6125d_tr	3943
+6002a	3944
+sm-t377v	3945
+sh-m12-y	3946
+wp20	3947
+wp18	3948
+smooth 5.5	3949
+ultimate u710s	3950
+zte blade 10 vita	3951
+cag-l02	3952
+802so	3953
+neffos_c9	3954
+hwcd100e	3955
+huawei nxt-al10	3956
+bold n2	3957
+5060a	3958
+sm-s737tl	3959
+sm-j510mn	3960
+nokia 8 v 5g uw	3961
+lgl423dl	3962
+sm-t545	3963
+lenovo tb-x306v	3964
+sm-t875n	3965
+sl201d	3966
+sm-s916u1	3967
+5080a	3968
+tecno cb7j	3969
+wildfire e2	3970
+huawei tit-al00	3971
+5124j	3972
+t790s	3973
+moto g(7) optimo (xt1952dl)	3974
+a1 alpha	3975
+so-03h	3976
+sm-j200h	3977
+vie-l09	3978
+sh-m15	3979
+sht-w09	3980
+p20_eea	3981
+nokia c31	3982
+kingkong mini 3	3983
+arctic	3984
+lava z3 up 2	3985
+sm-g525n	3986
+sht-al09	3987
+v1941a	3988
+w_k400	3989
+m6 note	3990
+v1922a	3991
+g3423	3992
+was-l03t	3993
+lm-q610.fg	3994
+g3416	3995
+huawei mla-l02	3996
+huawei mla-l03	3997
+f-01j	3998
+sm-g361h	3999
+g40	4000
+5002a	4001
+5002h	4002
+sm-a135n	4003
+armor 17 pro	4004
+via_e3	4005
+u feel go	4006
+g90	4007
+mi note 3	4008
+rky-lx1	4009
+22041211ac	4010
+lenovo tb-x605fc	4011
+sog06	4012
+lava lxx501	4013
+lg-m703	4014
+l-52a	4015
+lg-f620l	4016
+5028y_eea	4017
+e-tab 20	4018
+armor 9e	4019
+ae9150	4020
+e940-2878-03	4021
+xt1635-03	4022
+lenovo tb-8304f1	4023
+lg-h870ds	4024
+sm-t710	4025
+bv9500plus	4026
+infinix x650b	4027
+infinix x6517	4028
+poco x3	4029
+ox-p010-2	4030
+5086d	4031
+lg-h820	4032
+sh-m19s-y	4033
+opd2102a	4034
+23049pcd8i	4035
+mya-l13	4036
+tecno mobile kg8	4037
+v2047	4038
+agm_h5	4039
+g9	4040
+htc desire 728 dual sim	4041
+jdn2-al00hn	4042
+908sh	4043
+tablepc	4044
+lt p9	4045
+sm-a015a	4046
+nokia 2.2	4047
+m2011k2c	4048
+sm-g900h	4049
+htc one a9	4050
+w-v745-tvm	4051
+s4	4052
+s6	4053
+q10	4054
+lg-h440ar	4055
+sm-t805y	4056
+hammer_explorer	4057
+g8231	4058
+lava be_u	4059
+sm-s916w	4060
+sm-t800	4061
+huawei lua-l01	4062
+sm-t810	4063
+sm-t825	4064
+601ht	4065
+cph1719	4066
+infinix x663c	4067
+moto g13	4068
+z5158	4069
+neffos x1 max	4070
+2201122c	4071
+stratus_c7	4072
+mya-l23	4073
+a002sh	4074
+9295g	4075
+ta-1044	4076
+lenovo a2016b30	4077
+rmx3560	4078
+infinix hot 4 lite	4079
+lenovo tb128xu	4080
+b2021	4081
+v2136a	4082
+asus_z017d	4083
+i3213	4084
+gionee f8 neo	4085
+ztg01	4086
+infinix x6815d	4087
+nem-l51	4088
+epic pro_1	4089
+sm-j710k	4090
+a24	4091
+lgls992	4092
+sm-g850fq	4093
+bv6600	4094
+c20 pro	4095
+lenovo yt3-850m	4096
+scv43-u	4097
+sm-p585y	4098
+rmx3493	4099
+redmi y1 lite	4100
+ravoz z6 pro	4101
+nem-l21	4102
+sm-t815y	4103
+aquaris x5 plus	4104
+pegt00	4105
+sh-53a	4106
+wp5 pro	4107
+sm-a600az	4108
+neffos c7s	4109
+x5-lg	4110
+m12pro	4111
+h4213	4112
+v2236	4113
+vivo x7plus	4114
+sm-g611k	4115
+sm-g611l	4116
+sm-n910s	4117
+geo10x	4118
+ravoz z3 pro	4119
+x96pro	4120
+z6201v	4121
+plume l4 pro	4122
+j9l	4123
+tecno in1 pro	4124
+via g5	4125
+ihunt like 12 pro	4126
+vivo v11i	4127
+sm-x706n	4128
+e7446	4129
+hisense infinity h60 5g	4130
+808sh	4131
+horizon_m	4132
+f8131	4133
+tecno ad9	4134
+lg-us998	4135
+s30	4136
+tecno bd2	4137
+mi 5s plus	4138
+asus_z012da	4139
+s53	4140
+sm-g920r4	4141
+itel l6503	4142
+imo q4 pro	4143
+sm-g389f	4144
+a6_max	4145
+sm-g388f	4146
+s91	4147
+t610k	4148
+vhem	4149
+sm-a510y	4150
+pcam10	4151
+agm x3	4152
+sm-j337r7	4153
+aquaris m5	4154
+alcatel_6060c	4155
+rmx2022	4156
+rmx2025	4157
+star 4	4158
+air1 pro	4159
+v2218	4160
+tecno ax8	4161
+lenovo a1010a20	4162
+asus_z01gd	4163
+coolpad c203	4164
+sh-51c	4165
+j8210	4166
+d-01h	4167
+wiko u614as	4168
+220733spi	4169
+22111317pi	4170
+rmx3300	4171
+samsung-sm-j727az	4172
+sm-n920t	4173
+vivo v3max a	4174
+samsung-sm-g920a	4175
+one pro	4176
+asus_z01md	4177
+scm-al09	4178
+phb110	4179
+b110dl	4180
+cph2459	4181
+infinix x606d	4182
+sm-g935p	4183
+tecno be7	4184
+kodak smartway m2	4185
+a20s	4186
+motorola defy	4187
+c30	4188
+jmm-al00	4189
+asus_z01bdb	4190
+lenovo k14 note	4191
+moto g power (xt2041dl)	4192
+infinix x610b	4193
+w-v745-ope	4194
+h8116	4195
+nomi_c101044	4196
+lenovo l18081	4197
+rd86qe	4198
+alcatel_5059r	4199
+v2072a	4200
+sm-n915l	4201
+xq-be52	4202
+sm-a700f	4203
+lenovo tb3-730x	4204
+lenovo k10	4205
+casper_via_a2	4206
+lm-x510k	4207
+bison2021	4208
+neffos y5 lite	4209
+s30 ultra apex 2021	4210
+vivo y91	4211
+802lg	4212
+v2055a	4213
+g91 pro	4214
+c16_pro	4215
+u696cl	4216
+hisense infinity e30	4217
+tecno lb6	4218
+rp03	4219
+rp04	4220
+itel a510w	4221
+sm-t380	4222
+vivo y11	4223
+w-v851-eea	4224
+tecno mobile kg6k	4225
+vivo y19	4226
+itel a512w	4227
+x98pro	4228
+tectoy_5029y	4229
+5053k	4230
+stf	4231
+a33f	4232
+gionee f9	4233
+z899vl	4234
+aqm-lx1	4235
+t766h_tr	4236
+sm-f707u1	4237
+peum00	4238
+jsn-al00	4239
+rmx3142	4240
+605sh	4241
+huawei kii-l21	4242
+le x526	4243
+v1832a	4244
+l-01k	4245
+5052d	4246
+htc desire 828 dual sim	4247

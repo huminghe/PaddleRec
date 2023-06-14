@@ -34,6 +34,8 @@ class RecDataset(IterableDataset):
         self.long_seq_strategy = config.get("hyper_parameter.long_seq_strategy", 1)
         self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
+        self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
+        self.unk = 1
 
         self.init()
         self.count = 0
@@ -53,24 +55,27 @@ class RecDataset(IterableDataset):
                     item_country_id = int(conts[3])
                     ads_group_id = int(conts[4])
                     if ads_group_id >= self.ads_group_count:
-                        ads_group_id = 1
+                        ads_group_id = self.unk
                     brand_id = int(conts[5])
                     if brand_id >= self.brand_count:
-                        brand_id = 1
+                        brand_id = self.unk
                     height_id = int(conts[6])
-                    time_stamp = int(conts[7])
+                    phone_model_id = int(conts[7])
+                    if phone_model_id >= self.phone_model_count:
+                        phone_model_id = self.unk
+                    time_stamp = int(conts[8])
                     self.users.add(user_id)
                     self.items.add(item_id)
                     if user_id not in self.graph:
                         self.graph[user_id] = []
                         self.item_graph[user_id] = []
                     if item_id not in self.item_graph[user_id]:
-                        self.graph[user_id].append(
-                            (item_id, time_stamp, user_country_id, item_country_id, ads_group_id, brand_id, height_id))
+                        self.graph[user_id].append((item_id, time_stamp, user_country_id, item_country_id, ads_group_id,
+                                                    brand_id, height_id, phone_model_id))
                         self.item_graph[user_id].append(item_id)
         for user_id, value in self.graph.items():
             value.sort(key=lambda x: x[1])
-            self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6]) for x in value]
+            self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6], x[7]) for x in value]
         self.users = list(self.users)
         self.items = list(self.items)
 
@@ -97,7 +102,7 @@ class RecDataset(IterableDataset):
                         k = max(random.choice(range(0, len(item_list))), random.choice(range(0, len(item_list))))
                     else:
                         k = random.choice(range(0, len(item_list)))
-                    (item_id, user_country_id, item_country_id, ads_group_id, brand_id, height_id) = item_list[k]
+                    (item_id, user_country_id, item_country_id, ads_group_id, brand_id, height_id, phone_model_id) = item_list[k]
 
                     if k >= self.maxlen:
                         hist_item_list = [x[0] for x in item_list[k - self.maxlen:k]]
@@ -117,5 +122,6 @@ class RecDataset(IterableDataset):
                         np.array([item_country_id]).astype("int64"),
                         np.array([ads_group_id]).astype("int64"),
                         np.array([brand_id]).astype("int64"),
-                        np.array([height_id]).astype("int64")
+                        np.array([height_id]).astype("int64"),
+                        np.array([phone_model_id]).astype("int64")
                     ]

@@ -1,8 +1,8 @@
 
 
-select a.distinct_id, a.author_id_str, a.country, a.author_country, a.time, c.groupId, a.manufacturer, a.height from
+select a.distinct_id, a.author_id_str, a.country, a.author_country, a.time, c.groupId, a.manufacturer, a.height, a.model from
 (select distinct_id, author_id_str, duration_time, `time` as time, `$country` as country, author_country,
-`$manufacturer` as manufacturer, `$screen_height` as height from events where
+`$model` as model, `$manufacturer` as manufacturer, `$screen_height` as height from events where
 event = 'click' and click_element = 'CARD' and page_url = 'meet'
 and author_id_str is not null
 and `date` >='2022-01-01') a
@@ -19,9 +19,9 @@ on a.distinct_id = c.first_id
 where a.time < b.first_time
 
 
-select a.distinct_id, a.author_id_str, a.country, a.author_country, a.time, c.groupId, a.manufacturer, a.height from
+select a.distinct_id, a.author_id_str, a.country, a.author_country, a.time, c.groupId, a.manufacturer, a.height, a.model from
 (select distinct_id, author_id_str, duration_time, `time` as time, `$country` as country, author_country,
-`$manufacturer` as manufacturer, `$screen_height` as height from events where
+`$model` as model, `$manufacturer` as manufacturer, `$screen_height` as height from events where
 event = 'click' and click_name = 'LIKE'
 and author_id_str is not null
 and `date` >='2022-01-01') a
