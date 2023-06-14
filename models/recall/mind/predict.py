@@ -65,7 +65,7 @@ phone_height_id_map_path = config.get("runner.phone_height_id_map_path", None)
 
 ads_group_count = config.get("hyper_parameters.ads_group_count", None)
 brand_count = config.get("hyper_parameters.brand_count", None)
-phone_model_count = config.get("phone_model_count", None)
+phone_model_count = config.get("hyper_parameters.phone_model_count", None)
 
 os.environ["CPU_NUM"] = str(config.get("runner.thread_num", 2))
 
