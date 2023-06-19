@@ -35,6 +35,7 @@ class RecDataset(IterableDataset):
         self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
+        self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.unk = 1
 
         self.init()
@@ -63,6 +64,8 @@ class RecDataset(IterableDataset):
                     phone_model_id = int(conts[7])
                     if phone_model_id >= self.phone_model_count:
                         phone_model_id = self.unk
+                    if item_id >= self.item_count:
+                        item_id = self.unk
                     time_stamp = int(conts[8])
                     self.users.add(user_id)
                     self.items.add(item_id)

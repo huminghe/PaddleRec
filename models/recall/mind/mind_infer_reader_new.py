@@ -25,6 +25,7 @@ class RecDataset(IterableDataset):
         self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
+        self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.init()
 
     def init(self):
@@ -33,6 +34,11 @@ class RecDataset(IterableDataset):
         unk = 1
         self.unk = unk
 
+    def refine_item_id(self, x):
+        if x >= self.item_count:
+            x = self.unk
+        return x
+
     def __iter__(self):
         for file in self.file_list:
             with open(file, "r") as rf:
@@ -40,7 +46,7 @@ class RecDataset(IterableDataset):
                     hist_items, hist_countries, user_country, target_item, ads_group, brand, height, phone_model, time = line.strip().split(
                         "\t")
 
-                    hist_item_list = [int(x) for x in hist_items.split(",")]
+                    hist_item_list = [self.refine_item_id(int(x)) for x in hist_items.split(",")]
                     hist_country_list = [int(x) for x in hist_countries.split(",")]
 
                     # if len(hist_item_list) < 2:
