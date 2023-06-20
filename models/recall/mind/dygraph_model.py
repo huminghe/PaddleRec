@@ -41,9 +41,11 @@ class DygraphModel():
         capsual_init_std = config.get("hyper_parameters.capsual.init_std", 1.0)
         dropout = config.get("hyper_parameters.dropout", 0.2)
         more_features = config.get("hyper_parameters.more_features", False)
+        more_dropout = config.get("hyper_parameters.more_dropout", False)
         MIND_model = net.MindLayer(item_count, country_count, user_country_count, ads_group_count, brand_count,
                                    height_count, phone_model_count, embedding_dim, hidden_size, neg_samples, maxlen,
-                                   pow_p, capsual_iters, capsual_max_k, capsual_init_std, dropout, more_features)
+                                   pow_p, capsual_iters, capsual_max_k, capsual_init_std, dropout, more_features,
+                                   more_dropout)
         return MIND_model
 
     # define feeds which convert numpy of batch data to paddle.tensor 

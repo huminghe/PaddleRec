@@ -123,6 +123,8 @@ class Mind_Capsual_Layer(nn.Layer):
                  maxlen=32,
                  k_max=3,
                  init_std=1.0,
+                 dropout=0.2,
+                 more_dropout=False,
                  batch_size=None):
         super(Mind_Capsual_Layer, self).__init__()
 
@@ -133,6 +135,8 @@ class Mind_Capsual_Layer(nn.Layer):
         self.init_std = init_std
         self.k_max = k_max
         self.batch_size = batch_size
+        self.dropout = nn.Dropout(p=dropout)
+        self.more_dropout = more_dropout
 
         # B2I routing
         self.routing_logits = self.create_parameter(
@@ -188,6 +192,8 @@ class Mind_Capsual_Layer(nn.Layer):
         # S*e
         low_capsule_new = paddle.matmul(item_his_emb,
                                         self.bilinear_mapping_matrix)
+        if self.training and self.more_dropout:
+            low_capsule_new = self.dropout(low_capsule_new)
 
         low_capsule_new_tile = paddle.tile(low_capsule_new, [1, 1, self.k_max])
         low_capsule_new_tile = paddle.reshape(
@@ -218,6 +224,8 @@ class Mind_Capsual_Layer(nn.Layer):
                 paddle.transpose(high_capsule, [0, 1, 3, 2]))
             B_delta = paddle.reshape(
                 B_delta, shape=[-1, self.k_max, self.maxlen])
+            if self.training and self.more_dropout:
+                B_delta = self.dropout(B_delta)
             B += B_delta
 
         B_mask = paddle.where(mask, B, pad)
@@ -225,6 +233,8 @@ class Mind_Capsual_Layer(nn.Layer):
         W = paddle.unsqueeze(W, axis=2)
         interest_capsule = paddle.matmul(W, low_capsule_new_tile)
         interest_capsule = self.squash(interest_capsule)
+        if self.training and self.more_dropout:
+            interest_capsule = self.dropout(interest_capsule)
         high_capsule = paddle.reshape(interest_capsule,
                                       [-1, self.k_max, self.output_units])
 
@@ -259,6 +269,7 @@ class MindLayer(nn.Layer):
                  capsual_init_std=1.0,
                  dropout=0.2,
                  more_features=False,
+                 more_dropout=False,
                  batch_size=None):
         super(MindLayer, self).__init__()
         self.pow_p = pow_p
@@ -344,12 +355,15 @@ class MindLayer(nn.Layer):
             iters=capsual_iters,
             k_max=capsual_max_k,
             init_std=capsual_init_std,
+            dropout=dropout,
+            more_dropout=more_dropout,
             batch_size=batch_size)
         self.sampled_softmax = Mind_SampledSoftmaxLoss_Layer(
             item_count, neg_samples, batch_size=batch_size)
 
         self.dropout = nn.Dropout(p=dropout)
         self.more_features = more_features
+        self.more_dropout = more_dropout
         self.item_emb_linear = nn.Linear(in_features=2 * embedding_dim, out_features=embedding_dim)
         self.user_country_emb_linear = nn.Linear(in_features=embedding_dim, out_features=hidden_size)
         self.user_features_emb_linear = nn.Linear(in_features=5 * embedding_dim, out_features=hidden_size)
@@ -397,6 +411,8 @@ class MindLayer(nn.Layer):
 
         hit_concat_emb = paddle.concat([hit_item_emb, hit_country_emb], axis=-1)
         hist_emb = F.relu(self.item_emb_linear(hit_concat_emb))
+        if self.training and self.more_dropout:
+            hist_emb = self.dropout(hist_emb)
 
         user_country_emb = self.user_country_emb(user_country)
         if self.training:
@@ -418,6 +434,9 @@ class MindLayer(nn.Layer):
             user_features_emb = F.relu(self.user_features_emb_linear(concat_emb))
         else:
             user_features_emb = F.relu(self.user_country_emb_linear(user_country_emb))
+
+        if self.training and self.more_dropout:
+            user_features_emb = self.dropout(user_features_emb)
 
         user_cap, cap_weights, cap_mask = self.capsual_layer(hist_emb,
                                                              seqlen,
