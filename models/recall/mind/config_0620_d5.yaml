@@ -25,8 +25,8 @@ runner:
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/valid-0614"
   infer_load_path: "output_model_mind_0620_d5"
-  infer_start_epoch: 1
-  infer_end_epoch: 300
+  infer_start_epoch: 50
+  infer_end_epoch: 140
   batches_per_epoch: 1000
   author_country_map_path: "data/author-0614/author_country_seq.txt"
 
