@@ -37,6 +37,7 @@ class RecDataset(IterableDataset):
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
         self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.shuffle_data = config.get("runner.shuffle_data", False)
+        self.deduplicate_data = config.get("runner.deduplicate_data", False)
         self.unk = 1
 
         self.init()
@@ -73,7 +74,7 @@ class RecDataset(IterableDataset):
                     if user_id not in self.graph:
                         self.graph[user_id] = []
                         self.item_graph[user_id] = []
-                    if item_id not in self.item_graph[user_id]:
+                    if not self.deduplicate_data or (item_id not in self.item_graph[user_id]):
                         self.graph[user_id].append((item_id, time_stamp, user_country_id, item_country_id, ads_group_id,
                                                     brand_id, height_id, phone_model_id))
                         self.item_graph[user_id].append(item_id)
