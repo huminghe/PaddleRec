@@ -49,8 +49,8 @@ hyper_parameters:
   country_count: 41
   user_country_count: 227
   ads_group_count: 200
-  brand_count: 50
-  phone_model_count: 1100
+  brand_count: 80
+  phone_model_count: 1500
   height_count: 8
   embedding_dim: 64
   hidden_size: 64
