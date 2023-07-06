@@ -36,6 +36,7 @@ class RecDataset(IterableDataset):
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
         self.item_count = config.get("hyper_parameters.item_count", 2000)
+        self.shuffle_data = config.get("runner.shuffle_data", False)
         self.unk = 1
 
         self.init()
@@ -105,6 +106,8 @@ class RecDataset(IterableDataset):
                         k = max(random.choice(range(0, len(item_list))), random.choice(range(0, len(item_list))))
                     else:
                         k = random.choice(range(0, len(item_list)))
+                    if self.shuffle_data:
+                        random.shuffle(item_list)
                     (item_id, user_country_id, item_country_id, ads_group_id, brand_id, height_id, phone_model_id) = item_list[k]
 
                     if k >= self.maxlen:
