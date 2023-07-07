@@ -20,11 +20,11 @@ runner:
   train_batch_size: 128
   epochs: 500
   print_interval: 100
-  model_save_path: "output_model_mind_0706_paid_shu"
+  model_save_path: "output_model_mind_0706_paid_shu_new"
   infer_batch_size: 128
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/valid-0706"
-  infer_load_path: "output_model_mind_0706_paid_shu"
+  infer_load_path: "output_model_mind_0706_paid_shu_new"
   infer_start_epoch: 1
   infer_end_epoch: 300
   batches_per_epoch: 1000
