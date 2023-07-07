@@ -13,7 +13,7 @@
 # limitations under the License.
 
 runner:
-  train_data_dir: "data/train-0614"
+  train_data_dir: "data/train-0706"
   train_reader_path: "mind_reader" # importlib format
   use_gpu: True
   use_auc: False
@@ -23,7 +23,7 @@ runner:
   model_save_path: "output_model_mind_0706_paid_shu"
   infer_batch_size: 128
   infer_reader_path: "mind_infer_reader_new" # importlib format
-  test_data_dir: "data/valid-0614"
+  test_data_dir: "data/valid-0706"
   infer_load_path: "output_model_mind_0706_paid_shu"
   infer_start_epoch: 1
   infer_end_epoch: 300
