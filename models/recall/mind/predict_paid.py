@@ -40,7 +40,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-config_yaml = "config_predict.yaml"
+config_yaml = "config_predict_paid.yaml"
 abs_dir = os.path.dirname(os.path.abspath(config_yaml))
 config_yaml = get_abs_model(config_yaml)
 
@@ -87,15 +87,8 @@ b = np.ascontiguousarray(numpy.transpose(dy_model.output_softmax_linear.weight.n
 
 import faiss
 
-if use_gpu:
-    res = faiss.StandardGpuResources()
-    flat_config = faiss.GpuIndexFlatConfig()
-    flat_config.device = 0
-    faiss_index = faiss.GpuIndexFlatIP(res, b.shape[-1], flat_config)
-    faiss_index.add(b)
-else:
-    faiss_index = faiss.IndexFlatIP(b.shape[-1])
-    faiss_index.add(b)
+faiss_index = faiss.IndexFlatIP(b.shape[-1])
+faiss_index.add(b)
 
 
 def get_map(path, num=999999):
@@ -120,6 +113,18 @@ phone_model_id_map, _ = get_map(phone_model_id_map_path, phone_model_count)
 phone_height_id_map, _ = get_map(phone_height_id_map_path, phone_model_count)
 UNK_ID = 1
 PADDING_ID = 0
+
+
+def update_online_cg(author_list):
+    author_id_list = [author_id_map.get(x, UNK_ID) for x in author_list]
+    online_b = b[author_id_list]
+    faiss_index = faiss.IndexFlatIP(online_b.shape[-1])
+    faiss_index.add(online_b)
+    result_author_id_map = {}
+    for i in range(len(author_id_list)):
+        result_author_id_map[i] = author_id_list[i]
+    reverse_author_id_map = result_author_id_map
+    return
 
 
 def predict(batch_data, top_n, threshold, logger):
@@ -180,7 +185,7 @@ def create_predict_data(author_list, country, ads_group, brand, phone_model):
 
 
 def predict_author_result(author_list, country, ads_group, brand, phone_model, top_n, logger):
-    threshold = -0.75
+    threshold = -5
     batch_data = create_predict_data(author_list, country, ads_group, brand, phone_model)
     logger.info("batch data: " + str(batch_data))
     predict_result = predict(batch_data, top_n, threshold, logger)
