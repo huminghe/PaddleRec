@@ -120,7 +120,11 @@ class predictor():
         self.result_author_id_map = {}
 
     def update_online_cg(self, author_list, logger):
-        author_id_list = [self.author_id_map.get(x, UNK_ID) for x in author_list]
+        author_id_list = []
+        for i in range(len(author_list)):
+            author_id = self.author_id_map.get(author_list[i], UNK_ID)
+            if author_id != UNK_ID:
+                author_id_list.append(author_id)
         online_b = b[author_id_list]
         logger.info("online b: " + str(online_b))
         logger.info("online b length: " + str(len(online_b)))
@@ -128,7 +132,7 @@ class predictor():
         self.faiss_index.add(online_b)
         for i in range(len(author_id_list)):
             self.result_author_id_map[i] = author_id_list[i]
-        logger.info("reverse author id map: " + str(self.result_author_id_map))
+        logger.info("result author id map: " + str(self.result_author_id_map))
         return
 
     def predict(self, batch_data, top_n, threshold, logger):
