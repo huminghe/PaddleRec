@@ -87,9 +87,6 @@ b = np.ascontiguousarray(numpy.transpose(dy_model.output_softmax_linear.weight.n
 
 import faiss
 
-faiss_index = faiss.IndexFlatIP(b.shape[-1])
-faiss_index.add(b)
-
 
 def get_map(path, num=999999):
     map_result = {}
@@ -104,90 +101,96 @@ def get_map(path, num=999999):
     return map_result, reverse_map_result
 
 
-author_country_map, _ = get_map(author_country_map_path)
-author_id_map, reverse_author_id_map = get_map(author_id_map_path, author_count)
-country_id_map, _ = get_map(country_id_map_path)
-brand_id_map, _ = get_map(brand_id_map_path, brand_count)
-ads_group_id_map, _ = get_map(ads_group_id_map_path, ads_group_count)
-phone_model_id_map, _ = get_map(phone_model_id_map_path, phone_model_count)
-phone_height_id_map, _ = get_map(phone_height_id_map_path, phone_model_count)
 UNK_ID = 1
 PADDING_ID = 0
 
 
-def update_online_cg(author_list):
-    author_id_list = [author_id_map.get(x, UNK_ID) for x in author_list]
-    online_b = b[author_id_list]
-    faiss_index = faiss.IndexFlatIP(online_b.shape[-1])
-    faiss_index.add(online_b)
-    result_author_id_map = {}
-    for i in range(len(author_id_list)):
-        result_author_id_map[i] = author_id_list[i]
-    reverse_author_id_map = result_author_id_map
-    return
+class predictor():
 
+    def __init__(self):
+        self.faiss_index = faiss.IndexFlatIP(b.shape[-1])
+        self.faiss_index.add(b)
+        self.author_country_map, _ = get_map(author_country_map_path)
+        self.author_id_map, self.reverse_author_id_map = get_map(author_id_map_path, author_count)
+        self.country_id_map, _ = get_map(country_id_map_path)
+        self.brand_id_map, _ = get_map(brand_id_map_path, brand_count)
+        self.ads_group_id_map, _ = get_map(ads_group_id_map_path, ads_group_count)
+        self.phone_model_id_map, _ = get_map(phone_model_id_map_path, phone_model_count)
+        self.phone_height_id_map, _ = get_map(phone_height_id_map_path, phone_model_count)
 
-def predict(batch_data, top_n, threshold, logger):
-    user_embs, _ = dy_model_class.infer_forward(dy_model, None,
-                                                batch_data, config)
+    def update_online_cg(self, author_list, logger):
+        author_id_list = [self.author_id_map.get(x, UNK_ID) for x in author_list]
+        online_b = b[author_id_list]
+        logger.info("online b: " + str(online_b))
+        logger.info("online b length: " + str(len(online_b)))
+        self.faiss_index = faiss.IndexFlatIP(online_b.shape[-1])
+        self.faiss_index.add(online_b)
+        result_author_id_map = {}
+        for i in range(len(author_id_list)):
+            result_author_id_map[i] = author_id_list[i]
+        self.reverse_author_id_map = result_author_id_map
+        logger.info("reverse author id map: " + str(self.reverse_author_id_map))
+        return
 
-    user_embs = user_embs.numpy()
-    user_embs = np.reshape(user_embs, [-1, user_embs.shape[-1]])
-    D, I = faiss_index.search(user_embs, top_n)
-    item_list_set = set()
-    item_cor_list = []
-    item_list = list(zip(np.reshape(I, -1), np.reshape(D, -1)))
-    item_list.sort(key=lambda x: x[1], reverse=True)
-    for j in range(len(item_list)):
-        if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > threshold:
-            item_list_set.add(item_list[j][0])
-            item_cor_list.append(item_list[j])
-            if len(item_list_set) >= top_n:
-                break
-    return item_cor_list
+    def predict(self, batch_data, top_n, threshold, logger):
+        user_embs, _ = dy_model_class.infer_forward(dy_model, None,
+                                                    batch_data, config)
 
+        user_embs = user_embs.numpy()
+        user_embs = np.reshape(user_embs, [-1, user_embs.shape[-1]])
+        D, I = self.faiss_index.search(user_embs, top_n)
+        item_list_set = set()
+        item_cor_list = []
+        item_list = list(zip(np.reshape(I, -1), np.reshape(D, -1)))
+        item_list.sort(key=lambda x: x[1], reverse=True)
+        for j in range(len(item_list)):
+            if item_list[j][0] not in item_list_set and item_list[j][0] != 0 and item_list[j][1] > threshold:
+                item_list_set.add(item_list[j][0])
+                item_cor_list.append(item_list[j])
+                if len(item_list_set) >= top_n:
+                    break
+        return item_cor_list
 
-def create_predict_data(author_list, country, ads_group, brand, phone_model):
-    author_id_list = [author_id_map.get(x, UNK_ID) for x in author_list]
-    author_country_list = [author_country_map.get(x, UNK_ID) for x in author_list]
-    country_id = country_id_map.get(country.lower(), UNK_ID)
-    ads_group_id = ads_group_id_map.get(ads_group, UNK_ID)
-    brand_id = brand_id_map.get(brand.lower(), UNK_ID)
-    phone_model_id = phone_model_id_map.get(phone_model.lower(), UNK_ID)
-    phone_height_id = phone_height_id_map.get(phone_model.lower(), 2)
+    def create_predict_data(self, author_list, country, ads_group, brand, phone_model):
+        author_id_list = [self.author_id_map.get(x, UNK_ID) for x in author_list]
+        author_country_list = [self.author_country_map.get(x, UNK_ID) for x in author_list]
+        country_id = self.country_id_map.get(country.lower(), UNK_ID)
+        ads_group_id = self.ads_group_id_map.get(ads_group, UNK_ID)
+        brand_id = self.brand_id_map.get(brand.lower(), UNK_ID)
+        phone_model_id = self.phone_model_id_map.get(phone_model.lower(), UNK_ID)
+        phone_height_id = self.phone_height_id_map.get(phone_model.lower(), 2)
 
-    seq_lens = []
-    output_list = []
-    output_country_list = []
-    user_country_list = []
-    ads_group_list = []
-    brand_list = []
-    phone_height_list = []
-    phone_model_list = []
+        seq_lens = []
+        output_list = []
+        output_country_list = []
+        user_country_list = []
+        ads_group_list = []
+        brand_list = []
+        phone_height_list = []
+        phone_model_list = []
 
-    length = len(author_id_list)
-    seq_lens.append(min(maxlen, length))
-    hist_item_list = author_id_list[-maxlen:] + [PADDING_ID] * max(0, maxlen - length)
-    hist_country_list = author_country_list[-maxlen:] + [PADDING_ID] * max(0, maxlen - length)
+        length = len(author_id_list)
+        seq_lens.append(min(maxlen, length))
+        hist_item_list = author_id_list[-maxlen:] + [PADDING_ID] * max(0, maxlen - length)
+        hist_country_list = author_country_list[-maxlen:] + [PADDING_ID] * max(0, maxlen - length)
 
-    output_list.append(np.array([hist_item_list]).astype("int64"))
-    output_country_list.append(np.array([hist_country_list]).astype("int64"))
-    user_country_list.append(country_id)
-    ads_group_list.append(ads_group_id)
-    brand_list.append(brand_id)
-    phone_height_list.append(phone_height_id)
-    phone_model_list.append(phone_model_id)
+        output_list.append(np.array([hist_item_list]).astype("int64"))
+        output_country_list.append(np.array([hist_country_list]).astype("int64"))
+        user_country_list.append(country_id)
+        ads_group_list.append(ads_group_id)
+        brand_list.append(brand_id)
+        phone_height_list.append(phone_height_id)
+        phone_model_list.append(phone_model_id)
 
-    return output_list + [np.array([seq_lens]).astype("int64")] + output_country_list + [
-        np.array([user_country_list]).astype("int64")] + [np.array([ads_group_list]).astype("int64")] + [
-               np.array([brand_list]).astype("int64")] + [np.array([phone_height_list]).astype("int64")] + [
-               np.array([phone_model_list]).astype("int64")]
+        return output_list + [np.array([seq_lens]).astype("int64")] + output_country_list + [
+            np.array([user_country_list]).astype("int64")] + [np.array([ads_group_list]).astype("int64")] + [
+                   np.array([brand_list]).astype("int64")] + [np.array([phone_height_list]).astype("int64")] + [
+                   np.array([phone_model_list]).astype("int64")]
 
-
-def predict_author_result(author_list, country, ads_group, brand, phone_model, top_n, logger):
-    threshold = -5
-    batch_data = create_predict_data(author_list, country, ads_group, brand, phone_model)
-    logger.info("batch data: " + str(batch_data))
-    predict_result = predict(batch_data, top_n, threshold, logger)
-    author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
-    return author_info_list
+    def predict_author_result(self, author_list, country, ads_group, brand, phone_model, top_n, logger):
+        threshold = -2
+        batch_data = self.create_predict_data(author_list, country, ads_group, brand, phone_model)
+        logger.info("batch data: " + str(batch_data))
+        predict_result = self.predict(batch_data, top_n, threshold, logger)
+        author_info_list = [(self.reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
+        return author_info_list

@@ -27,6 +27,9 @@ def response_return_template(code, message, result=None):
         return {'status': {'code': code, 'message': message}}
 
 
+predictor = predict_paid.predictor()
+
+
 @app.route("/topfunny/recommend_paid", methods=['POST'])
 def recommend_v2():
     data = request.json
@@ -40,7 +43,7 @@ def recommend_v2():
     app.logger.info("history: " + str(history_list) + ",   country: " + str(country) + ",   brand: " + str(brand) +
                     ",   model: " + str(model) + ",   ads_group: " + str(ads_group) + ",   num: " + str(num))
 
-    result = predict_paid.predict_author_result(history_list, country, ads_group, brand, model, num, app.logger)
+    result = predictor.predict_author_result(history_list, country, ads_group, brand, model, num, app.logger)
     result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)
@@ -51,7 +54,8 @@ def recommend_v2():
 def update_online_cg():
     data = request.json
     cg_list = data['cg_list']
-    result = predict_paid.update_online_cg(cg_list)
+    app.logger.info("update online cg, cg list: " + str(cg_list))
+    result = predictor.update_online_cg(cg_list, app.logger)
     return_value = response_return_template(200, 'OK', result)
     return json.dumps(return_value, ensure_ascii=False)
 
