@@ -117,6 +117,7 @@ class predictor():
         self.ads_group_id_map, _ = get_map(ads_group_id_map_path, ads_group_count)
         self.phone_model_id_map, _ = get_map(phone_model_id_map_path, phone_model_count)
         self.phone_height_id_map, _ = get_map(phone_height_id_map_path, phone_model_count)
+        self.result_author_id_map = {}
 
     def update_online_cg(self, author_list, logger):
         author_id_list = [self.author_id_map.get(x, UNK_ID) for x in author_list]
@@ -125,11 +126,9 @@ class predictor():
         logger.info("online b length: " + str(len(online_b)))
         self.faiss_index = faiss.IndexFlatIP(online_b.shape[-1])
         self.faiss_index.add(online_b)
-        result_author_id_map = {}
         for i in range(len(author_id_list)):
-            result_author_id_map[i] = author_id_list[i]
-        self.reverse_author_id_map = result_author_id_map
-        logger.info("reverse author id map: " + str(self.reverse_author_id_map))
+            self.result_author_id_map[i] = author_id_list[i]
+        logger.info("reverse author id map: " + str(self.result_author_id_map))
         return
 
     def predict(self, batch_data, top_n, threshold, logger):
@@ -188,9 +187,9 @@ class predictor():
                    np.array([phone_model_list]).astype("int64")]
 
     def predict_author_result(self, author_list, country, ads_group, brand, phone_model, top_n, logger):
-        threshold = -2
+        threshold = -2.5
         batch_data = self.create_predict_data(author_list, country, ads_group, brand, phone_model)
         logger.info("batch data: " + str(batch_data))
         predict_result = self.predict(batch_data, top_n, threshold, logger)
-        author_info_list = [(self.reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
+        author_info_list = [(self.reverse_author_id_map.get(self.result_author_id_map.get(x[0], UNK_ID), "0"), x[1] - threshold) for x in predict_result]
         return author_info_list
