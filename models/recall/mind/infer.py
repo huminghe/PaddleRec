@@ -168,6 +168,7 @@ def main(args):
                             item_cor_list.append(item_list[j][0])
                             if len(item_list_set) >= args.top_n:
                                 break
+                    print(str(item_cor_list))
                     iid_list = list(filter(lambda x: x != 0, list(iid_list)))
                     true_item_set = set(iid_list)
                     for no, iid in enumerate(item_cor_list):
