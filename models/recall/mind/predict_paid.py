@@ -191,7 +191,7 @@ class predictor():
                    np.array([phone_model_list]).astype("int64")]
 
     def predict_author_result(self, author_list, country, ads_group, brand, phone_model, top_n, logger):
-        threshold = -0.5
+        threshold = 0
         batch_data = self.create_predict_data(author_list, country, ads_group, brand, phone_model)
         logger.info("batch data: " + str(batch_data))
         predict_result = self.predict(batch_data, top_n, threshold, logger)
