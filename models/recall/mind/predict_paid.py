@@ -121,7 +121,7 @@ class Predictor:
             if author_id != UNK_ID:
                 author_id_list.append(author_id)
         online_b = b[author_id_list]
-        logger.info("online b: " + str(online_b))
+        # logger.info("online b: " + str(online_b))
         logger.info("online b length: " + str(len(online_b)))
         self.faiss_index = faiss.IndexFlatIP(online_b.shape[-1])
         self.faiss_index.add(online_b)
