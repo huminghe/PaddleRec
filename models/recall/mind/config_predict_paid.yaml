@@ -20,13 +20,13 @@ runner:
   train_batch_size: 128
   epochs: 300
   print_interval: 10
-  model_save_path: "output_model_mind_0706_paid_noshu_new"
+  model_save_path: "output_model_mind_0711_paid_s1s1"
   infer_batch_size: 1
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/valid-0706"
-  infer_load_path: "output_model_mind_0706_paid_noshu_new"
-  infer_start_epoch: 52
-  infer_end_epoch: 53
+  infer_load_path: "output_model_mind_0711_paid_s1s1"
+  infer_start_epoch: 47
+  infer_end_epoch: 48
   batches_per_epoch: 1000
   author_country_map_path: "data/author-0706/author_country_seq.txt"
   author_id_map_path: "data/author-0706/author_id_map.txt"
@@ -50,7 +50,7 @@ hyper_parameters:
     learning_rate: 0.0003
     # strategy: async
   # user-defined <key, value> pairs
-  item_count: 3500
+  item_count: 8000
   country_count: 64
   user_country_count: 227
   ads_group_count: 200
@@ -66,7 +66,7 @@ hyper_parameters:
   capsual:
     max_k: 3
   min_data_len: 1
-  sample_strategy: 3
+  sample_strategy: 1
   long_seq_strategy: 1
   more_features: True
   more_dropout: False
