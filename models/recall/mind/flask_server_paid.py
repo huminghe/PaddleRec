@@ -65,7 +65,7 @@ if __name__ == '__main__':
     port = int(sys.argv[1])
 
     logging.root.setLevel(logging.NOTSET)
-    handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
+    handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'paid_server.log'), when="MIDNIGHT",
                                        encoding='UTF-8')
     handler.setLevel(logging.INFO)
     logging_format = logging.Formatter(
