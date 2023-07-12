@@ -13,20 +13,14 @@
 # limitations under the License.
 
 from __future__ import print_function
-import argparse
-import time
 
 import os
-import warnings
 import logging
 
 import numpy
 import paddle
-import paddle.nn.functional as F
 import sys
 import numpy as np
-from numpy.linalg import norm
-import math
 
 __dir__ = os.path.dirname(os.path.abspath(__file__))
 # sys.path.append(__dir__)
@@ -105,7 +99,7 @@ UNK_ID = 1
 PADDING_ID = 0
 
 
-class predictor():
+class Predictor:
 
     def __init__(self):
         self.faiss_index = faiss.IndexFlatIP(b.shape[-1])
@@ -120,6 +114,7 @@ class predictor():
         self.result_author_id_map = {}
 
     def update_online_cg(self, author_list, logger):
+        logger.info("author list length: " + str(len(author_list)))
         author_id_list = []
         for i in range(len(author_list)):
             author_id = self.author_id_map.get(author_list[i], UNK_ID)
@@ -195,5 +190,7 @@ class predictor():
         batch_data = self.create_predict_data(author_list, country, ads_group, brand, phone_model)
         logger.info("batch data: " + str(batch_data))
         predict_result = self.predict(batch_data, top_n, threshold, logger)
-        author_info_list = [(self.reverse_author_id_map.get(self.result_author_id_map.get(x[0], UNK_ID), "0"), x[1] - threshold) for x in predict_result]
+        author_info_list = [
+            (self.reverse_author_id_map.get(self.result_author_id_map.get(x[0], UNK_ID), "0"), x[1] - threshold) for x
+            in predict_result]
         return author_info_list

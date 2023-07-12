@@ -9,15 +9,13 @@ from flask import Flask, request
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
-import inspect
-import random
-import string
 import json
 import sys
 import predict_paid
 
 app = Flask(__name__)
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+predictor = predict_paid.Predictor()
 
 
 def response_return_template(code, message, result=None):
@@ -25,9 +23,6 @@ def response_return_template(code, message, result=None):
         return {'status': {'code': code, 'message': message}, 'result': result}
     else:
         return {'status': {'code': code, 'message': message}}
-
-
-predictor = predict_paid.predictor()
 
 
 @app.route("/topfunny/recommend_paid", methods=['POST'])
@@ -66,7 +61,7 @@ if __name__ == '__main__':
 
     logging.root.setLevel(logging.NOTSET)
     handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'paid_server.log'), when="MIDNIGHT",
-                                       encoding='UTF-8')
+                                       encoding='UTF-8', backupCount=10)
     handler.setLevel(logging.INFO)
     logging_format = logging.Formatter(
         '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
