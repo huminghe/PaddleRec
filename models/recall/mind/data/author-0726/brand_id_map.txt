@@ -1,0 +1,207 @@
+[PAD]	0
+[NULL]	1
+samsung	2
+xiaomi	3
+oppo	4
+vivo	5
+oneplus	6
+huawei	7
+realme	8
+motorola	9
+google	10
+lge	11
+honor	12
+sony	13
+infinix mobility limited	14
+hmd global	15
+tcl	16
+tecno mobile limited	17
+wingtech	18
+asus	19
+lenovo	20
+nothing	21
+zte	22
+infinix	23
+nubia	24
+fih	25
+ulefone	26
+tecno	27
+blu	28
+cat	29
+blackshark	30
+wiko	31
+sharp	32
+blackview	33
+oukitel	34
+wheatek	35
+bullittgrouplimited	36
+general mobile	37
+doogee	38
+mptech	39
+hisense	40
+konnectone	41
+ant dao technology limited	42
+tinno	43
+hxy	44
+unihertz	45
+conquest	46
+reliance communications	47
+incar	48
+itel	49
+itel mobile limited	50
+joyar	51
+micromax	52
+reeder	53
+kyocera	54
+umidigi	55
+omix	56
+vsmart	57
+lava	58
+walton	59
+gigaset	60
+coosea	61
+meizu	62
+crosscall	63
+cubot	64
+htc	65
+gionee	66
+agm	67
+ravoz	68
+fcnt	69
+casper	70
+blackberry	71
+jio	72
+lt	73
+fujitsu	74
+xwirelessllc	75
+schok	76
+microsoft	77
+symphony	78
+zuum	79
+chinoe	80
+q-innovations	81
+vertu international corporation limited	82
+alps	83
+mintt	84
+inone	85
+onn	86
+premier code (private) limited	87
+a-gold	88
+tp-link	89
+umx	90
+razer	91
+sigma_mobile	92
+hafury	93
+xgody	94
+sonimtech	95
+benco	96
+haovm	97
+yulong	98
+along	99
+coolpad	100
+nuu	101
+figi	102
+ox tab	103
+a1	104
+acer	105
+dixon	106
+bkav	107
+img	108
+hotwav	109
+panasonic	110
+oscal	111
+fairphone	112
+mobiwire	113
+mobicel	114
+sky_devices	115
+essential products	116
+archos	117
+zonko	118
+bmax	119
+yes	120
+duoqin	121
+sanmu	122
+stg	123
+hot pepper inc	124
+vodafone	125
+letv	126
+treswave	127
+i-kall	128
+revoview	129
+glocalme	130
+xtr	131
+hyundai	132
+airpha	133
+positivo	134
+xiaomi mi 10 ultra	135
+maxwest	136
+mls	137
+alldocube	138
+spice	139
+advan	140
+multilaser	141
+urovo	142
+ila	143
+qmobile	144
+sky devices	145
+whoop	146
+ulesson	147
+vortex	148
+hometech	149
+bullitt	150
+hiking	151
+stoneoim	152
+innovatech	153
+evolveo	154
+welcome	155
+10or	156
+max tel fze	157
+smt_hk	158
+red	159
+zoji	160
+myphone	161
+polaroid	162
+rover	163
+spa condor electronics	164
+ihunt	165
+android	166
+sprd	167
+ibrit	168
+peaq	169
+modio	170
+true	171
+philco	172
+cetrix	173
+lemobile	174
+wileyfox	175
+elevate	176
+dialn products inc	177
+bq	178
+fortune ship	179
+noa	180
+oale	181
+minix	182
+hena	183
+unknown	184
+foxx development inc.	185
+sugar	186
+greentel	187
+tecno mobility limited	188
+x15	189
+adolf	190
+droi	191
+premio	192
+cherry_mobile	193
+kodak	194
+nous	195
+emporia	196
+fise	197
+alcatel	198
+aspera mobile	199
+m2006j10c	200
+infocus	201
+nomi	202
+qubo	203
+reliance	204
+magcomm	205
+teclast	206
