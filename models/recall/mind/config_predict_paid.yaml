@@ -13,28 +13,28 @@
 # limitations under the License.
 
 runner:
-  train_data_dir: "data/train-0706"
+  train_data_dir: "data/train-0726"
   train_reader_path: "mind_reader" # importlib format
   use_gpu: False
   use_auc: False
   train_batch_size: 128
   epochs: 300
   print_interval: 10
-  model_save_path: "output_model_mind_0711_paid_s1s1"
+  model_save_path: "output_model_mind_0727_paid_s1s3"
   infer_batch_size: 1
   infer_reader_path: "mind_infer_reader_new" # importlib format
-  test_data_dir: "data/valid-0706"
-  infer_load_path: "output_model_mind_0711_paid_s1s1"
-  infer_start_epoch: 47
-  infer_end_epoch: 48
+  test_data_dir: "data/valid-0726"
+  infer_load_path: "output_model_mind_0727_paid_s1s3"
+  infer_start_epoch: 46
+  infer_end_epoch: 47
   batches_per_epoch: 1000
-  author_country_map_path: "data/author-0706/author_country_seq.txt"
-  author_id_map_path: "data/author-0706/author_id_map.txt"
+  author_country_map_path: "data/author-0726/author_country_seq.txt"
+  author_id_map_path: "data/author-0726/author_id_map.txt"
   country_id_map_path: "data/country_code_id_map.txt"
-  brand_id_map_path: "data/author-0706/brand_id_map.txt"
-  ads_group_id_map_path: "data/author-0706/group_id_map.txt"
-  phone_model_id_map_path: "data/author-0706/model_id_map.txt"
-  phone_height_id_map_path: "data/author-0706/model_height_id_map.txt"
+  brand_id_map_path: "data/author-0726/brand_id_map.txt"
+  ads_group_id_map_path: "data/author-0726/group_id_map.txt"
+  phone_model_id_map_path: "data/author-0726/model_id_map.txt"
+  phone_height_id_map_path: "data/author-0726/model_height_id_map.txt"
 
   # distribute_config
   # sync_mode: "async"
@@ -51,12 +51,12 @@ hyper_parameters:
     # strategy: async
   # user-defined <key, value> pairs
   item_count: 8000
-  country_count: 64
+  country_count: 51
   user_country_count: 227
   ads_group_count: 200
   brand_count: 80
-  phone_model_count: 1500
-  height_count: 10
+  phone_model_count: 2000
+  height_count: 8
   embedding_dim: 64
   hidden_size: 64
   neg_samples: 256
@@ -67,6 +67,6 @@ hyper_parameters:
     max_k: 3
   min_data_len: 1
   sample_strategy: 1
-  long_seq_strategy: 1
+  long_seq_strategy: 3
   more_features: True
   more_dropout: False
