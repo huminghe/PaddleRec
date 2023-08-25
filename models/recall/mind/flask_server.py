@@ -59,8 +59,8 @@ if __name__ == '__main__':
     logging_format = logging.Formatter(
         '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
     handler.setFormatter(logging_format)
-    app.logger.addHandler(handler)
+    logging.root.addHandler(handler)
     app.logger.info('deploy server started.')
 
-    server = pywsgi.WSGIServer(('0.0.0.0', port), app)
+    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
     server.serve_forever()
