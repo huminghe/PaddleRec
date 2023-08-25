@@ -16,7 +16,7 @@ logging.root.setLevel(logging.NOTSET)
 handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                    encoding='UTF-8', backupCount=10)
 logging_format = logging.Formatter(
-    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+    '%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
 handler.setFormatter(logging_format)
 logging.root.addHandler(handler)
 
@@ -51,7 +51,7 @@ def recommend_v2():
     app.logger.info("history: " + str(history_list) + ",   country: " + str(country) + ",   brand: " + str(brand) +
                     ",   model: " + str(model) + ",   ads_group: " + str(ads_group) + ",   num: " + str(num))
 
-    result = predict.predict_author_result(history_list, country, ads_group, brand, model, num, app.logger)
+    result = predict.predict_author_result(history_list, country, ads_group, brand, model, num)
     result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)

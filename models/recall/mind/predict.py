@@ -122,7 +122,7 @@ UNK_ID = 1
 PADDING_ID = 0
 
 
-def predict(batch_data, top_n, threshold, logger):
+def predict(batch_data, top_n, threshold):
     user_embs, _ = dy_model_class.infer_forward(dy_model, None,
                                                 batch_data, config)
 
@@ -179,10 +179,10 @@ def create_predict_data(author_list, country, ads_group, brand, phone_model):
                np.array([phone_model_list]).astype("int64")]
 
 
-def predict_author_result(author_list, country, ads_group, brand, phone_model, top_n, logger):
+def predict_author_result(author_list, country, ads_group, brand, phone_model, top_n):
     threshold = -0.75
     batch_data = create_predict_data(author_list, country, ads_group, brand, phone_model)
     logger.info("batch data: " + str(batch_data))
-    predict_result = predict(batch_data, top_n, threshold, logger)
+    predict_result = predict(batch_data, top_n, threshold)
     author_info_list = [(reverse_author_id_map.get(x[0], "0"), x[1] - threshold) for x in predict_result]
     return author_info_list
