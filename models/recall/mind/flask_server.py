@@ -51,11 +51,8 @@ if __name__ == '__main__':
     os.makedirs(server_logs_dir, exist_ok=True)
     port = int(sys.argv[1])
 
-    std_handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'std_server.log'), when="MIDNIGHT",
-                                           encoding='UTF-8', backupCount=10)
     logging.root.setLevel(logging.NOTSET)
-    std_handler.setLevel(logging.INFO)
-    logging.root.addHandler(std_handler)
+    logging.basicConfig(filename='11error.log', level=logging.DEBUG)
     handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                        encoding='UTF-8', backupCount=10)
     handler.setLevel(logging.INFO)
