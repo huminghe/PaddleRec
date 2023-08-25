@@ -66,5 +66,5 @@ if __name__ == '__main__':
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
 
-    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger)
+    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
     server.serve_forever()
