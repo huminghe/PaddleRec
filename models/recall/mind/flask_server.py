@@ -10,7 +10,6 @@ import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
-app = Flask(__name__)
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 os.makedirs(server_logs_dir, exist_ok=True)
 logging.root.setLevel(logging.NOTSET)
@@ -29,6 +28,7 @@ import sys
 import predict
 from gevent import pywsgi
 
+app = Flask(__name__)
 
 
 def response_return_template(code, message, result=None):
@@ -59,10 +59,8 @@ def recommend_v2():
 
 
 if __name__ == '__main__':
-
     port = int(sys.argv[1])
     app.logger.info('deploy server started.')
-    app.logger.info(str(logging.root.handlers))
 
     server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
     server.serve_forever()
