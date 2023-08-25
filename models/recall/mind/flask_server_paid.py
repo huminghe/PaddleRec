@@ -12,6 +12,7 @@ from logging.handlers import TimedRotatingFileHandler
 import json
 import sys
 import predict_paid
+from gevent import pywsgi
 
 app = Flask(__name__)
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
@@ -59,11 +60,7 @@ if __name__ == '__main__':
     os.makedirs(server_logs_dir, exist_ok=True)
     port = int(sys.argv[1])
 
-    std_handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'std_paid_server.log'), when="MIDNIGHT",
-                                           encoding='UTF-8', backupCount=10)
     logging.root.setLevel(logging.NOTSET)
-    std_handler.setLevel(logging.INFO)
-    logging.root.addHandler(std_handler)
     handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'paid_server.log'), when="MIDNIGHT",
                                        encoding='UTF-8', backupCount=10)
     handler.setLevel(logging.INFO)
@@ -73,4 +70,5 @@ if __name__ == '__main__':
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
 
-    app.run(host='0.0.0.0', port=port, debug=False)
+    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
+    server.serve_forever()
