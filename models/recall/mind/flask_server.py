@@ -62,5 +62,5 @@ if __name__ == '__main__':
     port = int(sys.argv[1])
     app.logger.info('deploy server started.')
 
-    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
+    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=logging.root, error_log=logging.root)
     server.serve_forever()
