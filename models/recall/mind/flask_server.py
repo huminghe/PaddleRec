@@ -10,6 +10,8 @@ import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
+logging.root.setLevel(logging.NOTSET)
+
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                    encoding='UTF-8', backupCount=10)
