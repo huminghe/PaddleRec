@@ -10,18 +10,15 @@ import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
-logging.root.setLevel(logging.DEBUG)
-
-
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+logging.root.setLevel(logging.NOTSET)
 handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                    encoding='UTF-8', backupCount=10)
 logging_format = logging.Formatter(
     '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
 handler.setFormatter(logging_format)
-
 logging.root.addHandler(handler)
-app = Flask(__name__)
+
 import inspect
 import random
 import string
@@ -30,8 +27,7 @@ import sys
 import predict
 from gevent import pywsgi
 
-
-server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+app = Flask(__name__)
 
 
 def response_return_template(code, message, result=None):
@@ -64,18 +60,7 @@ def recommend_v2():
 if __name__ == '__main__':
     os.makedirs(server_logs_dir, exist_ok=True)
     port = int(sys.argv[1])
-
-    logging.root.setLevel(logging.NOTSET)
-    handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
-                                       encoding='UTF-8', backupCount=10)
-    handler.setLevel(logging.NOTSET)
-    logging_format = logging.Formatter(
-        '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
-    handler.setFormatter(logging_format)
-    app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
-    app.logger.info(str(logging.root.handlers))
-    app.logger.info(str(app.logger.handlers))
 
     server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)
     server.serve_forever()
