@@ -54,7 +54,7 @@ if __name__ == '__main__':
     logging.root.setLevel(logging.NOTSET)
     handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                        encoding='UTF-8', backupCount=10)
-    handler.setLevel(logging.INFO)
+    handler.setLevel(logging.NOTSET)
     logging_format = logging.Formatter(
         '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
     handler.setFormatter(logging_format)
