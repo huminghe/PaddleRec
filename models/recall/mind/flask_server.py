@@ -62,10 +62,10 @@ if __name__ == '__main__':
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
 
-    logger1 = logging.getLogger("t2")
+    logger1 = logging.getLogger()
     handler1 = TimedRotatingFileHandler(os.path.join(server_logs_dir, '1_server.log'), when="MIDNIGHT",
-                                       encoding='UTF-8', backupCount=10)
-    handler1.setLevel(logging.INFO)
+                                        encoding='UTF-8', backupCount=10)
+    handler1.setLevel(logging.NOTSET)
     handler1.setFormatter(logging_format)
     logger1.addHandler(handler1)
 
