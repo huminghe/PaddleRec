@@ -15,6 +15,7 @@ import string
 import json
 import sys
 import predict
+from gevent import pywsgi
 
 app = Flask(__name__)
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
@@ -65,4 +66,5 @@ if __name__ == '__main__':
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
 
-    app.run(host='0.0.0.0', port=port, debug=False)
+    server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger)
+    server.serve_forever()
