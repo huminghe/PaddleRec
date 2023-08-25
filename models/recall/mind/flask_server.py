@@ -9,6 +9,12 @@ from flask import Flask, request
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
+
+server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
+                                   encoding='UTF-8', backupCount=10)
+
+logging.root.addHandler(handler)
 import inspect
 import random
 import string
@@ -61,7 +67,6 @@ if __name__ == '__main__':
     handler.setFormatter(logging_format)
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
-    logging.root.addHandler(handler)
     app.logger.info(str(logging.root.handlers))
     app.logger.info(str(app.logger.handlers))
 
