@@ -17,6 +17,7 @@ handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), 
                                    encoding='UTF-8', backupCount=10)
 
 logging.root.addHandler(handler)
+app = Flask(__name__)
 import inspect
 import random
 import string
@@ -25,7 +26,7 @@ import sys
 import predict
 from gevent import pywsgi
 
-app = Flask(__name__)
+
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
 
