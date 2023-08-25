@@ -10,11 +10,15 @@ import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
-logging.root.setLevel(logging.NOTSET)
+logging.root.setLevel(logging.DEBUG)
+
 
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                    encoding='UTF-8', backupCount=10)
+logging_format = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+handler.setFormatter(logging_format)
 
 logging.root.addHandler(handler)
 app = Flask(__name__)
