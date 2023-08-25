@@ -11,6 +11,7 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 
 server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+os.makedirs(server_logs_dir, exist_ok=True)
 logging.root.setLevel(logging.NOTSET)
 handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'server.log'), when="MIDNIGHT",
                                    encoding='UTF-8', backupCount=10)
@@ -58,7 +59,7 @@ def recommend_v2():
 
 
 if __name__ == '__main__':
-    os.makedirs(server_logs_dir, exist_ok=True)
+
     port = int(sys.argv[1])
     app.logger.info('deploy server started.')
 
