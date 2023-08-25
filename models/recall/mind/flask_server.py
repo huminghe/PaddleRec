@@ -61,6 +61,7 @@ if __name__ == '__main__':
     handler.setFormatter(logging_format)
     app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
+    logging.root.addHandler(handler)
     app.logger.info(str(logging.root.handlers))
     app.logger.info(str(app.logger.handlers))
 
