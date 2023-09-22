@@ -69,7 +69,6 @@ class RecDataset(IterableDataset):
                     res0.append([hist, cate, line[2], line[3], float(line[4])])
 
         data_set = res0
-        random.seed(12345)
         random.shuffle(data_set)
 
         reader, batch_size, group_size = data_set, self.batch_size, self.group_size
