@@ -60,11 +60,11 @@ class RecDataset(IterableDataset):
                         continue
                     hist = line[0].split()
                     tmp = [int(x) for x in hist]
-                    if len(tmp) > 0 and max(tmp) > self.item_count:
+                    if len(tmp) == 0 or max(tmp) > self.item_count:
                         continue
                     cate = line[1].split()
                     tmp = [int(x) for x in cate]
-                    if len(tmp) > 0 and max(tmp) > self.cat_count:
+                    if len(tmp) == 0 or max(tmp) > self.cat_count:
                         continue
                     res0.append([hist, cate, line[2], line[3], float(line[4])])
 
