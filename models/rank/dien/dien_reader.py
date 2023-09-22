@@ -82,7 +82,7 @@ class RecDataset(IterableDataset):
                 for i in range(0, group_size, batch_size):
                     b = sortb[i:i + batch_size]
                     max_len = max(len(x[0]) for x in b)
-                    if max_len < 1:
+                    if max_len < 2:
                         continue
 
                     itemInput = [x[0] for x in b]
