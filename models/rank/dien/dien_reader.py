@@ -60,11 +60,11 @@ class RecDataset(IterableDataset):
                         continue
                     hist = line[0].split()
                     tmp = [int(x) for x in hist]
-                    if max(tmp) > self.item_count:
+                    if len(tmp) > 0 and max(tmp) > self.item_count:
                         continue
                     cate = line[1].split()
                     tmp = [int(x) for x in cate]
-                    if max(tmp) > self.cat_count:
+                    if len(tmp) > 0 and max(tmp) > self.cat_count:
                         continue
                     res0.append([hist, cate, line[2], line[3], float(line[4])])
 
@@ -82,7 +82,7 @@ class RecDataset(IterableDataset):
                 for i in range(0, group_size, batch_size):
                     b = sortb[i:i + batch_size]
                     max_len = max(len(x[0]) for x in b)
-                    if max_len < 2:
+                    if max_len < 1:
                         continue
 
                     itemInput = [x[0] for x in b]
