@@ -141,11 +141,12 @@ def predict_author_result(author_list, candidate_list):
     batch_data = create_predict_data(author_list, candidate_list)
     # logger.info("batch data: " + str(batch_data))
     predict_result = predict(batch_data)
-    logger.info("predict result: " + str(predict_result))
+    # logger.info("predict result: " + str(predict_result))
     predict_result = predict_result.numpy()
 
     author_score_result = []
     for i in range(len(candidate_list)):
         author_score_result.append((candidate_list[i], predict_result[i][0]))
+    logger.info("author score result: " + str(author_score_result))
 
     return author_score_result
