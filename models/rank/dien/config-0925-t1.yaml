@@ -17,13 +17,13 @@ runner:
   train_data_dir: "./data/train-0922"
   train_reader_path: "dien_reader"
   use_gpu: True
-  use_auc: False
-  train_batch_size: 128
-  epochs: 100
+  use_auc: True
+  train_batch_size: 256
+  epochs: 140
   print_interval: 20
   #model_init_path: "output_model/0" # init model
   model_save_path: "output_model_all_dien_0925_t1"
-  infer_batch_size: 128
+  infer_batch_size: 256
   infer_reader_path: "dien_reader" # importlib format
   test_data_dir: "./data/test-0922"
   infer_load_path: "output_model_all_dien_0925_t1"
@@ -34,7 +34,7 @@ runner:
 hyper_parameters:
   optimizer:
     class: SGD
-    learning_rate_base_lr: 0.5
+    learning_rate_base_lr: 0.45
     strategy: async
   use_DataLoader: True
   item_emb_size: 64
