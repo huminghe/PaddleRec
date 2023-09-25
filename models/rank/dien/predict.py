@@ -90,8 +90,7 @@ PADDING_ID = 0
 
 
 def predict(batch_data):
-    predict = dy_model_class.predict_forward(dy_model, None,
-                                             batch_data, config)
+    predict = dy_model_class.predict_forward(dy_model, batch_data, config)
 
     return predict
 
