@@ -171,21 +171,16 @@ class DIENLayer(nn.Layer):
         target_cat_emb = self.target_cat_emb_attr(target_cat)
         target_item_seq_emb = self.target_item_seq_emb_attr(target_item_seq)
         target_cat_seq_emb = self.target_cat_seq_emb_attr(target_cat_seq)
-        neg_hist_item_emb = self.neg_item_seq_emb_attr(neg_hist_item_seq)
-        neg_hist_cat_emb = self.neg_cat_seq_emb_attr(neg_hist_cat_seq)
         item_b = self.item_b_attr(target_item)
 
         # ------------------------- Interest Extractor Layer --------------------------
         hist_seq_concat = paddle.concat([hist_item_emb, hist_cat_emb], axis=2)
-        neg_hist_seq_concat = paddle.concat(
-            [neg_hist_item_emb, neg_hist_cat_emb], axis=2)
         target_seq_concat = paddle.concat(
             [target_item_seq_emb, target_cat_seq_emb], axis=2)
         target_concat = paddle.concat(
             [target_item_emb, target_cat_emb], axis=1)
         gru_shape = hist_seq_concat.shape
         reshape_hist_item_emb = hist_seq_concat
-        neg_reshape_hist_item_emb = neg_hist_seq_concat
         gru_hist_item_emb = hist_seq_concat
         gru_out, gru_hid = self.gru_net(gru_hist_item_emb)
 
@@ -241,6 +236,11 @@ class DIENLayer(nn.Layer):
             return logit
 
         # ------------------------- Auxiliary loss  --------------------------
+        neg_hist_item_emb = self.neg_item_seq_emb_attr(neg_hist_item_seq)
+        neg_hist_cat_emb = self.neg_cat_seq_emb_attr(neg_hist_cat_seq)
+        neg_hist_seq_concat = paddle.concat(
+            [neg_hist_item_emb, neg_hist_cat_emb], axis=2)
+        neg_reshape_hist_item_emb = neg_hist_seq_concat
         start_value = paddle.zeros(shape=[1], dtype="float32")
         gru_out_pad = gru_out
         pos_seq_pad = reshape_hist_item_emb

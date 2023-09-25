@@ -61,13 +61,10 @@ class DygraphModel():
         hist_cat_seq = paddle.to_tensor(batch[1], dtype="int64")
         target_item = paddle.to_tensor(batch[2], dtype="int64")
         target_cat = paddle.to_tensor(batch[3], dtype="int64")
-        label = None
-        mask = paddle.to_tensor(batch[5], dtype="float32")
-        target_item_seq = paddle.to_tensor(batch[6], dtype="int64")
-        target_cat_seq = paddle.to_tensor(batch[7], dtype="int64")
-        neg_hist_item_seq = paddle.to_tensor(batch[8], dtype="int64")
-        neg_hist_cat_seq = paddle.to_tensor(batch[9], dtype="int64")
-        return hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq
+        mask = paddle.to_tensor(batch[4], dtype="float32")
+        target_item_seq = paddle.to_tensor(batch[5], dtype="int64")
+        target_cat_seq = paddle.to_tensor(batch[6], dtype="int64")
+        return hist_item_seq, hist_cat_seq, target_item, target_cat, mask, target_item_seq, target_cat_seq
 
     # define loss function by predicts and label
     def create_loss(self, raw_pred, label):
@@ -130,13 +127,12 @@ class DygraphModel():
         return metrics_list, None
 
     def predict_forward(self, dy_model, batch_data, config):
-        hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq = self.create_feeds_predict(
+        hist_item_seq, hist_cat_seq, target_item, target_cat, mask, target_item_seq, target_cat_seq = self.create_feeds_predict(
             batch_data)
 
         raw_pred = dy_model.forward(
-            hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask,
-            target_item_seq, target_cat_seq, neg_hist_item_seq,
-            neg_hist_cat_seq)
+            hist_item_seq, hist_cat_seq, target_item, target_cat, None, mask,
+            target_item_seq, target_cat_seq, None, None)
 
         predict = paddle.nn.functional.sigmoid(raw_pred)
         return predict

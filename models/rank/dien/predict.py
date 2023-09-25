@@ -125,20 +125,14 @@ def create_predict_data(author_list, candidate_list):
         [[x] * max_len for x in candidate_country_id_list]).astype("int64").reshape(
         [-1, max_len])
 
-    neg_item = [target_item_seq] * len(item)
-    neg_cat = [target_cat_seq] * len(cat)
-
     res = []
     res.append(np.array(item))
     res.append(np.array(cat))
     res.append(np.array(candidate_id_list).astype('int64'))
     res.append(np.array(candidate_country_id_list).astype('int64'))
-    res.append(np.array(candidate_id_list).astype('float32'))
     res.append(np.array(mask).astype('float32'))
     res.append(np.array(target_item_seq))
     res.append(np.array(target_cat_seq))
-    res.append(np.array(neg_item).astype('int64'))
-    res.append(np.array(neg_cat).astype('int64'))
 
     return res
 
