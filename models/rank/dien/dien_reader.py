@@ -28,7 +28,6 @@ class RecDataset(IterableDataset):
         self.item_count = config.get("hyper_parameters.item_count")
 
     def init(self):
-        self.res = []
         self.max_len = 0
         self.neg_candidate_item = []
         self.neg_candidate_cat = []
@@ -49,7 +48,6 @@ class RecDataset(IterableDataset):
         self.cat_count = self.config.get("hyper_parameters.cat_count", 801)
         self.group_size = (self.batch_size) * 20
 
-    def __iter__(self):
         file_dir = self.file_list
         res0 = []
         for train_file in file_dir:
@@ -68,10 +66,12 @@ class RecDataset(IterableDataset):
                         continue
                     res0.append([hist, cate, line[2], line[3], float(line[4])])
 
-        data_set = res0
-        random.shuffle(data_set)
+        self.data_set = res0
 
-        reader, batch_size, group_size = data_set, self.batch_size, self.group_size
+    def __iter__(self):
+        random.shuffle(self.data_set)
+
+        reader, batch_size, group_size = self.data_set, self.batch_size, self.group_size
         bg = []
         for line in reader:
             bg.append(line)
