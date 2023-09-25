@@ -144,7 +144,7 @@ def predict_author_result(author_list, candidate_list):
     logger.info("predict result: " + str(predict_result))
 
     author_score_result = []
-    for i in range(len(predict_result)):
-        author_score_result.append((author_list[i], predict_result[i][0]))
+    for i in range(len(candidate_list)):
+        author_score_result.append((candidate_list[i], predict_result[i][0]))
 
     return author_score_result
