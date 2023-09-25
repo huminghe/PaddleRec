@@ -159,7 +159,7 @@ class DIENLayer(nn.Layer):
             self.item_emb_size + self.cat_emb_size)
         self.sigm = paddle.nn.Sigmoid()
 
-        #------------------------- attention net --------------------------
+        # ------------------------- attention net --------------------------
 
     def forward(self, hist_item_seq, hist_cat_seq, target_item, target_cat,
                 label, mask, target_item_seq, target_cat_seq,
@@ -203,13 +203,43 @@ class DIENLayer(nn.Layer):
         atten_fc3 = paddle.add(concat, mask)
         atten_fc3 = paddle.transpose(atten_fc3, perm=[0, 2, 1])
         atten_fc3 = paddle.scale(
-            atten_fc3, scale=(self.item_emb_size + self.cat_emb_size)**-0.5)
+            atten_fc3, scale=(self.item_emb_size + self.cat_emb_size) ** -0.5)
         weight = paddle.nn.functional.softmax(atten_fc3)
         weighted = paddle.transpose(x=weight, perm=[0, 2, 1])
         weighted_vector = paddle.multiply(weighted, hist_seq_concat)
         weighted_vector = paddle.transpose(weighted_vector, perm=[1, 0, 2])
         # ------------------------- rnn-gru --------------------------
         concat_weighted_vector = paddle.concat([weighted_vector], axis=2)
+
+        # ------------------------- RNN-gru --------------------------
+        prev = paddle.zeros(
+            shape=[
+                concat_weighted_vector[0].shape[0], self.item_emb_size * 2
+            ],
+            dtype='float32')
+        attention_rnn_res = paddle.zeros(
+            shape=[
+                0, concat_weighted_vector.shape[1], self.item_emb_size * 2
+            ],
+            dtype='float32')
+        for i in range(concat_weighted_vector.shape[0]):
+            word = concat_weighted_vector[i]
+            y_out, hidden = self.gru_cell_attention(word, prev)
+            prev = hidden
+            attention_rnn_res = paddle.concat(
+                [attention_rnn_res, hidden.unsqueeze(axis=[0])], 0)
+        attention_rnn_res_T = paddle.transpose(attention_rnn_res,
+                                               [1, 0, 2])[:, -1, :]
+        # ------------------------- top nn Layer --------------------------
+        embedding_concat = paddle.concat(
+            [attention_rnn_res_T, target_concat], axis=1)
+        for layer in self.top_layer:
+            embedding_concat = layer(embedding_concat)
+        logit = paddle.add(embedding_concat, self.item_b_attr(target_item))
+
+        if not self.training:
+            return logit
+
         # ------------------------- Auxiliary loss  --------------------------
         start_value = paddle.zeros(shape=[1], dtype="float32")
         gru_out_pad = gru_out
@@ -252,31 +282,6 @@ class DIENLayer(nn.Layer):
                               keepdim=True)
 
         aux_loss = paddle.mean(paddle.add(test_neg, test_pos))
-        # ------------------------- RNN-gru --------------------------
-        prev = paddle.zeros(
-            shape=[
-                concat_weighted_vector[0].shape[0], self.item_emb_size * 2
-            ],
-            dtype='float32')
-        attention_rnn_res = paddle.zeros(
-            shape=[
-                0, concat_weighted_vector.shape[1], self.item_emb_size * 2
-            ],
-            dtype='float32')
-        for i in range(concat_weighted_vector.shape[0]):
-            word = concat_weighted_vector[i]
-            y_out, hidden = self.gru_cell_attention(word, prev)
-            prev = hidden
-            attention_rnn_res = paddle.concat(
-                [attention_rnn_res, hidden.unsqueeze(axis=[0])], 0)
-        attention_rnn_res_T = paddle.transpose(attention_rnn_res,
-                                               [1, 0, 2])[:, -1, :]
-        # ------------------------- top nn Layer --------------------------
-        embedding_concat = paddle.concat(
-            [attention_rnn_res_T, target_concat], axis=1)
-        for layer in self.top_layer:
-            embedding_concat = layer(embedding_concat)
-        logit = paddle.add(embedding_concat, self.item_b_attr(target_item))
         return logit, aux_loss
 
 
@@ -420,7 +425,7 @@ class StaticDIENLayer(nn.Layer):
             self.item_emb_size + self.cat_emb_size)
         self.sigm = paddle.nn.Sigmoid()
 
-        #------------------------- attention net --------------------------
+        # ------------------------- attention net --------------------------
 
     def forward(self, hist_item_seq, hist_cat_seq, target_item, target_cat,
                 label, mask, target_item_seq, target_cat_seq,
@@ -464,10 +469,10 @@ class StaticDIENLayer(nn.Layer):
         for attlayer in self.attention_layer:
             concat = attlayer(concat)
 
-        atten_fc3 = paddle.add(concat, mask)  #concat + mask  #concat + mask
+        atten_fc3 = paddle.add(concat, mask)  # concat + mask  #concat + mask
         atten_fc3 = paddle.transpose(atten_fc3, perm=[0, 2, 1])
         atten_fc3 = paddle.scale(
-            atten_fc3, scale=(self.item_emb_size + self.cat_emb_size)**-0.5)
+            atten_fc3, scale=(self.item_emb_size + self.cat_emb_size) ** -0.5)
         weight = paddle.nn.functional.softmax(atten_fc3)
         weighted = paddle.transpose(x=weight, perm=[0, 2, 1])
         weighted_vector = paddle.multiply(weighted, hist_seq_concat)

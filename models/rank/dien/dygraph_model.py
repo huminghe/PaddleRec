@@ -105,7 +105,7 @@ class DygraphModel():
     def infer_forward(self, dy_model, metrics_list, batch_data, config):
         hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq = self.create_feeds(
             batch_data, config)
-        raw_pred, aux_loss = dy_model.forward(
+        raw_pred = dy_model.forward(
             hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask,
             target_item_seq, target_cat_seq, neg_hist_item_seq,
             neg_hist_cat_seq)
@@ -115,3 +115,15 @@ class DygraphModel():
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
 
         return metrics_list, None
+
+    def predict_forward(self, dy_model, batch_data, config):
+        hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq = self.create_feeds(
+            batch_data, config)
+
+        raw_pred = dy_model.forward(
+            hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask,
+            target_item_seq, target_cat_seq, neg_hist_item_seq,
+            neg_hist_cat_seq)
+
+        predict = paddle.nn.functional.sigmoid(raw_pred)
+        return predict
