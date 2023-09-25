@@ -131,7 +131,7 @@ class DygraphModel():
 
     def predict_forward(self, dy_model, batch_data, config):
         hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq = self.create_feeds_predict(
-            batch_data, config)
+            batch_data)
 
         raw_pred = dy_model.forward(
             hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask,
