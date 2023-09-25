@@ -74,10 +74,10 @@ class DygraphModel():
 
     # define optimizer
     def create_optimizer(self, dy_model, config):
-        boundaries = [410000]
+        boundaries = [4100000, 8200000]
         base_lr = config.get(
             "hyper_parameters.optimizer.learning_rate_base_lr")
-        values = [base_lr, 0.2]
+        values = [base_lr, 0.2, 0.1]
         sgd_optimizer = paddle.optimizer.SGD(
             learning_rate=paddle.optimizer.lr.PiecewiseDecay(
                 boundaries=boundaries, values=values),
