@@ -57,16 +57,16 @@ class DygraphModel():
         return hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq
 
     def create_feeds_predict(self, batch):
-        hist_item_seq = batch[0]
-        hist_cat_seq = batch[1]
-        target_item = batch[2]
-        target_cat = batch[3]
+        hist_item_seq = paddle.to_tensor(batch[0], dtype="int64")
+        hist_cat_seq = paddle.to_tensor(batch[1], dtype="int64")
+        target_item = paddle.to_tensor(batch[2], dtype="int64")
+        target_cat = paddle.to_tensor(batch[3], dtype="int64")
         label = None
-        mask = batch[5]
-        target_item_seq = batch[6]
-        target_cat_seq = batch[7]
-        neg_hist_item_seq = batch[8]
-        neg_hist_cat_seq = batch[9]
+        mask = paddle.to_tensor(batch[5], dtype="float32")
+        target_item_seq = paddle.to_tensor(batch[6], dtype="int64")
+        target_cat_seq = paddle.to_tensor(batch[7], dtype="int64")
+        neg_hist_item_seq = paddle.to_tensor(batch[8], dtype="int64")
+        neg_hist_cat_seq = paddle.to_tensor(batch[9], dtype="int64")
         return hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq, neg_hist_item_seq, neg_hist_cat_seq
 
     # define loss function by predicts and label
