@@ -139,8 +139,12 @@ def create_predict_data(author_list, candidate_list):
 
 def predict_author_result(author_list, candidate_list):
     batch_data = create_predict_data(author_list, candidate_list)
-    logger.info("batch data: " + str(batch_data))
+    # logger.info("batch data: " + str(batch_data))
     predict_result = predict(batch_data)
     logger.info("predict result: " + str(predict_result))
 
-    return predict_result
+    author_score_result = []
+    for i in range(len(predict_result)):
+        author_score_result.append((author_list[i], predict_result[i][0]))
+
+    return author_score_result

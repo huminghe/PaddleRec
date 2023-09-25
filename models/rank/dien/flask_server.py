@@ -47,7 +47,7 @@ def recommend_v2():
     app.logger.info("history: " + str(history_list) + ",   candidate: " + str(candidate_list))
 
     result = predict.predict_author_result(history_list, candidate_list)
-    # result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
+    result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)
     return json.dumps(return_value, ensure_ascii=False)
