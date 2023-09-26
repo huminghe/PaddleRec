@@ -18,16 +18,16 @@ runner:
   train_reader_path: "dien_reader"
   use_gpu: False
   use_auc: True
-  train_batch_size: 128
+  train_batch_size: 64
   epochs: 300
   print_interval: 20
   #model_init_path: "output_model/0" # init model
-  model_save_path: "output_model_all_dien_0924"
-  infer_batch_size: 128
+  model_save_path: "output_model_all_dien_0925_t2"
+  infer_batch_size: 64
   infer_reader_path: "dien_reader" # importlib format
   test_data_dir: "./data/test-0922"
-  infer_load_path: "output_model_all_dien_0924"
-  infer_start_epoch: 8
+  infer_load_path: "output_model_all_dien_0925_t2"
+  infer_start_epoch: 30
   infer_end_epoch: 200
   author_country_map_path: "data/author-0922/author_country_seq.txt"
   author_id_map_path: "data/author-0922/author_id_map.txt"
