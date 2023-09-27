@@ -139,6 +139,10 @@ def create_predict_data(author_list, candidate_list, history_country_list, candi
 def predict_author_result(author_list, candidate_list, history_country_list, candidate_country_list):
     batch_data = create_predict_data(author_list, candidate_list, history_country_list, candidate_country_list)
     # logger.info("batch data: " + str(batch_data))
+    logger.info("batch data history: " + str(batch_data[0]))
+    logger.info("batch data history country: " + str(batch_data[1]))
+    logger.info("batch data candidate: " + str(batch_data[2]))
+    logger.info("batch data candidate country: " + str(batch_data[3]))
     predict_result = predict(batch_data)
     # logger.info("predict result: " + str(predict_result))
     predict_result = predict_result.numpy()
