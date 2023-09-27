@@ -47,8 +47,8 @@ model_load_path = config.get("runner.infer_load_path", "model_output")
 start_epoch = config.get("runner.infer_start_epoch", 0)
 maxlen = config.get("hyper_parameters.maxlen", 50)
 
-author_country_map_path = config.get("runner.author_country_map_path", None)
 author_id_map_path = config.get("runner.author_id_map_path", None)
+country_map_path = config.get("runner.country_id_map_path", None)
 
 author_count = config.get("hyper_parameters.item_count", None)
 
@@ -83,24 +83,23 @@ def get_map(path, num=999999):
     return map_result, reverse_map_result
 
 
-author_country_map, _ = get_map(author_country_map_path)
 author_id_map, reverse_author_id_map = get_map(author_id_map_path, author_count)
+country_map, _ = get_map(country_map_path)
 UNK_ID = 1
 PADDING_ID = 0
 
 
 def predict(batch_data):
-    predict = dy_model_class.predict_forward(dy_model, batch_data, config)
+    predict_result = dy_model_class.predict_forward(dy_model, batch_data, config)
+    return predict_result
 
-    return predict
 
-
-def create_predict_data(author_list, candidate_list):
+def create_predict_data(author_list, candidate_list, history_country_list, candidate_country_list):
     author_id_list = [author_id_map.get(x, UNK_ID) for x in author_list]
-    author_country_list = [author_country_map.get(x, UNK_ID) for x in author_list]
+    author_country_list = [country_map.get(x, UNK_ID) for x in history_country_list]
 
     candidate_id_list = [author_id_map.get(x, UNK_ID) for x in candidate_list]
-    candidate_country_id_list = [author_country_map.get(x, UNK_ID) for x in candidate_list]
+    candidate_country_id_list = [country_map.get(x, UNK_ID) for x in candidate_country_list]
 
     max_len = len(author_id_list)
     if max_len <= 1:
@@ -137,9 +136,9 @@ def create_predict_data(author_list, candidate_list):
     return res
 
 
-def predict_author_result(author_list, candidate_list):
-    batch_data = create_predict_data(author_list, candidate_list)
-    # logger.info("batch data: " + str(batch_data))
+def predict_author_result(author_list, candidate_list, history_country_list, candidate_country_list):
+    batch_data = create_predict_data(author_list, candidate_list, history_country_list, candidate_country_list)
+    logger.info("batch data: " + str(batch_data))
     predict_result = predict(batch_data)
     # logger.info("predict result: " + str(predict_result))
     predict_result = predict_result.numpy()

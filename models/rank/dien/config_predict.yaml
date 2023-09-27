@@ -29,8 +29,8 @@ runner:
   infer_load_path: "output_model_all_dien_0925_t2"
   infer_start_epoch: 30
   infer_end_epoch: 200
-  author_country_map_path: "data/author-0922/author_country_seq.txt"
   author_id_map_path: "data/author-0922/author_id_map.txt"
+  country_id_map_path: "data/author-0922/author_country_id_map.txt"
 
 # hyper parameters of user-defined network
 hyper_parameters:

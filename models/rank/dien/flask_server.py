@@ -43,10 +43,14 @@ def recommend_v2():
     data = request.json
     history_list = data['history']
     candidate_list = data['candidate']
+    history_country_list = data['history_country']
+    candidate_country_list = data['candidate_country']
 
-    app.logger.info("history: " + str(history_list) + ",   candidate: " + str(candidate_list))
+    app.logger.info(
+        "history: " + str(history_list) + ",   candidate: " + str(candidate_list) + ",   history country: " + str(
+            history_country_list) + ",   candidate country: " + str(candidate_country_list))
 
-    result = predict.predict_author_result(history_list, candidate_list)
+    result = predict.predict_author_result(history_list, candidate_list, history_country_list, candidate_country_list)
     result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)
