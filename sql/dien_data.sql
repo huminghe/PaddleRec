@@ -52,7 +52,7 @@ on a.distinct_id = e.distinct_id and a.author_id_str = e.author_id_str
 left outer join
 (select first_id, groupId from users) c
 on a.distinct_id = c.first_id
-where a.cnt >= 5
+where a.cnt >= 3
 and b.cnt is null and d.cnt is null and e.cnt is null
 
 
@@ -61,10 +61,10 @@ select a.distinct_id, a.author_id_str, a.country, a.author_country, a.time from
 (select distinct_id, author_id_str, duration_time, `time` as time, `$country` as country, author_country,
 `$model` as model, `$manufacturer` as manufacturer, `$screen_height` as height, library from events where
 event = 'task' and task_name = 'video_chat_call_end' and
-((library = 'payZego' and duration_time > 54) or (library = 'blurVideo' and duration_time > 14)
+((library = 'payZego' and duration_time > 56) or (library = 'blurVideo' and duration_time > 14)
 or (library = 'freeVideo' and duration_time > 28) or (library = 'freeZego' and duration_time > 28) or (library = 'payVideo' and duration_time > 56))
 and author_id_str is not null and author_id_str != ''
-and `date` >='2023-06-11') a
+and `date` >='2023-06-20') a
 join
 (select distinct_id, count(*) as cnt from events where
 event = 'task' and task_name = 'purchase_pop'
