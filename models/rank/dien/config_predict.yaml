@@ -14,35 +14,35 @@
 # global settings
 
 runner:
-  train_data_dir: "./data/train-0922"
+  train_data_dir: "./data/train-0927"
   train_reader_path: "dien_reader"
   use_gpu: False
   use_auc: True
-  train_batch_size: 64
-  epochs: 300
-  print_interval: 20
+  train_batch_size: 128
+  epochs: 150
+  print_interval: 100
   #model_init_path: "output_model/0" # init model
-  model_save_path: "output_model_all_dien_0925_t2"
-  infer_batch_size: 64
+  model_save_path: "output_model_all_dien_0927"
+  infer_batch_size: 128
   infer_reader_path: "dien_reader" # importlib format
-  test_data_dir: "./data/test-0922"
-  infer_load_path: "output_model_all_dien_0925_t2"
-  infer_start_epoch: 30
-  infer_end_epoch: 200
-  author_id_map_path: "data/author-0922/author_id_map.txt"
-  country_id_map_path: "data/author-0922/author_country_id_map.txt"
+  test_data_dir: "./data/test-0927"
+  infer_load_path: "output_model_all_dien_0927"
+  infer_start_epoch: 44
+  infer_end_epoch: 150
+  author_id_map_path: "data/author-0927/author_id_map.txt"
+  country_id_map_path: "data/author-0927/author_country_id_map.txt"
 
 # hyper parameters of user-defined network
 hyper_parameters:
   optimizer:
     class: SGD
-    learning_rate_base_lr: 0.85
+    learning_rate_base_lr: 1.05
     strategy: async
   use_DataLoader: True
   item_emb_size: 64
   cat_emb_size: 64
   is_sparse: False
   item_count: 3501
-  cat_count: 60
+  cat_count: 61
   act: "sigmoid"
   distributed_embedding: 0
