@@ -55,6 +55,16 @@ class DygraphModel():
         target_cat_seq = batch[7]
         return hist_item_seq, hist_cat_seq, target_item, target_cat, label, mask, target_item_seq, target_cat_seq
 
+    def create_feeds_predict(self, batch):
+        hist_item_seq = paddle.to_tensor(batch[0], dtype="int64")
+        hist_cat_seq = paddle.to_tensor(batch[1], dtype="int64")
+        target_item = paddle.to_tensor(batch[2], dtype="int64")
+        target_cat = paddle.to_tensor(batch[3], dtype="int64")
+        mask = paddle.to_tensor(batch[4], dtype="float32")
+        target_item_seq = paddle.to_tensor(batch[5], dtype="int64")
+        target_cat_seq = paddle.to_tensor(batch[6], dtype="int64")
+        return hist_item_seq, hist_cat_seq, target_item, target_cat, mask, target_item_seq, target_cat_seq
+
     # define loss function by predicts and label
     def create_loss(self, raw_pred, label):
         avg_loss = paddle.nn.functional.binary_cross_entropy_with_logits(
@@ -119,3 +129,11 @@ class DygraphModel():
             preds=predict_2d.numpy(), labels=label_int.numpy())
 
         return metrics_list, None
+
+    def predict_forward(self, dy_model, batch_data):
+        hist_item_seq, hist_cat_seq, target_item, target_cat, mask, target_item_seq, target_cat_seq = self.create_feeds_predict(
+            batch_data)
+        raw_pred = dy_model.forward(hist_item_seq, hist_cat_seq, target_item, target_cat,
+                                    None, mask, target_item_seq, target_cat_seq)
+        predict = paddle.nn.functional.sigmoid(raw_pred)
+        return predict

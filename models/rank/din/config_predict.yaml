@@ -11,31 +11,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# global settings
+
 runner:
   train_data_dir: "./data/train-1024"
-  train_reader_path: "dinReader" # importlib format
-  use_gpu: True
+  train_reader_path: "dinReader"
+  use_gpu: False
   use_auc: True
   train_batch_size: 128
-  epochs: 200
+  epochs: 150
   print_interval: 200
   #model_init_path: "output_model/0" # init model
   model_save_path: "output_model_din_1024_t1"
   infer_batch_size: 128
   infer_reader_path: "dinReader" # importlib format
-  test_data_dir:  "./data/test-1024"
+  test_data_dir: "./data/test-1024"
   infer_load_path: "output_model_din_1024_t1"
-  infer_start_epoch: 2
+  infer_start_epoch: 44
   infer_end_epoch: 150
+  author_id_map_path: "data/author-1024/author_id_map.txt"
+  country_id_map_path: "data/author-1024/author_country_id_map.txt"
 
 # hyper parameters of user-defined network
 hyper_parameters:
-  # optimizer config
   optimizer:
     class: adam
     learning_rate_base_lr: 0.85
     strategy: async
-  # user-defined <key, value> pairs
   use_DataLoader: True
   item_emb_size: 64
   cat_emb_size: 64
