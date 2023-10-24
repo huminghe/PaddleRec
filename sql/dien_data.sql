@@ -64,13 +64,12 @@ event = 'task' and task_name = 'video_chat_call_end' and
 ((library = 'payZego' and duration_time > 56) or (library = 'blurVideo' and duration_time > 14)
 or (library = 'freeVideo' and duration_time > 28) or (library = 'freeZego' and duration_time > 28) or (library = 'payVideo' and duration_time > 56))
 and author_id_str is not null and author_id_str != ''
-and `date` >='2023-06-20') a
+and `date` >='2023-07-01') a
 join
-(select distinct_id, count(*) as cnt from events where
-event = 'task' and task_name = 'purchase_pop'
-and task_result = 'success'
-and `date` >= '2022-01-01'
+(select distinct_id, max(pay_user) as pay_status from events where
+event = 'task' and task_name = 'video_chat_call_end'
+and `date` >= '2023-07-01'
 group by distinct_id) b
 on a.distinct_id = b.distinct_id
-
+where b.pay_status = 1
 
