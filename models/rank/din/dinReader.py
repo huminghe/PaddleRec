@@ -27,7 +27,6 @@ class RecDataset(IterableDataset):
         self.init()
 
     def init(self):
-        self.res = []
         self.max_len = 0
 
         for file in self.file_list:
@@ -41,8 +40,9 @@ class RecDataset(IterableDataset):
         fo.close()
         self.batch_size = self.config.get("runner.train_batch_size")
         self.group_size = (self.batch_size) * 20
+        self.item_count = self.config.get("hyper_parameters.item_count", 63001)
+        self.cat_count = self.config.get("hyper_parameters.cat_count", 801)
 
-    def __iter__(self):
         file_dir = self.file_list
         res0 = []
         for train_file in file_dir:
@@ -52,13 +52,21 @@ class RecDataset(IterableDataset):
                     if len(line) < 5:
                         continue
                     hist = line[0].split()
+                    tmp = [int(x) for x in hist]
+                    if max(tmp) > self.item_count:
+                        continue
                     cate = line[1].split()
+                    tmp = [int(x) for x in cate]
+                    if max(tmp) > self.cat_count:
+                        continue
                     res0.append([hist, cate, line[2], line[3], float(line[4])])
 
-        data_set = res0
-        #random.shuffle(data_set)
+        self.data_set = res0
 
-        reader, batch_size, group_size = data_set, self.batch_size, self.group_size
+    def __iter__(self):
+        random.shuffle(self.data_set)
+
+        reader, batch_size, group_size = self.data_set, self.batch_size, self.group_size
         bg = []
         for line in reader:
             bg.append(line)
@@ -68,6 +76,8 @@ class RecDataset(IterableDataset):
                 for i in range(0, group_size, batch_size):
                     b = sortb[i:i + batch_size]
                     max_len = max(len(x[0]) for x in b)
+                    if max_len < 1:
+                        continue
 
                     itemInput = [x[0] for x in b]
                     itemRes0 = np.array(
@@ -84,10 +94,10 @@ class RecDataset(IterableDataset):
                          for x in len_array]).reshape([-1, max_len, 1])
                     target_item_seq = np.array(
                         [[x[2]] * max_len for x in b]).astype("int64").reshape(
-                            [-1, max_len])
+                        [-1, max_len])
                     target_cat_seq = np.array(
                         [[x[3]] * max_len for x in b]).astype("int64").reshape(
-                            [-1, max_len])
+                        [-1, max_len])
 
                     for i in range(len(b)):
                         res = []
@@ -110,6 +120,8 @@ class RecDataset(IterableDataset):
                 b = sortb[i:i + batch_size]
 
                 max_len = max(len(x[0]) for x in b)
+                if max_len < 1:
+                    continue
 
                 itemInput = [x[0] for x in b]
                 itemRes0 = np.array(
@@ -126,10 +138,10 @@ class RecDataset(IterableDataset):
                      for x in len_array]).reshape([-1, max_len, 1])
                 target_item_seq = np.array(
                     [[x[2]] * max_len for x in b]).astype("int64").reshape(
-                        [-1, max_len])
+                    [-1, max_len])
                 target_cat_seq = np.array(
                     [[x[3]] * max_len for x in b]).astype("int64").reshape(
-                        [-1, max_len])
+                    [-1, max_len])
 
                 for i in range(len(b)):
                     res = []

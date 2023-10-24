@@ -11,6 +11,7 @@
 # limitations under the License.
 
 from paddle.nn import Conv1D
+from paddle.nn import functional as F
 import paddle
 import paddle.nn as nn
 import math
@@ -19,7 +20,7 @@ import numpy as np
 
 class DINLayer(nn.Layer):
     def __init__(self, item_emb_size, cat_emb_size, act, is_sparse,
-                 use_DataLoader, item_count, cat_count):
+                 use_DataLoader, item_count, cat_count, dropout):
         super(DINLayer, self).__init__()
 
         self.item_emb_size = item_emb_size
@@ -29,6 +30,7 @@ class DINLayer(nn.Layer):
         self.use_DataLoader = use_DataLoader
         self.item_count = item_count
         self.cat_count = cat_count
+        self.dropout = dropout
 
         self.hist_item_emb_attr = paddle.nn.Embedding(
             self.item_count,
@@ -84,7 +86,7 @@ class DINLayer(nn.Layer):
         self.attention_layer = []
         sizes = [(self.item_emb_size + self.cat_emb_size) * 4
                  ] + [80] + [40] + [1]
-        acts = ["sigmoid" for _ in range(len(sizes) - 2)] + [None]
+        acts = [self.act for _ in range(len(sizes) - 2)] + [None]
 
         for i in range(len(sizes) - 1):
             linear = paddle.nn.Linear(
@@ -98,6 +100,10 @@ class DINLayer(nn.Layer):
             self.attention_layer.append(linear)
             if acts[i] == 'sigmoid':
                 act = paddle.nn.Sigmoid()
+                self.add_sublayer('act_%d' % i, act)
+                self.attention_layer.append(act)
+            elif acts[i] == 'gelu':
+                act = paddle.nn.GELU()
                 self.add_sublayer('act_%d' % i, act)
                 self.attention_layer.append(act)
 
@@ -119,7 +125,7 @@ class DINLayer(nn.Layer):
         conDim = self.item_emb_size + self.cat_emb_size + self.item_emb_size + self.cat_emb_size
 
         conSizes = [conDim] + [80] + [40] + [1]
-        conActs = ["sigmoid" for _ in range(len(conSizes) - 2)] + [None]
+        conActs = [self.act for _ in range(len(conSizes) - 2)] + [None]
 
         for i in range(len(conSizes) - 1):
             linear = paddle.nn.Linear(
@@ -133,6 +139,10 @@ class DINLayer(nn.Layer):
             self.con_layer.append(linear)
             if conActs[i] == 'sigmoid':
                 act = paddle.nn.Sigmoid()
+                self.add_sublayer('act_%d' % i, act)
+                self.con_layer.append(act)
+            elif conActs[i] == 'gelu':
+                act = paddle.nn.GELU()
                 self.add_sublayer('act_%d' % i, act)
                 self.con_layer.append(act)
 
@@ -160,12 +170,18 @@ class DINLayer(nn.Layer):
             ],
             axis=2)
 
-        for attlayer in self.attention_layer:
+        for i, attlayer in enumerate(self.attention_layer):
+            if i % 2 == 0:
+                concat = F.dropout(
+                    concat,
+                    self.dropout,
+                    training=self.training,
+                    mode="upscale_in_train")
             concat = attlayer(concat)
 
         atten_fc3 = concat + mask
         atten_fc3 = paddle.transpose(atten_fc3, perm=[0, 2, 1])
-        atten_fc3 = paddle.scale(atten_fc3, scale=self.firInDim**-0.5)
+        atten_fc3 = paddle.scale(atten_fc3, scale=self.firInDim ** -0.5)
         weight = paddle.nn.functional.softmax(atten_fc3)
 
         output = paddle.matmul(weight, hist_seq_concat)
@@ -173,11 +189,22 @@ class DINLayer(nn.Layer):
         output = paddle.reshape(output, shape=[0, self.firInDim])
 
         for firLayer in self.con_layer[:1]:
+            output = F.dropout(
+                output,
+                self.dropout,
+                training=self.training,
+                mode="upscale_in_train")
             concat = firLayer(output)
 
         embedding_concat = paddle.concat([concat, target_concat], axis=1)
 
-        for colayer in self.con_layer[1:]:
+        for i, colayer in enumerate(self.con_layer[1:]):
+            if i % 2 == 0:
+                embedding_concat = F.dropout(
+                    embedding_concat,
+                    self.dropout,
+                    training=self.training,
+                    mode="upscale_in_train")
             embedding_concat = colayer(embedding_concat)
 
         logit = embedding_concat + item_b

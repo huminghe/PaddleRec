@@ -38,8 +38,9 @@ class DygraphModel():
         use_DataLoader = config.get("hyper_parameters.use_DataLoader", False)
         item_count = config.get("hyper_parameters.item_count", 63001)
         cat_count = config.get("hyper_parameters.cat_count", 801)
+        dropout = config.get("hyper_parameters.dropout", 0.1)
         din_model = net.DINLayer(item_emb_size, cat_emb_size, act, is_sparse,
-                                 use_DataLoader, item_count, cat_count)
+                                 use_DataLoader, item_count, cat_count, dropout)
         return din_model
 
     # define feeds which convert numpy of batch data to paddle.tensor
@@ -62,21 +63,26 @@ class DygraphModel():
 
     # define optimizer
     def create_optimizer(self, dy_model, config):
-        boundaries = [410000]
         base_lr = config.get(
             "hyper_parameters.optimizer.learning_rate_base_lr")
-        values = [base_lr, 0.2]
-        sgd_optimizer = paddle.optimizer.SGD(
-            learning_rate=paddle.optimizer.lr.PiecewiseDecay(
-                boundaries=boundaries, values=values),
-            parameters=dy_model.parameters())
-        return sgd_optimizer
+        optimizer_class = config.get("hyper_parameters.optimizer.class")
+        if optimizer_class == "SGD":
+            boundaries = [410000]
+            values = [base_lr, 0.2]
+            sgd_optimizer = paddle.optimizer.SGD(
+                learning_rate=paddle.optimizer.lr.PiecewiseDecay(
+                    boundaries=boundaries, values=values),
+                parameters=dy_model.parameters())
+            return sgd_optimizer
+        else:
+            adam_optimizer = paddle.optimizer.Adam(learning_rate=base_lr)
+            return adam_optimizer
 
     # define metrics such as auc/acc
     # multi-task need to define multi metric
     def create_metrics(self):
         metrics_list_name = ["auc"]
-        #auc_metric = paddle.metric.Auc(num_thresholds=self.bucket)
+        # auc_metric = paddle.metric.Auc(num_thresholds=self.bucket)
         auc_metric = paddle.metric.Auc("ROC")
         metrics_list = [auc_metric]
         return metrics_list, metrics_list_name
