@@ -20,11 +20,11 @@ runner:
   epochs: 200
   print_interval: 200
   #model_init_path: "output_model/0" # init model
-  model_save_path: "output_model_din_1024_t1"
+  model_save_path: "output_model_din_1024_t2"
   infer_batch_size: 128
   infer_reader_path: "dinReader" # importlib format
   test_data_dir:  "./data/test-1024"
-  infer_load_path: "output_model_din_1024_t1"
+  infer_load_path: "output_model_din_1024_t2"
   infer_start_epoch: 2
   infer_end_epoch: 150
 
@@ -41,6 +41,6 @@ hyper_parameters:
   cat_emb_size: 64
   is_sparse: False
   item_count: 3501
-  cat_count: 61
+  cat_count: 59
   act: "gelu"
   dropout: 0.1
