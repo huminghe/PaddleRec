@@ -75,7 +75,7 @@ class DygraphModel():
                 parameters=dy_model.parameters())
             return sgd_optimizer
         else:
-            adam_optimizer = paddle.optimizer.Adam(learning_rate=base_lr)
+            adam_optimizer = paddle.optimizer.Adam(learning_rate=base_lr, parameters=dy_model.parameters())
             return adam_optimizer
 
     # define metrics such as auc/acc
