@@ -110,7 +110,7 @@ class DIENLayer(nn.Layer):
         self.attention_layer = []
         sizes = [(self.item_emb_size + self.cat_emb_size) * 4
                  ] + [80] + [40] + [1]
-        acts = ["sigmoid" for _ in range(len(sizes) - 2)] + [None]
+        acts = [self.act for _ in range(len(sizes) - 2)] + [None]
 
         for i in range(len(sizes) - 1):
             linear = paddle.nn.Linear(
@@ -126,12 +126,16 @@ class DIENLayer(nn.Layer):
                 act = paddle.nn.Sigmoid()
                 self.add_sublayer('act_%d' % i, act)
                 self.attention_layer.append(act)
+            elif acts[i] == 'gelu':
+                act = paddle.nn.GELU()
+                self.add_sublayer('act_%d' % i, act)
+                self.attention_layer.append(act)
 
         # ------------------------- prev net --------------------------
         self.top_layer = []
         sizes = [(self.item_emb_size + self.cat_emb_size) * 2
                  ] + [80] + [40] + [1]
-        acts = ["sigmoid" for _ in range(len(sizes) - 2)] + [None]
+        acts = [self.act for _ in range(len(sizes) - 2)] + [None]
 
         for i in range(len(sizes) - 1):
             linear = paddle.nn.Linear(
@@ -145,6 +149,10 @@ class DIENLayer(nn.Layer):
             self.top_layer.append(linear)
             if acts[i] == 'sigmoid':
                 act = paddle.nn.Sigmoid()
+                self.add_sublayer('act_%d' % i, act)
+                self.top_layer.append(act)
+            elif acts[i] == 'gelu':
+                act = paddle.nn.GELU()
                 self.add_sublayer('act_%d' % i, act)
                 self.top_layer.append(act)
 

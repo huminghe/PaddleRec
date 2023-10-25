@@ -27,14 +27,14 @@ runner:
   infer_reader_path: "dien_reader" # importlib format
   test_data_dir: "./data/test-1024"
   infer_load_path: "output_model_all_dien_1024"
-  infer_start_epoch: 30
+  infer_start_epoch: 0
   infer_end_epoch: 150
 
 # hyper parameters of user-defined network
 hyper_parameters:
   optimizer:
     class: SGD
-    learning_rate_base_lr: 1.05
+    learning_rate_base_lr: 0.85
     strategy: async
   use_DataLoader: True
   item_emb_size: 64
@@ -42,5 +42,5 @@ hyper_parameters:
   is_sparse: False
   item_count: 3501
   cat_count: 59
-  act: "sigmoid"
+  act: "gelu"
   distributed_embedding: 0
