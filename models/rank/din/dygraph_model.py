@@ -39,8 +39,9 @@ class DygraphModel():
         item_count = config.get("hyper_parameters.item_count", 63001)
         cat_count = config.get("hyper_parameters.cat_count", 801)
         dropout = config.get("hyper_parameters.dropout", 0.1)
+        dropout_type = config.get("hyper_parameters.dropout_type", 0)
         din_model = net.DINLayer(item_emb_size, cat_emb_size, act, is_sparse,
-                                 use_DataLoader, item_count, cat_count, dropout)
+                                 use_DataLoader, item_count, cat_count, dropout, dropout_type)
         return din_model
 
     # define feeds which convert numpy of batch data to paddle.tensor
