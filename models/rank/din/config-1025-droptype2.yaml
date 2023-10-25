@@ -23,7 +23,7 @@ runner:
   model_save_path: "output_model_din_1025_droptype2"
   infer_batch_size: 128
   infer_reader_path: "dinReader" # importlib format
-  test_data_dir:  "./data/test-1024"
+  test_data_dir: "./data/test-1024"
   infer_load_path: "output_model_din_1025_droptype2"
   infer_start_epoch: 2
   infer_end_epoch: 150
