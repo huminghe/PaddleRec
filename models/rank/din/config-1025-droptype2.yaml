@@ -32,8 +32,8 @@ runner:
 hyper_parameters:
   # optimizer config
   optimizer:
-    class: adam
-    learning_rate_base_lr: 0.001
+    class: SGD
+    learning_rate_base_lr: 0.85
     strategy: async
   # user-defined <key, value> pairs
   use_DataLoader: True
