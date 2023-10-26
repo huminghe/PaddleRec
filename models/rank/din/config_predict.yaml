@@ -22,12 +22,12 @@ runner:
   epochs: 150
   print_interval: 200
   #model_init_path: "output_model/0" # init model
-  model_save_path: "output_model_din_1025_droptype2"
+  model_save_path: "output_model_din_1025_drop05"
   infer_batch_size: 128
   infer_reader_path: "dinReader" # importlib format
   test_data_dir: "./data/test-1024"
-  infer_load_path: "output_model_din_1025_droptype2"
-  infer_start_epoch: 15
+  infer_load_path: "output_model_din_1025_drop05"
+  infer_start_epoch: 105
   infer_end_epoch: 150
   author_id_map_path: "data/author-1024/author_id_map.txt"
   country_id_map_path: "data/author-1024/author_country_id_map.txt"
@@ -45,5 +45,5 @@ hyper_parameters:
   item_count: 3501
   cat_count: 59
   act: "gelu"
-  dropout: 0.4
+  dropout: 0.5
   dropout_type: 2
