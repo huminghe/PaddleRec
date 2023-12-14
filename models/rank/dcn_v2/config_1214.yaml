@@ -18,17 +18,17 @@ runner:
   train_reader_path: "reader" # importlib format
   use_gpu: True
   use_auc: True
-  train_batch_size: 512
-  epochs: 100
+  train_batch_size: 256
+  epochs: 300
   print_interval: 500
   #model_init_path: "output_model/0" # init model
   model_save_path: "output_model_1214"
   test_data_dir: "./data/1214_train"
   infer_reader_path: "reader" # importlib format
-  infer_batch_size: 512
+  infer_batch_size: 256
   infer_load_path: "output_model_1214"
   infer_start_epoch: 0
-  infer_end_epoch: 1
+  infer_end_epoch: 100
 
 
 # hyper parameters of user-defined network
