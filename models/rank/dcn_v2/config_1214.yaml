@@ -39,7 +39,7 @@ hyper_parameters:
     learning_rate: 0.0001 # 0.0001
     strategy: async
   # user-defined <key, value> pairs
-  sparse_inputs_slots: 7
+  sparse_inputs_slots: 8
   sparse_feature_number: 9500  #1000001
   sparse_feature_dim: 40 # 10  40
   dense_input_dim: 6
