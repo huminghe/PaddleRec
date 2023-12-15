@@ -21,7 +21,7 @@ import math
 class DCN_V2Layer(nn.Layer):
     def __init__(self, sparse_feature_number, sparse_feature_dim,
                  dense_feature_dim, sparse_num_field, layer_sizes, cross_num,
-                 is_Stacked, use_low_rank_mixture, low_rank, num_experts):
+                 is_Stacked, use_low_rank_mixture, low_rank, num_experts, dropout):
         super(DCN_V2Layer, self).__init__()
         self.sparse_feature_number = sparse_feature_number
         self.sparse_feature_dim = sparse_feature_dim
@@ -34,6 +34,7 @@ class DCN_V2Layer(nn.Layer):
         self.use_low_rank_mixture = use_low_rank_mixture
         self.low_rank = low_rank
         self.num_experts = num_experts
+        self.dropout = dropout
 
         self.init_value_ = 0.1
 
@@ -63,7 +64,7 @@ class DCN_V2Layer(nn.Layer):
             dense_feature_dim,
             sparse_num_field,
             layer_sizes,
-            dropout_rate=0.5)
+            dropout_rate=self.dropout)
 
         if self.is_Stacked:
             self.fc = paddle.nn.Linear(

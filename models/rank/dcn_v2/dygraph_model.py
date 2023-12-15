@@ -38,11 +38,12 @@ class DygraphModel():
         low_rank = config.get("hyper_parameters.low_rank", 32)
         num_experts = config.get("hyper_parameters.num_experts", 4)
         dnn_use_bn = config.get("hyper_parameters.dnn_use_bn", None)
+        dropout = config.get("hyper_parameters.dropout", 0.2)
 
         dcn_v2_model = net.DCN_V2Layer(
             sparse_feature_number, sparse_feature_dim, dense_feature_dim,
             sparse_input_slot - 1, fc_sizes, cross_num, is_Stacked,
-            use_low_rank_mixture, low_rank, num_experts)
+            use_low_rank_mixture, low_rank, num_experts, dropout)
 
         return dcn_v2_model
 
