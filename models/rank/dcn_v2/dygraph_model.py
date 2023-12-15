@@ -91,9 +91,11 @@ class DygraphModel():
     # define metrics such as auc/acc
     # multi-task need to define multi metric
     def create_metrics(self):
-        metrics_list_name = ["auc"]
+        metrics_list_name = ["auc", "precision", "recall"]
         auc_metric = paddle.metric.Auc("ROC")
-        metrics_list = [auc_metric]
+        metric2 = paddle.metric.Precision("precision")
+        metric3 = paddle.metric.Recall("recall")
+        metrics_list = [auc_metric, metric2, metric3]
         return metrics_list, metrics_list_name
 
     # construct train forward phase  
@@ -116,6 +118,8 @@ class DygraphModel():
         # print("---dygraph----pred,loss,predict_2d---",pred,loss,predict_2d)
         # print("---dygraph----metrics_list",metrics_list)
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[1].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[2].update(preds=predict_2d.numpy(), labels=label.numpy())
 
         # print_dict format :{'loss': loss} 
         print_dict = {'log_loss': log_loss}
@@ -134,6 +138,8 @@ class DygraphModel():
         predict_2d = paddle.concat(x=[1 - pred, pred], axis=1)
         # print("---pred,predict_2d---",pred,predict_2d)
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[1].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[2].update(preds=predict_2d.numpy(), labels=label.numpy())
         # print("---metrics_list",metrics_list)
         return metrics_list, print_dict
         # return metrics_list, None
