@@ -59,3 +59,5 @@ hyper_parameters:
   is_Stacked: True
   dropout: 0.55
   dropout_type: 2
+
+  infer_addition: 0.3

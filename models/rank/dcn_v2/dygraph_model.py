@@ -128,6 +128,7 @@ class DygraphModel():
         return log_loss, metrics_list, print_dict
 
     def infer_forward(self, dy_model, metrics_list, batch_data, config):
+        infer_addition = config.get("hyper_parameters.infer_addition", 0.0)
         label, sparse_tensor, dense_tensor = self.create_feeds(batch_data,
                                                                config)
         # print("----label, sparse_tensor, dense_tensor",label, sparse_tensor, dense_tensor)
@@ -138,9 +139,10 @@ class DygraphModel():
 
         predict_2d = paddle.concat(x=[1 - pred, pred], axis=1)
         # print("---pred,predict_2d---",pred,predict_2d)
+        pred_modified = pred + infer_addition
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
-        metrics_list[1].update(preds=pred.numpy(), labels=label.numpy())
-        metrics_list[2].update(preds=pred.numpy(), labels=label.numpy())
+        metrics_list[1].update(preds=pred_modified.numpy(), labels=label.numpy())
+        metrics_list[2].update(preds=pred_modified.numpy(), labels=label.numpy())
         # print("---metrics_list",metrics_list)
         return metrics_list, print_dict
         # return metrics_list, None
