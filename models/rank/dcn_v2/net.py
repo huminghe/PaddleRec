@@ -21,7 +21,8 @@ import math
 class DCN_V2Layer(nn.Layer):
     def __init__(self, sparse_feature_number, sparse_feature_dim,
                  dense_feature_dim, sparse_num_field, layer_sizes, cross_num,
-                 is_Stacked, use_low_rank_mixture, low_rank, num_experts, dropout):
+                 is_Stacked, use_low_rank_mixture, low_rank, num_experts,
+                 dropout, dropout_type):
         super(DCN_V2Layer, self).__init__()
         self.sparse_feature_number = sparse_feature_number
         self.sparse_feature_dim = sparse_feature_dim
@@ -35,6 +36,8 @@ class DCN_V2Layer(nn.Layer):
         self.low_rank = low_rank
         self.num_experts = num_experts
         self.dropout = dropout
+        self.dropout_type = dropout_type
+        self.drop_out_cell = paddle.nn.Dropout(p=self.dropout)
 
         self.init_value_ = 0.1
 
@@ -64,7 +67,8 @@ class DCN_V2Layer(nn.Layer):
             dense_feature_dim,
             sparse_num_field,
             layer_sizes,
-            dropout_rate=self.dropout)
+            dropout_rate=self.dropout,
+            dropout_type=self.dropout_type)
 
         if self.is_Stacked:
             self.fc = paddle.nn.Linear(
@@ -105,6 +109,9 @@ class DCN_V2Layer(nn.Layer):
 
         feat_embeddings = paddle.concat(
             [sparse_embeddings_re, dense_embeddings], 1)
+        if self.dropout_type > 1:
+            feat_embeddings = self.drop_out_cell(feat_embeddings)
+
         # print("feat_embeddings:",feat_embeddings.shape)
 
         # Model Structaul: Stacked or Parallel
@@ -142,7 +149,8 @@ class DNNLayer(paddle.nn.Layer):
                  dense_feature_dim,
                  sparse_num_field,
                  layer_sizes,
-                 dropout_rate=0.5):
+                 dropout_rate=0.5,
+                 dropout_type=0):
         super(DNNLayer, self).__init__()
 
         self.sparse_feature_dim = sparse_feature_dim
@@ -155,6 +163,7 @@ class DNNLayer(paddle.nn.Layer):
                               * self.sparse_feature_dim)
 
         self.drop_out = paddle.nn.Dropout(p=dropout_rate)
+        self.dropout_type = dropout_type
 
         sizes = [self.input_size] + self.layer_sizes
         acts = ["relu" for _ in range(len(self.layer_sizes))] + [None]
@@ -179,7 +188,8 @@ class DNNLayer(paddle.nn.Layer):
         y_dnn = feat_embeddings
         for n_layer in self._mlp_layers:
             y_dnn = n_layer(y_dnn)
-            y_dnn = self.drop_out(y_dnn)
+            if self.dropout_type <= 1:
+                y_dnn = self.drop_out(y_dnn)
         return y_dnn
 
 
