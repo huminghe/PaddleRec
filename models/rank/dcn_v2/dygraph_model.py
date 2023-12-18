@@ -118,8 +118,8 @@ class DygraphModel():
         # print("---dygraph----pred,loss,predict_2d---",pred,loss,predict_2d)
         # print("---dygraph----metrics_list",metrics_list)
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
-        metrics_list[1].update(preds=predict_2d.numpy(), labels=label.numpy())
-        metrics_list[2].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[1].update(preds=pred.numpy(), labels=label.numpy())
+        metrics_list[2].update(preds=pred.numpy(), labels=label.numpy())
 
         # print_dict format :{'loss': loss} 
         print_dict = {'log_loss': log_loss}
@@ -138,8 +138,8 @@ class DygraphModel():
         predict_2d = paddle.concat(x=[1 - pred, pred], axis=1)
         # print("---pred,predict_2d---",pred,predict_2d)
         metrics_list[0].update(preds=predict_2d.numpy(), labels=label.numpy())
-        metrics_list[1].update(preds=predict_2d.numpy(), labels=label.numpy())
-        metrics_list[2].update(preds=predict_2d.numpy(), labels=label.numpy())
+        metrics_list[1].update(preds=pred.numpy(), labels=label.numpy())
+        metrics_list[2].update(preds=pred.numpy(), labels=label.numpy())
         # print("---metrics_list",metrics_list)
         return metrics_list, print_dict
         # return metrics_list, None
