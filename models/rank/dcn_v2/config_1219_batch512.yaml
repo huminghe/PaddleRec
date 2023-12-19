@@ -18,16 +18,16 @@ runner:
   train_reader_path: "reader" # importlib format
   use_gpu: True
   use_auc: True
-  train_batch_size: 256
+  train_batch_size: 512
   epochs: 200
   print_interval: 500
   #model_init_path: "output_model/0" # init model
-  model_save_path: "output_model_1218_drop085"
+  model_save_path: "output_model_1219_batch512"
   test_data_dir: "./data/1214_test"
   infer_reader_path: "reader" # importlib format
-  infer_batch_size: 256
-  infer_load_path: "output_model_1218_drop085"
-  infer_start_epoch: 30
+  infer_batch_size: 512
+  infer_load_path: "output_model_1219_batch512"
+  infer_start_epoch: 10
   infer_end_epoch: 200
 
 
