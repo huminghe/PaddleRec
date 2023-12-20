@@ -27,7 +27,7 @@ runner:
   infer_reader_path: "reader" # importlib format
   infer_batch_size: 128
   infer_load_path: "output_model_1219_batch128"
-  infer_start_epoch: 10
+  infer_start_epoch: 20
   infer_end_epoch: 200
 
 
@@ -60,4 +60,4 @@ hyper_parameters:
   dropout: 0.85
   dropout_type: 2
 
-  infer_addition: 0.45
+  infer_addition: 0.44
