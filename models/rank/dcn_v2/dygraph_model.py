@@ -146,3 +146,12 @@ class DygraphModel():
         # print("---metrics_list",metrics_list)
         return metrics_list, print_dict
         # return metrics_list, None
+
+    def predict_forward(self, dy_model, batch_data, config):
+        infer_addition = config.get("hyper_parameters.infer_addition", 0.0)
+        label, sparse_tensor, dense_tensor = self.create_feeds(batch_data, config)
+        pred = dy_model.forward(sparse_tensor, dense_tensor)
+
+        pred_modified = pred + infer_addition
+
+        return pred_modified

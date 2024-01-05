@@ -1,0 +1,699 @@
+[PAD]	419
+[NULL]	420
+samsung	421
+Xiaomi	422
+vivo	423
+OPPO	424
+realme	425
+motorola	426
+HUAWEI	427
+INFINIX MOBILITY LIMITED	428
+OnePlus	429
+INFINIX	430
+TECNO MOBILE LIMITED	431
+TECNO	432
+HONOR	433
+Google	434
+HMD Global	435
+LGE	436
+TCL	437
+Realme	438
+ITEL	439
+itel	440
+ZTE	441
+Sony	442
+Wingtech	443
+ITEL MOBILE LIMITED	444
+LENOVO	445
+asus	446
+LAVA	447
+Nothing	448
+BLU	449
+SHARP	450
+Symphony	451
+Hisense	452
+Blackview	453
+Deploy PVT LTD	454
+nubia	455
+WALTON	456
+WIKO	457
+Jio	458
+Ulefone	459
+DOOGEE	460
+HXY	461
+TINNO	462
+FIH	463
+Infinix	464
+General Mobile	465
+Lenovo	466
+CUBOT	467
+wheatek	468
+OMIX	469
+blackshark	470
+OUKITEL	471
+Micromax	472
+reeder	473
+INONE	474
+Coosea	475
+Vortex	476
+Premier Code (PRIVATE) LIMITED	477
+KYOCERA	478
+Along	479
+benco	480
+incar	481
+Cat	482
+GIONEE	483
+Casper	484
+LT	485
+HTC	486
+alps	487
+unknown	488
+SSH Telecom SMC (Pvt.) Ltd	489
+Schok	490
+Chinoe	491
+SPA Condor Electronics	492
+Reliance Communications	493
+lenovo	494
+Maxwest	495
+Mobicel	496
+vsmart	497
+Meizu	498
+RAVOZ	499
+OSCAL	500
+Fortune Ship	501
+Amazon	502
+UMIDIGI	503
+FUJITSU	504
+ZUUM	505
+WHOOP	506
+JOYAR	507
+QMobile	508
+FCNT	509
+Coolpad	510
+Unihertz	511
+lava	512
+Crosscall	513
+Sparx	514
+Asus	515
+ACE France	516
+ADVAN	517
+Mintt	518
+BullittGroupLimited	519
+onn	520
+Android	521
+Lava	522
+walton	523
+IMG	524
+Bullitt	525
+Yulong	526
+Sky_Devices	527
+along	528
+Digit	529
+Motorola	530
+Teclast	531
+KonnectONE	532
+TECNO MOBILE	533
+ANT DAO TECHNOLOGY LIMITED	534
+positivo	535
+MobiWire	536
+I_KALL	537
+Lanix	538
+FIGI	539
+Innovatech	540
+Dcode Cygnal 3 Lite	541
+Acer	542
+Philco	543
+Multilaser	544
+FISE	545
+iHunt	546
+INOI	547
+WOWI	548
+Gigaset	549
+PANASONIC	550
+EVERCOSS	551
+Digicel	552
+LeMobile	553
+Vestel	554
+DIALN PRODUCTS INC	555
+NUU	556
+mPTech	557
+KXD	558
+Dialn	559
+MITO	560
+sprd	561
+KODAK	562
+Reeder	563
+Welcome	564
+LYF	565
+PCD	566
+DIALN	567
+Redmi	568
+Premio	569
+Kalley	570
+Razer	571
+CROSSCALL	572
+HOTWAV	573
+Cherry_Mobile	574
+Quantum	575
+XMOBILE	576
+OALE	577
+condor	578
+LT_mobile	579
+Samsung	580
+Alldocube	581
+LOGICOM	582
+Fairphone	583
+HIKING	584
+coolpad	585
+BlackBerry	586
+S9	587
+Gtel	588
+HYUNDAI	589
+MINTT	590
+FreeYond	591
+Safaricom	592
+AC	593
+Vortex Cellular	594
+Umx	595
+RUIO	596
+meizu	597
+FROG	598
+AllCall	599
+A-gold	600
+Hot Pepper Inc	601
+Bmobile	602
+TECNO MOBILITY LIMITED	603
+i-PLUS	604
+LOGIC	605
+IKU	606
+iKU	607
+Meitu	608
+Thomson	609
+Vodafone	610
+DANEW	611
+AGM	612
+Foxx Development Inc.	613
+Trident	614
+Treswave	615
+bq	616
+Sonimtech	617
+CHUWI	618
+HiKING	619
+Dcode Cypher	620
+Vertex	621
+TP-Link	622
+MAXFONE	623
+Zebra Technologies	624
+mobiistar	625
+revoview	626
+google	627
+DuoQin	628
+E1	629
+htc	630
+LG Electronics	631
+Alcatel	632
+Cellcom	633
+SIGMA_MOBILE	634
+myPhone	635
+Kimfly	636
+apple	637
+gionee	638
+10or	639
+redroid	640
+LUNA	641
+Sky Devices	642
+iPhone	643
+OBLUE	644
+SSmooth	645
+Kruger_Matz	646
+Gplus	647
+SkyDevices	648
+Droi	649
+hena	650
+SKY Devices	651
+skythtek	652
+ALLVIEW	653
+MODIO	654
+A1	655
+Essential Products	656
+TECLAST	657
+AIDATA	658
+XwirelessLLC	659
+SONY	660
+Microsoft	661
+KGTEL	662
+TECHNOPC	663
+Letv	664
+Digit4G	665
+Mara Phones	666
+CMDC	667
+X-TIGI	668
+YES	669
+SYMPHONY	670
+OX TAB	671
+NEO_6	672
+PRO1	673
+Reliance	674
+SKY_PAD10Max	675
+VIVAX	676
+soda	677
+Skyth	678
+WingTech	679
+LANIX	680
+Elephone	681
+HotPepper	682
+UMAX	683
+Syco	684
+WALTON DIGI-TECH INDUSTRIES LIMITED	685
+SPC	686
+true	687
+KONKA	688
+STG	689
+Positivo	690
+DIXON	691
+Stoneoim	692
+starlight	693
+Me Mobile	694
+SKY_Devices	695
+YEZZ	696
+ZONKO	697
+FOXXD	698
+INOVO	699
+IRIS	700
+D-Tech	701
+RED	702
+SUNMI	703
+X16	704
+PAX	705
+Q-Innovations	706
+MyTab pro	707
+SKY	708
+FiGi	709
+Qmobile	710
+STYLO	711
+BND	712
+TRUE	713
+GiONEE	714
+IFRE S.A.	715
+Karbonn	716
+Sparx S3	717
+Hyundai	718
+KONROW	719
+Dixon	720
+sanmu	721
+TRiDent	722
+OWN	723
+isafemobile	724
+iBRIT	725
+RT project	726
+HOT 14 Pro	727
+F2	728
+VITEL	729
+Pixus	730
+VANKYO	731
+Cherry Mobile	732
+Wings Mobile	733
+HP	734
+SAIET	735
+HAFURY	736
+NEC	737
+Smart	738
+AlcatelOneTouch	739
+Vfone	740
+PLUM	741
+SMARTEC	742
+K118	743
+CALME	744
+LT_Mobile	745
+Vipro	746
+Wileyfox	747
+Smartec	748
+DUOQIN	749
+Opel Mobile	750
+TURKCELL	751
+Floydwiz_Technologies	752
+EPIKONE	753
+COLORROOM	754
+The Warehouse Group	755
+Fplus	756
+Brandt	757
+mobulaa	758
+YU	759
+CASPER	760
+Evertek	761
+Exceed	762
+Urovo	763
+BY TWO	764
+Qnet	765
+Maximus	766
+Aspera Mobile	767
+CORN	768
+InFocus	769
+stack	770
+YESTEL	771
+DIGI	772
+Doro	773
+Nous	774
+rockchip	775
+Smart_Products_Connection_SA	776
+Y13	777
+WOLKI	778
+teksun	779
+leimin	780
+acer	781
+ELEVATE	782
+Mobell	783
+IMAM	784
+TechPad	785
+Jlinksz	786
+ROVER	787
+DW	788
+micromax	789
+BGH	790
+ATOUCH	791
+XiaoMi	792
+Tech_Pad	793
+KRIP	794
+blackberry	795
+Xwireless LLC	796
+Calus	797
+SMART	798
+BLECK	799
+Ocean9L	800
+RED-X	801
+Cherry	802
+YOTOPT	803
+Vanzo	804
+bnd	805
+Elite 5	806
+G8X	807
+SUGAR	808
+Archos	809
+LAVA International	810
+Starlight	811
+Masstel	812
+Artel	813
+P5	814
+SUNMAX	815
+PREMIO	816
+Tecno	817
+INFONE	818
+ENERGIZER	819
+Smart Products Connection SA	820
+BKAV	821
+NOMU_S30	822
+VSUN	823
+EMDOOR	824
+ASUS	825
+Greentel	826
+CPSpeed	827
+Cidea	828
+AZUMI	829
+Chino-e	830
+ergo	831
+Zen	832
+Packard Bell	833
+KMG FUEGUINA S.A.	834
+Joyar	835
+ulefone	836
+5G	837
+FONOS	838
+BQru	839
+LUXURY_TOUCH	840
+DUODUOGO	841
+WALTON DIGI-TECH INDUSTRIES LTD	842
+vmos	843
+PEP A DIVISION OF PEPKOR TRADING (PTY) LTD	844
+hotpepper	845
+GDL	846
+Itel	847
+G-Tab	848
+AxiomTelecom	849
+XGODY	850
+TIOK	851
+Vantop	852
+Haier	853
+Quanta	854
+DIGICEL	855
+I-KALL	856
+Palm	857
+Smartron	858
+ODYS	859
+Polytron	860
+TOSCIDO	861
+BRAVE	862
+HAOVM	863
+magcomm	864
+Partner Mobile	865
+Max Tel FZE	866
+VERTU INTERNATIONAL CORPORATION LIMITED	867
+Azom	868
+Mextablet	869
+DCODE	870
+KTE	871
+TEM	872
+smartphone	873
+N-one	874
+uniqcell	875
+Anya	876
+To be filled by O.E.M.	877
+meanIT	878
+MOBULAA	879
+CONQUEST	880
+A3	881
+AOYODKG	882
+KLIPAD	883
+JSR	884
+vernee	885
+FLASH	886
+SMT_HK	887
+RCA	888
+GEVO	889
+Edanix	890
+Tesla	891
+xiaolajiao	892
+Titan	893
+wind	894
+BDF	895
+Fly	896
+UNITEL	897
+CC2 Pro	898
+General luxe	899
+Accent	900
+BMXC	901
+zte	902
+Zuk	903
+ZUK	904
+JVC	905
+navon	906
+BLUBOO	907
+ZOOCH	908
+ZLQ5	909
+iSWAG	910
+CWHT	911
+EE	912
+H30	913
+COSMO L808	914
+Cherrymobile	915
+I KALL	916
+HIMAX	917
+NVIDIA	918
+Maze_Speed	919
+CK6	920
+XTR	921
+Obi	922
+S23Ultra	923
+Athesi_professional	924
+Pad_6_Pro	925
+GRAND	926
+LEAGOO	927
+IDINO	928
+INTEX	929
+HOLO	930
+Apple	931
+HB	932
+V15	933
+Sky	934
+Foxx Development Inc	935
+CALUS	936
+Kleadtone	937
+Emporia Telecom GmbH & Co. KG	938
+joyar	939
+ALLDOCUBE	940
+uCloudlink	941
+Hewlett-Packard	942
+DASHI	943
+Nubia	944
+SURTAB	945
+Sigma_mobile	946
+TS356XKUDO	947
+manufacturer	948
+SNCOIA	949
+HYD	950
+Droidlogic	951
+Next Technologies	952
+Movitel	953
+YOUNG4	954
+Hisense U962	955
+Energizer	956
+SPRD	957
+SPURT	958
+mione A55	959
+NOTE17 PLUS	960
+SWACONNECT	961
+RHINO	962
+13bde2bbde59ab3b	963
+Bitel	964
+CWOWDEFU	965
+Microsoft Corporation	966
+Jumper	967
+COMIO	968
+CCIT	969
+XZX	970
+Galaxy S22 Ultra 5G	971
+modio	972
+Prestigio	973
+Datamini	974
+Opel_Mobile	975
+COMPAQ	976
+Invens	977
+Yesphone	978
+VGOTEL	979
+VIPER	980
+b1fafcba21783ad8	981
+Aprix	982
+Cyrus	983
+MAXWEST	984
+weelikeit	985
+Mione A60	986
+BMAX	987
+EWU	988
+Polaroid	989
+Topdevice	990
+1904090b2408e785	991
+PG	992
+WEALTHY	993
+DASAN	994
+HMR Networks	995
+S22 Ultra 5G	996
+xiaomi	997
+TP-LINK	998
+SpeedUp Technology	999
+pad6pro	1000
+E960_7731E_32U_O	1001
+Smooth	1002
+191591fe05d91a13	1003
+welcome	1004
+iGET	1005
+18ad27474502ffc6	1006
+TAOBAO	1007
+iVOOMi	1008
+i14 pro Max	1009
+360	1010
+Billion	1011
+SAMSUNG	1012
+Techland	1013
+YODA	1014
+RELIANCE	1015
+S2	1016
+HIGRACE	1017
+SMILE	1018
+Honeywell	1019
+OpelMobile	1020
+LENOSED	1021
+deltainno	1022
+c293c8ddd8161f06	1023
+BLUEDIGIT	1024
+Kogan	1025
+TOKIE	1026
+G95 PRO	1027
+Tech	1028
+MLS	1029
+KI7	1030
+Bluebird	1031
+Ditec	1032
+uLesson	1033
+M101	1034
+kyocera	1035
+Walton	1036
+ragentek	1037
+TOX3	1038
+APRO	1039
+MAXCOM	1040
+Mara	1041
+Plus One Japan Limited	1042
+T-POWER	1043
+Plaisio	1044
+jumper	1045
+OSE	1046
+Xolo	1047
+TIMI	1048
+CC7 mini	1049
+Sharp	1050
+Imose	1051
+SmartPhone	1052
+AYZ	1053
+TWINMOS	1054
+firefly	1055
+146cb4f5bd8a59c	1056
+DEXP	1057
+FCC	1058
+smart phone	1059
+LNMBBS	1060
+KALLEY	1061
+Blaupunkt	1062
+GreenLion	1063
+N4F26M	1064
+archos	1065
+WINSTAR	1066
+CHAINWAY	1067
+MyPhone	1068
+Techain	1069
+Skyworth	1070
+Kfone	1071
+TELENOR	1072
+Sigma mobile	1073
+strawberry	1074
+naomicase	1075
+M30	1076
+MOVIC	1077
+EastAeon	1078
+ROLLCALL	1079
+GFIVE	1080
+Deploy Pvt Ltd	1081
+Longcheer	1082
+Koobee	1083
+MTC	1084
+VNUS	1085
+KEMPLER_STRAUSS	1086
+MTK	1087
+K15_A	1088
+UCT	1089
+Brava	1090
+Allwinner	1091
+EDL	1092
+ROKiT	1093
+iku	1094
+MAZE	1095
+Fire Plus	1096
+MediaTek	1097
+GOOGLE	1098
+IFoo	1099
+JOYSURF	1100
+SCOLOR	1101
+WOZIFAN	1102
+Galaxy S23 Ultra 5G	1103
+tecno	1104
+Basari	1105
+FydeOS	1106
+Swipe	1107
+X-View	1108
+MEDIACOM	1109
+Morep	1110
+HMR	1111
+UNISOC	1112
+iBall	1113
+BUNDY	1114
+SMARTTAB	1115
+MOBIWIRE	1116
+HOT 11S	1117
