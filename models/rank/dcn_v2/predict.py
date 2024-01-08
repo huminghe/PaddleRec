@@ -136,8 +136,8 @@ def append_dense_feature(dense_list, feature):
 def create_predict_data(start_num, purchase_pop_num, pop_up_buy_num, chat_num, video_call_click_num,
                         country, brand, model, campaign_id, group_id, is_accurate_user, is_moloco_user):
     country_id = country_map.get(country.lower(), COUNTRY_UNK)
-    brand_id = brand_map.get(brand.lower(), BRAND_UNK)
-    phone_model_id = phone_model_map.get(model.lower(), MODEL_UNK)
+    brand_id = brand_map.get(brand, BRAND_UNK)
+    phone_model_id = phone_model_map.get(model, MODEL_UNK)
     campaign_id = campaign_id_map.get(campaign_id, CAMPAIGN_UNK)
     group_id = group_id_map.get(group_id, GROUP_UNK)
     accurate_user_id = is_accurate_user_map.get(is_accurate_user, ACCURATE_UNK)
@@ -174,7 +174,7 @@ def predict(start_num, purchase_pop_num, pop_up_buy_num, chat_num, video_call_cl
                                      country, brand, model, campaign_id, group_id, is_accurate_user, is_moloco_user)
 
     logger.info("batch data: " + str(batch_data))
-    result = dy_model_class.predict(dy_model, batch_data, config).numpy()
+    result = dy_model_class.predict_forward(dy_model, batch_data, config).numpy()
     logger.info("result: " + str(result))
 
     return result
