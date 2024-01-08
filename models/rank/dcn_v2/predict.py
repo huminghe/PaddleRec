@@ -146,7 +146,6 @@ def create_predict_data(start_num, purchase_pop_num, pop_up_buy_num, chat_num, v
     phone_height = phone_model_height_map.get(model, 1500.0)
 
     output_list = []
-    output_list.append(np.array([1]).astype("int64"))
     output_list.append(np.array([country_id]).astype("int64"))
     output_list.append(np.array([campaign_id]).astype("int64"))
     output_list.append(np.array([group_id]).astype("int64"))

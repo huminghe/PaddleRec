@@ -36,7 +36,7 @@ def response_return_template(code, message, result=None):
 
 
 @app.route("/topfunny/user_pay_predict", methods=['POST'])
-def recommend_v2():
+def user_pay_predict():
     data = request.json
     start_num = data['start_num']
     purchase_pop_num = data['purchase_pop_num']

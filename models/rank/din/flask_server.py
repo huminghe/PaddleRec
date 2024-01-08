@@ -39,7 +39,7 @@ def response_return_template(code, message, result=None):
 
 
 @app.route("/topfunny/rank", methods=['POST'])
-def recommend_v2():
+def rank():
     data = request.json
     history_list = data['history']
     candidate_list = data['candidate']
