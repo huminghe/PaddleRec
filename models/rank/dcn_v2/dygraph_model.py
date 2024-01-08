@@ -72,8 +72,8 @@ class DygraphModel():
         dense_feature_dim = config.get('hyper_parameters.dense_input_dim')
         sparse_tensor = []
         for b in batch_data[:-1]:
-            sparse_tensor.append(paddle.to_tensor(b.numpy().astype('int64').reshape(-1, 1)))
-        dense_tensor = paddle.to_tensor(batch_data[-1].numpy().astype('float32').reshape(-1, dense_feature_dim))
+            sparse_tensor.append(paddle.to_tensor(b.reshape(-1, 1)))
+        dense_tensor = paddle.to_tensor(batch_data[-1].reshape(1, dense_feature_dim))
         return sparse_tensor, dense_tensor
 
     # define loss function by predicts and label

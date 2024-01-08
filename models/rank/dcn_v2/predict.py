@@ -146,13 +146,13 @@ def create_predict_data(start_num, purchase_pop_num, pop_up_buy_num, chat_num, v
     phone_height = phone_model_height_map.get(model, 1500.0)
 
     output_list = []
-    output_list.append([np.array([country_id]).astype("int64")])
-    output_list.append([np.array([campaign_id]).astype("int64")])
-    output_list.append([np.array([group_id]).astype("int64")])
-    output_list.append([np.array([brand_id]).astype("int64")])
-    output_list.append([np.array([phone_model_id]).astype("int64")])
-    output_list.append([np.array([accurate_user_id]).astype("int64")])
-    output_list.append([np.array([moloco_user_id]).astype("int64")])
+    output_list.append(np.array([country_id]).astype("int64"))
+    output_list.append(np.array([campaign_id]).astype("int64"))
+    output_list.append(np.array([group_id]).astype("int64"))
+    output_list.append(np.array([brand_id]).astype("int64"))
+    output_list.append(np.array([phone_model_id]).astype("int64"))
+    output_list.append(np.array([accurate_user_id]).astype("int64"))
+    output_list.append(np.array([moloco_user_id]).astype("int64"))
 
     dense_list = []
     append_dense_feature(dense_list, start_num)
@@ -162,7 +162,7 @@ def create_predict_data(start_num, purchase_pop_num, pop_up_buy_num, chat_num, v
     append_dense_feature(dense_list, video_call_click_num)
     append_dense_feature(dense_list, phone_height)
 
-    output_list.append([np.array(dense_list).astype("float32")])
+    output_list.append(np.array(dense_list).astype("float32"))
 
     return output_list
 
