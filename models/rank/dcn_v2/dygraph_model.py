@@ -73,7 +73,7 @@ class DygraphModel():
         sparse_tensor = []
         for b in batch_data[:-1]:
             sparse_tensor.append(paddle.to_tensor(b.reshape(-1, 1)))
-        dense_tensor = paddle.to_tensor(batch_data[-1].reshape(1, dense_feature_dim))
+        dense_tensor = paddle.to_tensor(batch_data[-1].reshape(-1, dense_feature_dim))
         return sparse_tensor, dense_tensor
 
     # define loss function by predicts and label
@@ -158,6 +158,11 @@ class DygraphModel():
     def predict_forward(self, dy_model, batch_data, config):
         infer_addition = config.get("hyper_parameters.infer_addition", 0.0)
         sparse_tensor, dense_tensor = self.create_feeds_predict(batch_data, config)
+
+        print("sparse & dense tensor")
+        print(str(sparse_tensor))
+        print(str(dense_tensor))
+
         pred = dy_model.forward(sparse_tensor, dense_tensor)
 
         pred_modified = pred + infer_addition
