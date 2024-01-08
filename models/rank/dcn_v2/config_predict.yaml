@@ -35,8 +35,8 @@ runner:
   group_id_map_path: "data/1214_data/group_id.txt"
   phone_model_id_map_path: "data/1214_data/model_id.txt"
   phone_height_map_path: "data/1214_data/model_height_map.txt"
-  accurate_user_map_path: "accurate_id.txt"
-  moloco_user_map_path: "moloco_id.txt"
+  accurate_user_map_path: "data/1214_data/accurate_id.txt"
+  moloco_user_map_path: "data/1214_data/moloco_id.txt"
 
 
 # hyper parameters of user-defined network
