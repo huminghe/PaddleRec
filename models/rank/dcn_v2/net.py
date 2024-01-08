@@ -343,5 +343,5 @@ class CrossNetMix(nn.Layer):
                     gating_score_of_experts, axis=1))
             x_l = moe_out + x_l  # (bs, in_features, 1)
 
-        x_l = x_l.squeeze()  # (bs, in_features)
+        x_l = x_l.squeeze(axis=2)  # (bs, in_features)
         return x_l
