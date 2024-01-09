@@ -48,8 +48,8 @@ def user_pay_predict():
     model = data['model']
     campaign_id = data['campaign_id']
     group_id = data['group_id']
-    is_accurate_user = data['is_accurate_user']
-    is_moloco_user = data['is_moloco_user']
+    is_accurate_user = str(data['is_accurate_user'])
+    is_moloco_user = str(data['is_moloco_user'])
 
     app.logger.info("start num: " + str(start_num) + ", purchase pop num: " + str(purchase_pop_num) +
                     ", pop up buy num: " + str(pop_up_buy_num) + ", chat num: " + str(chat_num) +
