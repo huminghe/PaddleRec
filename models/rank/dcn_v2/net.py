@@ -98,31 +98,19 @@ class DCN_V2Layer(nn.Layer):
         sparse_embeddings = self.embedding(
             sparse_inputs_concat)  # shape=[bs, 26, dim]
 
-        print("sparse embeddings")
-        print(sparse_embeddings)
-
         # print("sparse_embeddings shape:",sparse_embeddings.shape)
 
         sparse_embeddings_re = paddle.reshape(
             sparse_embeddings,
             shape=[-1, self.sparse_num_field * self.sparse_feature_dim])
 
-        print("sparse embeddings re")
-        print(sparse_embeddings_re)
-
         dense_embeddings = self.dense_emb(
             dense_inputs)  # # shape=[bs, 13, dim]
-
-        print("dense embeddings")
-        print(dense_embeddings)
 
         feat_embeddings = paddle.concat(
             [sparse_embeddings_re, dense_embeddings], 1)
         if self.dropout_type > 1:
             feat_embeddings = self.drop_out_cell(feat_embeddings)
-
-        print("feat embeddings")
-        print(feat_embeddings)
 
         # print("feat_embeddings:",feat_embeddings.shape)
 
@@ -142,14 +130,8 @@ class DCN_V2Layer(nn.Layer):
             # CrossNetLayer
             cross_out = self.DeepCrossLayer_(feat_embeddings)
 
-            print("cross out")
-            print(cross_out)
-
             # MLPLayer
             dnn_output = self.DNN_(feat_embeddings)
-
-            print("dnn output")
-            print(dnn_output)
 
             last_out = paddle.concat([dnn_output, cross_out], axis=-1)
 

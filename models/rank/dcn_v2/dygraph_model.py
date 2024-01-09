@@ -159,10 +159,6 @@ class DygraphModel():
         infer_addition = config.get("hyper_parameters.infer_addition", 0.0)
         sparse_tensor, dense_tensor = self.create_feeds_predict(batch_data, config)
 
-        print("sparse & dense tensor")
-        print(str(sparse_tensor))
-        print(str(dense_tensor))
-
         pred = dy_model.forward(sparse_tensor, dense_tensor)
 
         pred_modified = pred + infer_addition

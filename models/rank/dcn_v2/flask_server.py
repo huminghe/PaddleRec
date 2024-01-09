@@ -61,7 +61,7 @@ def user_pay_predict():
     result = predict.predict(start_num, purchase_pop_num, pop_up_buy_num, chat_num, video_call_click_num,
                              country, brand, model, campaign_id, group_id, is_accurate_user, is_moloco_user)
 
-    result = [{'result': str(x)} for x in result]
+    result = {'score': str(result[0])}
 
     return_value = response_return_template(200, 'OK', result)
     return json.dumps(return_value, ensure_ascii=False)

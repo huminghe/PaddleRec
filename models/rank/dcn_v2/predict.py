@@ -53,7 +53,6 @@ dy_model_class = load_dy_model_class(config)
 use_gpu = config.get("runner.use_gpu", True)
 model_load_path = config.get("runner.infer_load_path", "model_output")
 start_epoch = config.get("runner.infer_start_epoch", 0)
-maxlen = config.get("hyper_parameters.maxlen", 30)
 
 country_id_map_path = config.get("runner.country_id_map_path", None)
 brand_id_map_path = config.get("runner.brand_id_map_path", None)
