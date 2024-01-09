@@ -139,8 +139,8 @@ def create_predict_data(start_num, purchase_pop_num, pop_up_buy_num, chat_num, v
     phone_model_id = phone_model_map.get(model, MODEL_UNK)
     campaign_id = campaign_id_map.get(campaign_id, CAMPAIGN_UNK)
     group_id = group_id_map.get(group_id, GROUP_UNK)
-    accurate_user_id = is_accurate_user_map.get(is_accurate_user, ACCURATE_UNK)
-    moloco_user_id = is_moloco_user_map.get(is_moloco_user, MOLOCO_UNK)
+    accurate_user_id = is_accurate_user_map.get(is_accurate_user.lower(), ACCURATE_UNK)
+    moloco_user_id = is_moloco_user_map.get(is_moloco_user.lower(), MOLOCO_UNK)
 
     phone_height = phone_model_height_map.get(model, 1500.0)
 
