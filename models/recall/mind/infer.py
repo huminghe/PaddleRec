@@ -77,7 +77,6 @@ def main(args):
     start_epoch = config.get("runner.infer_start_epoch", 0)
     end_epoch = config.get("runner.infer_end_epoch", 10)
     batch_size = config.get("runner.infer_batch_size", None)
-    author_country_map_path = config.get("runner.author_country_map_path", None)
     os.environ["CPU_NUM"] = str(config.get("runner.thread_num", 1))
 
     logger.info("**************common.configs**********")

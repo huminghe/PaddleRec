@@ -22,9 +22,11 @@ class RecDataset(IterableDataset):
         super(RecDataset, self).__init__()
         self.file_list = file_list
         self.maxlen = config.get("hyper_parameters.maxlen", 30)
+        self.ads_campaign_count = config.get("hyper_parameters.ads_campaign_count", 200)
         self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
+        self.product_count = config.get("hyper_parameters.product_count", 15)
         self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.init()
 
@@ -43,8 +45,8 @@ class RecDataset(IterableDataset):
         for file in self.file_list:
             with open(file, "r") as rf:
                 for line in rf:
-                    hist_items, hist_countries, user_country, target_item, ads_group, brand, height, phone_model, time = line.strip().split(
-                        "\t")
+                    (hist_items, hist_countries, user_country, target_item, ads_campaign, ads_group, brand, height,
+                     phone_model, product, time) = line.strip().split("\t")
 
                     hist_item_list = [self.refine_item_id(int(x)) for x in hist_items.split(",")]
                     hist_country_list = [int(x) for x in hist_countries.split(",")]
@@ -57,11 +59,16 @@ class RecDataset(IterableDataset):
                     user_country_list = []
                     seq_lens = []
                     eval_list = []
+                    ads_campaign_list = []
                     ads_group_list = []
                     brand_list = []
                     height_list = []
                     phone_model_list = []
+                    product_list = []
 
+                    ads_campaign = int(ads_campaign)
+                    if ads_campaign >= self.ads_campaign_count:
+                        ads_campaign = self.unk
                     ads_group = int(ads_group)
                     if ads_group >= self.ads_group_count:
                         ads_group = self.unk
@@ -71,6 +78,9 @@ class RecDataset(IterableDataset):
                     phone_model = int(phone_model)
                     if phone_model >= self.phone_model_count:
                         phone_model = self.unk
+                    product = int(product)
+                    if product >= self.product_count:
+                        product = self.unk
 
                     length = len(hist_item_list)
                     seq_lens.append(min(self.maxlen, length))
@@ -82,12 +92,15 @@ class RecDataset(IterableDataset):
                     user_country_list.append(int(user_country))
                     eval_list.append([int(target_item)] + [self.padding] * max(0, self.maxlen - 1))
 
+                    ads_campaign_list.append(ads_campaign)
                     ads_group_list.append(ads_group)
                     brand_list.append(brand)
                     height_list.append(int(height))
                     phone_model_list.append(phone_model)
+                    product_list.append(product)
 
                     yield output_list + [np.array(seq_lens).astype("int64")] + output_country_list + [
-                        np.array(user_country_list).astype("int64")] + [np.array(ads_group_list).astype("int64")] + [
-                              np.array(brand_list).astype("int64")] + [np.array(height_list).astype("int64")] + [
-                              np.array(phone_model_list).astype("int64")] + [np.array(eval_list).astype("int64")]
+                        np.array(user_country_list).astype("int64")] + [np.array(ads_campaign_list).astype("int64")] + [
+                        np.array(ads_group_list).astype("int64")] + [np.array(brand_list).astype("int64")] + [
+                        np.array(height_list).astype("int64")] + [np.array(phone_model_list).astype("int64")] + [
+                        np.array(product_list).astype("int64")] + [np.array(eval_list).astype("int64")]

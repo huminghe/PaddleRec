@@ -192,7 +192,7 @@ class Mind_Capsual_Layer(nn.Layer):
         # S*e
         low_capsule_new = paddle.matmul(item_his_emb,
                                         self.bilinear_mapping_matrix)
-        if self.training and self.more_dropout:
+        if self.more_dropout:
             low_capsule_new = self.dropout(low_capsule_new)
 
         low_capsule_new_tile = paddle.tile(low_capsule_new, [1, 1, self.k_max])
@@ -224,7 +224,7 @@ class Mind_Capsual_Layer(nn.Layer):
                 paddle.transpose(high_capsule, [0, 1, 3, 2]))
             B_delta = paddle.reshape(
                 B_delta, shape=[-1, self.k_max, self.maxlen])
-            if self.training and self.more_dropout:
+            if self.more_dropout:
                 B_delta = self.dropout(B_delta)
             B += B_delta
 
@@ -233,7 +233,7 @@ class Mind_Capsual_Layer(nn.Layer):
         W = paddle.unsqueeze(W, axis=2)
         interest_capsule = paddle.matmul(W, low_capsule_new_tile)
         interest_capsule = self.squash(interest_capsule)
-        if self.training and self.more_dropout:
+        if self.more_dropout:
             interest_capsule = self.dropout(interest_capsule)
         high_capsule = paddle.reshape(interest_capsule,
                                       [-1, self.k_max, self.output_units])
@@ -255,10 +255,12 @@ class MindLayer(nn.Layer):
                  item_count,
                  country_count,
                  user_country_count,
+                 ads_campaign_count,
                  ads_group_count,
                  brand_count,
                  height_count,
                  phone_model_count,
+                 product_count,
                  embedding_dim,
                  hidden_size,
                  neg_samples=100,
@@ -312,6 +314,15 @@ class MindLayer(nn.Layer):
                 initializer=nn.initializer.XavierUniform(
                     fan_in=user_country_count, fan_out=embedding_dim)))
 
+        self.ads_campaign_emb = nn.Embedding(
+            ads_campaign_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="ads_campaign_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=ads_campaign_count, fan_out=embedding_dim)))
+
         self.ads_group_emb = nn.Embedding(
             ads_group_count,
             embedding_dim,
@@ -348,6 +359,15 @@ class MindLayer(nn.Layer):
                 initializer=nn.initializer.XavierUniform(
                     fan_in=phone_model_count, fan_out=embedding_dim)))
 
+        self.product_emb = nn.Embedding(
+            product_count,
+            embedding_dim,
+            padding_idx=0,
+            weight_attr=paddle.ParamAttr(
+                name="product_emb",
+                initializer=nn.initializer.XavierUniform(
+                    fan_in=product_count, fan_out=embedding_dim)))
+
         self.capsual_layer = Mind_Capsual_Layer(
             embedding_dim,
             hidden_size,
@@ -366,7 +386,7 @@ class MindLayer(nn.Layer):
         self.more_dropout = more_dropout
         self.item_emb_linear = nn.Linear(in_features=2 * embedding_dim, out_features=embedding_dim)
         self.user_country_emb_linear = nn.Linear(in_features=embedding_dim, out_features=hidden_size)
-        self.user_features_emb_linear = nn.Linear(in_features=5 * embedding_dim, out_features=hidden_size)
+        self.user_features_emb_linear = nn.Linear(in_features=7 * embedding_dim, out_features=hidden_size)
 
         self.output_softmax_linear = nn.Linear(in_features=hidden_size, out_features=item_count)
         self.loss = nn.CrossEntropyLoss()
@@ -387,7 +407,7 @@ class MindLayer(nn.Layer):
         return output.squeeze(1), weight
 
     def forward(self, hist_item, seqlen, labels=None, hist_country=None, user_country=None, item_country=None,
-                ads_group=None, brand=None, height=None, phone_model=None):
+                ads_campaign=None, ads_group=None, brand=None, height=None, phone_model=None, product=None):
         """forward
 
         Args:
@@ -397,45 +417,50 @@ class MindLayer(nn.Layer):
             hist_country : [B, maxlen, 1]
             user_country : [B, 1]
             item_country : [B, 1]
+            ads_campaign : [B, 1]
             ads_group : [B, 1]
             brand : [B, 1]
             height : [B, 1]
             phone_model : [B, 1]
+            product : [B, 1]
         """
 
         hit_item_emb = self.item_emb(hist_item)  # [B, seqlen, embed_dim]
         hit_country_emb = self.country_emb(hist_country)
-        if self.training:
-            hit_item_emb = self.dropout(hit_item_emb)
-            hit_country_emb = self.dropout(hit_country_emb)
+        hit_item_emb = self.dropout(hit_item_emb)
+        hit_country_emb = self.dropout(hit_country_emb)
 
         hit_concat_emb = paddle.concat([hit_item_emb, hit_country_emb], axis=-1)
         hist_emb = F.relu(self.item_emb_linear(hit_concat_emb))
-        if self.training and self.more_dropout:
+        if self.more_dropout:
             hist_emb = self.dropout(hist_emb)
 
         user_country_emb = self.user_country_emb(user_country)
-        if self.training:
-            user_country_emb = self.dropout(user_country_emb)
+        user_country_emb = self.dropout(user_country_emb)
 
         if self.more_features:
+            ads_campaign_emb = self.ads_campaign_emb(ads_campaign)
             ads_group_emb = self.ads_group_emb(ads_group)
             brand_emb = self.brand_emb(brand)
             height_emb = self.height_emb(height)
             phone_model_emb = self.phone_model_emb(phone_model)
-            if self.training:
-                ads_group_emb = self.dropout(ads_group_emb)
-                brand_emb = self.dropout(brand_emb)
-                height_emb = self.dropout(height_emb)
-                phone_model_emb = self.dropout(phone_model_emb)
+            product_emb = self.product_emb(product)
 
-            concat_emb = paddle.concat([user_country_emb, ads_group_emb, brand_emb, height_emb, phone_model_emb],
+            ads_campaign_emb = self.dropout(ads_campaign_emb)
+            ads_group_emb = self.dropout(ads_group_emb)
+            brand_emb = self.dropout(brand_emb)
+            height_emb = self.dropout(height_emb)
+            phone_model_emb = self.dropout(phone_model_emb)
+            product_emb = self.dropout(product_emb)
+
+            concat_emb = paddle.concat([user_country_emb, ads_campaign_emb, ads_group_emb, brand_emb, height_emb,
+                                        phone_model_emb, product_emb],
                                        axis=-1)
             user_features_emb = F.relu(self.user_features_emb_linear(concat_emb))
         else:
             user_features_emb = F.relu(self.user_country_emb_linear(user_country_emb))
 
-        if self.training and self.more_dropout:
+        if self.more_dropout:
             user_features_emb = self.dropout(user_features_emb)
 
         user_cap, cap_weights, cap_mask = self.capsual_layer(hist_emb,
@@ -447,9 +472,8 @@ class MindLayer(nn.Layer):
 
         target_emb = self.item_emb(labels)
         target_country_emb = self.country_emb(item_country)
-        if self.training:
-            target_emb = self.dropout(target_emb)
-            target_country_emb = self.dropout(target_country_emb)
+        target_emb = self.dropout(target_emb)
+        target_country_emb = self.dropout(target_country_emb)
 
         target_concat_emb = paddle.concat([target_emb, target_country_emb], axis=-1)
         target_emb = F.relu(self.item_emb_linear(target_concat_emb))

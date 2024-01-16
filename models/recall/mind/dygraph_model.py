@@ -27,10 +27,12 @@ class DygraphModel():
         item_count = config.get("hyper_parameters.item_count", None)
         country_count = config.get("hyper_parameters.country_count", None)
         user_country_count = config.get("hyper_parameters.user_country_count", None)
+        ads_campaign_count = config.get("hyper_parameters.ads_campaign_count", None)
         ads_group_count = config.get("hyper_parameters.ads_group_count", None)
         brand_count = config.get("hyper_parameters.brand_count", None)
         height_count = config.get("hyper_parameters.height_count", None)
         phone_model_count = config.get("hyper_parameters.phone_model_count", None)
+        product_count = config.get("hyper_parameters.product_count", None)
         embedding_dim = config.get("hyper_parameters.embedding_dim", 64)
         hidden_size = config.get("hyper_parameters.hidden_size", 64)
         neg_samples = config.get("hyper_parameters.neg_samples", 100)
@@ -42,10 +44,10 @@ class DygraphModel():
         dropout = config.get("hyper_parameters.dropout", 0.2)
         more_features = config.get("hyper_parameters.more_features", False)
         more_dropout = config.get("hyper_parameters.more_dropout", False)
-        MIND_model = net.MindLayer(item_count, country_count, user_country_count, ads_group_count, brand_count,
-                                   height_count, phone_model_count, embedding_dim, hidden_size, neg_samples, maxlen,
-                                   pow_p, capsual_iters, capsual_max_k, capsual_init_std, dropout, more_features,
-                                   more_dropout)
+        MIND_model = net.MindLayer(item_count, country_count, user_country_count, ads_campaign_count, ads_group_count,
+                                   brand_count, height_count, phone_model_count, product_count, embedding_dim,
+                                   hidden_size, neg_samples, maxlen, pow_p, capsual_iters, capsual_max_k,
+                                   capsual_init_std, dropout, more_features, more_dropout)
         return MIND_model
 
     # define feeds which convert numpy of batch data to paddle.tensor 
@@ -57,12 +59,14 @@ class DygraphModel():
         hist_country = paddle.to_tensor(batch_data[3], dtype="int64")
         user_country = paddle.to_tensor(batch_data[4], dtype="int64")
         item_country = paddle.to_tensor(batch_data[5], dtype="int64")
-        ads_group = paddle.to_tensor(batch_data[6], dtype="int64")
-        brand = paddle.to_tensor(batch_data[7], dtype="int64")
-        height_id = paddle.to_tensor(batch_data[8], dtype="int64")
-        phone_model_id = paddle.to_tensor(batch_data[9], dtype="int64")
-        return [hist_item, target_item, seq_len, hist_country, user_country, item_country, ads_group, brand, height_id,
-                phone_model_id]
+        ads_campaign = paddle.to_tensor(batch_data[6], dtype="int64")
+        ads_group = paddle.to_tensor(batch_data[7], dtype="int64")
+        brand = paddle.to_tensor(batch_data[8], dtype="int64")
+        height_id = paddle.to_tensor(batch_data[9], dtype="int64")
+        phone_model_id = paddle.to_tensor(batch_data[10], dtype="int64")
+        product_id = paddle.to_tensor(batch_data[11], dtype="int64")
+        return [hist_item, target_item, seq_len, hist_country, user_country, item_country, ads_campaign, ads_group,
+                brand, height_id, phone_model_id, product_id]
 
     # create_feeds_infer
     def create_feeds_infer(self, batch_data):
@@ -72,12 +76,14 @@ class DygraphModel():
         seq_len = paddle.to_tensor(batch_data[1], dtype="int64")
         hist_country = paddle.to_tensor(batch_data[2], dtype="int64")
         user_country = paddle.to_tensor(batch_data[3], dtype="int64")
-        ads_group = paddle.to_tensor(batch_data[4], dtype="int64")
-        brand = paddle.to_tensor(batch_data[5], dtype="int64")
-        height_id = paddle.to_tensor(batch_data[6], dtype="int64")
-        phone_model_id = paddle.to_tensor(batch_data[7], dtype="int64")
-        return [hist_item, target_item, seq_len, hist_country, user_country, ads_group, brand, height_id,
-                phone_model_id]
+        ads_campaign = paddle.to_tensor(batch_data[4], dtype="int64")
+        ads_group = paddle.to_tensor(batch_data[5], dtype="int64")
+        brand = paddle.to_tensor(batch_data[6], dtype="int64")
+        height_id = paddle.to_tensor(batch_data[7], dtype="int64")
+        phone_model_id = paddle.to_tensor(batch_data[8], dtype="int64")
+        product_id = paddle.to_tensor(batch_data[9], dtype="int64")
+        return [hist_item, target_item, seq_len, hist_country, user_country, ads_campaign, ads_group,
+                brand, height_id, phone_model_id, product_id]
 
     # define optimizer 
     def create_loss(self, hit_prob):
@@ -99,21 +105,21 @@ class DygraphModel():
 
     # construct train forward phase  
     def train_forward(self, dy_model, metrics_list, batch_data, config):
-        hist_item, labels, seqlen, hist_country, user_country, item_country, ads_group, brand, height_id, phone_model_id = self.create_feeds_train(
-            batch_data)
+        (hist_item, labels, seqlen, hist_country, user_country, item_country, ads_campaign, ads_group, brand, height_id,
+         phone_model_id, product_id) = self.create_feeds_train(batch_data)
         loss, weight, _, _, _ = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, item_country,
-                                                 ads_group, brand, height_id, phone_model_id)
+                                                 ads_campaign, ads_group, brand, height_id, phone_model_id, product_id)
         loss = self.create_loss(loss)
         print_dict = {"loss": loss}
         return loss, metrics_list, print_dict
 
     # construct infer forward phase  
     def infer_forward(self, dy_model, metrics_list, batch_data, config):
-        hist_item, labels, seqlen, hist_country, user_country, ads_group, brand, height_id, phone_model_id = self.create_feeds_infer(
-            batch_data)
+        (hist_item, labels, seqlen, hist_country, user_country, ads_campaign, ads_group, brand, height_id,
+         phone_model_id, product_id) = self.create_feeds_infer(batch_data)
         dy_model.eval()
-        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, None, ads_group,
-                                                brand, height_id, phone_model_id)
+        user_cap, cap_weight = dy_model.forward(hist_item, seqlen, labels, hist_country, user_country, None,
+                                                ads_campaign, ads_group, brand, height_id, phone_model_id, product_id)
         # update metrics
         print_dict = None
         return user_cap, cap_weight

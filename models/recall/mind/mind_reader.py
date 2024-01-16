@@ -32,9 +32,11 @@ class RecDataset(IterableDataset):
         self.min_data_len = config.get("hyper_parameters.min_data_len", 1)
         self.sample_strategy = config.get("hyper_parameter.sample_strategy", 1)
         self.long_seq_strategy = config.get("hyper_parameter.long_seq_strategy", 1)
-        self.ads_group_count = config.get("hyper_parameters.ads_group_count", 200)
+        self.ads_campaign_count = config.get("hyper_parameters.ads_campaign_count", 200)
+        self.ads_group_count = config.get("hyper_parameters.ads_group_count", 300)
         self.brand_count = config.get("hyper_parameters.brand_count", 50)
         self.phone_model_count = config.get("hyper_parameters.phone_model_count", 1500)
+        self.product_count = config.get("hyper_parameters.product_count", 15)
         self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.shuffle_data = config.get("runner.shuffle_data", False)
         self.deduplicate_data = config.get("runner.deduplicate_data", False)
@@ -56,31 +58,38 @@ class RecDataset(IterableDataset):
                     item_id = int(conts[1])
                     user_country_id = int(conts[2])
                     item_country_id = int(conts[3])
-                    ads_group_id = int(conts[4])
+                    ads_campaign_id = int(conts[4])
+                    if ads_campaign_id >= self.ads_campaign_count:
+                        ads_campaign_id = self.unk
+                    ads_group_id = int(conts[5])
                     if ads_group_id >= self.ads_group_count:
                         ads_group_id = self.unk
-                    brand_id = int(conts[5])
+                    brand_id = int(conts[6])
                     if brand_id >= self.brand_count:
                         brand_id = self.unk
-                    height_id = int(conts[6])
-                    phone_model_id = int(conts[7])
+                    height_id = int(conts[7])
+                    phone_model_id = int(conts[8])
                     if phone_model_id >= self.phone_model_count:
                         phone_model_id = self.unk
+                    product_id = int(conts[9])
+                    if product_id >= self.product_count:
+                        product_id = self.unk
                     if item_id >= self.item_count:
                         item_id = self.unk
-                    time_stamp = int(conts[8])
+                    time_stamp = int(conts[10])
                     self.users.add(user_id)
                     self.items.add(item_id)
                     if user_id not in self.graph:
                         self.graph[user_id] = []
                         self.item_graph[user_id] = []
                     if not self.deduplicate_data or (item_id not in self.item_graph[user_id]):
-                        self.graph[user_id].append((item_id, time_stamp, user_country_id, item_country_id, ads_group_id,
-                                                    brand_id, height_id, phone_model_id))
+                        self.graph[user_id].append((item_id, time_stamp, user_country_id, item_country_id,
+                                                    ads_campaign_id, ads_group_id, brand_id, height_id,
+                                                    phone_model_id, product_id))
                         self.item_graph[user_id].append(item_id)
         for user_id, value in self.graph.items():
             value.sort(key=lambda x: x[1])
-            self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6], x[7]) for x in value]
+            self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9]) for x in value]
         self.users = list(self.users)
         self.items = list(self.items)
 
@@ -101,7 +110,7 @@ class RecDataset(IterableDataset):
                     times = 1
                 else:
                     times = math.floor((len(item_list) + 1) / 4) + 1
-                    times = min(times, 10)
+                    times = min(times, 5)
                 for i in range(0, times):
                     if self.sample_strategy == 1:
                         k = max(random.choice(range(0, len(item_list))), random.choice(range(0, len(item_list))))
@@ -109,7 +118,8 @@ class RecDataset(IterableDataset):
                         k = random.choice(range(0, len(item_list)))
                     if self.shuffle_data:
                         random.shuffle(item_list)
-                    (item_id, user_country_id, item_country_id, ads_group_id, brand_id, height_id, phone_model_id) = item_list[k]
+                    (item_id, user_country_id, item_country_id, ads_campaign_id, ads_group_id, brand_id, height_id,
+                     phone_model_id, product_id) = item_list[k]
 
                     if k >= self.maxlen:
                         hist_item_list = [x[0] for x in item_list[k - self.maxlen:k]]
@@ -127,8 +137,10 @@ class RecDataset(IterableDataset):
                         np.array(hist_country_list).astype("int64"),
                         np.array([user_country_id]).astype("int64"),
                         np.array([item_country_id]).astype("int64"),
+                        np.array([ads_campaign_id]).astype("int64"),
                         np.array([ads_group_id]).astype("int64"),
                         np.array([brand_id]).astype("int64"),
                         np.array([height_id]).astype("int64"),
-                        np.array([phone_model_id]).astype("int64")
+                        np.array([phone_model_id]).astype("int64"),
+                        np.array([product_id]).astype("int64")
                     ]

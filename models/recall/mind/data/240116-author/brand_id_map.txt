@@ -1,0 +1,263 @@
+[PAD]	0
+[NULL]	1
+samsung	2
+xiaomi	3
+huawei	4
+oppo	5
+vivo	6
+motorola	7
+realme	8
+oneplus	9
+infinix mobility limited	10
+lge	11
+tecno mobile limited	12
+honor	13
+sony	14
+google	15
+tcl	16
+hmd global	17
+asus	18
+zte	19
+infinix	20
+wingtech	21
+lenovo	22
+tecno	23
+kyocera	24
+ulefone	25
+blackshark	26
+sharp	27
+nubia	28
+itel	29
+wiko	30
+nothing	31
+fih	32
+blu	33
+crosscall	34
+general mobile	35
+htc	36
+panasonic	37
+itel mobile limited	38
+cat	39
+doogee	40
+blackview	41
+hisense	42
+oukitel	43
+zuum	44
+tinno	45
+hxy	46
+vodafone	47
+vsmart	48
+chinoe	49
+reeder	50
+cherry_mobile	51
+omix	52
+a1	53
+meizu	54
+symphony	55
+yulong	56
+cubot	57
+casper	58
+true	59
+sky devices	60
+philco	61
+schok	62
+wheatek	63
+incar	64
+gionee	65
+lt	66
+joyar	67
+coosea	68
+vestel	69
+micromax	70
+umidigi	71
+smt_hk	72
+a-gold	73
+ant dao technology limited	74
+umx	75
+gigaset	76
+lava	77
+xgody	78
+walton	79
+hafury	80
+benco	81
+acer	82
+trident	83
+along	84
+onn	85
+mintt	86
+hometech	87
+ravoz	88
+tp-link	89
+inone	90
+bullittgrouplimited	91
+zonko	92
+ibrit	93
+iku	94
+unihertz	95
+droi	96
+fcnt	97
+kruger_matz	98
+maxwest	99
+fise	100
+positivo	101
+energizer	102
+razer	103
+agm	104
+alps	105
+konnectone	106
+advan	107
+accent	108
+generalmobile	109
+fujitsu	110
+figi	111
+mptech	112
+reliance communications	113
+sanmu	114
+android	115
+life_digital	116
+myphone	117
+microsoft	118
+aspera mobile	119
+oblue	120
+vivax	121
+jio	122
+sonimtech	123
+nuu	124
+smartisan	125
+innovatech	126
+hiking	127
+ssmooth	128
+oscal	129
+bullitt	130
+lg electronics	131
+ulesson	132
+minix	133
+q-innovations	134
+vortex	135
+hyundai	136
+conquest	137
+yes	138
+unknown	139
+oale	140
+lemobile	141
+tecno mobile	142
+ox tab	143
+realmi	144
+x-tigi	145
+hmr networks	146
+sky_devices	147
+essential products	148
+nvidia	149
+10or	150
+whoop	151
+mobicel	152
+max tel fze	153
+fortune ship	154
+kalley	155
+kogan	156
+zoji	157
+magcomm	158
+wings mobile	159
+navon	160
+ihunt	161
+safaricom	162
+sprd	163
+corn	164
+dialn products inc	165
+alldocube	166
+sky	167
+multilaser	168
+coolpad	169
+alcatel	170
+rokit	171
+evercoss	172
+hot pepper inc	173
+fairphone	174
+stg	175
+glocalme	176
+bq	177
+adolf	178
+krip	179
+dialogaxiataplc	180
+inoi	181
+danew	182
+welcome	183
+elephone	184
+cmdc	185
+red	186
+treswave	187
+bmax	188
+airpha	189
+gtel	190
+ruio	191
+archos	192
+premio	193
+foxx development inc.	194
+img	195
+polaroid	196
+dixon	197
+wileyfox	198
+vertu international corporation limited	199
+allview	200
+xtouch	201
+n-one	202
+blackberry	203
+trimble	204
+modio	205
+tablet_express	206
+teclast	207
+greentel	208
+rover	209
+mobiwire	210
+karbonn	211
+tech	212
+pax	213
+mls	214
+netease	215
+vmos	216
+xwirelessllc	217
+thomson	218
+vortex cellular	219
+bluedigit	220
+infone	221
+skyworth	222
+skyth	223
+zebra technologies	224
+gini	225
+android-uct	226
+lanix	227
+x13	228
+gt_888	229
+turkcell	230
+kazam	231
+urovo	232
+retroid	233
+dialn	234
+stoneoim	235
+logic	236
+kodak	237
+kimfly	238
+bkav	239
+revoview	240
+haovm	241
+emporia	242
+q10	243
+spa condor electronics	244
+sigma_mobile	245
+pcd	246
+emdoor	247
+aspera_mobile	248
+otd	249
+nomi	250
+reliance	251
+unitech	252
+dbtter international limited	253
+yumefone	254
+chainway	255
+frog	256
+vipro	257
+duoqin	258
+opelmobile	259
+freeyond	260
+x-bo	261
+ifre s.a.	262
