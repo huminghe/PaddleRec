@@ -159,7 +159,7 @@ def create_predict_data(author_list, history_country_list, country, ads_campaign
     brand_id = brand_id_map.get(brand.lower(), UNK_ID)
     phone_model_id = phone_model_id_map.get(phone_model.lower(), UNK_ID)
     phone_height_id = phone_height_id_map.get(phone_model.lower(), 2)
-    product_id = product_id_map.get(product, UNK_ID)
+    product_id = product_id_map.get(product.lower(), UNK_ID)
 
     seq_lens = []
     output_list = []
