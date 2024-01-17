@@ -1,0 +1,15 @@
+[PAD]	0
+[NULL]	1
+sweetdate	2
+popa_chat	3
+pora_live	4
+matchlove	5
+dateu_new	6
+vdating	7
+dating_match	8
+omeet	9
+matchx	10
+meet_fun	11
+umeet	12
+vlive	13
+pola_live	14

@@ -40,6 +40,7 @@ class RecDataset(IterableDataset):
         self.item_count = config.get("hyper_parameters.item_count", 2000)
         self.shuffle_data = config.get("runner.shuffle_data", False)
         self.deduplicate_data = config.get("runner.deduplicate_data", False)
+        self.sample_weights = config.get("runner.sample_weights", False)
         self.unk = 1
 
         self.init()
@@ -92,11 +93,15 @@ class RecDataset(IterableDataset):
             self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9]) for x in value]
         self.users = list(self.users)
         self.items = list(self.items)
+        self.weights = [math.floor(math.sqrt(len(self.graph[x]))) for x in self.users]
 
     def __iter__(self):
         # random.seed(12345)
         while True:
-            user_id_list = random.sample(self.users, self.batch_size)
+            if self.sample_weights:
+                user_id_list = random.choices(self.users, weights=self.weights, k=self.batch_size)
+            else:
+                user_id_list = random.sample(self.users, self.batch_size)
             if self.count >= self.batches_per_epoch * self.batch_size:
                 self.count = 0
                 break
@@ -110,7 +115,7 @@ class RecDataset(IterableDataset):
                     times = 1
                 else:
                     times = math.floor((len(item_list) + 1) / 4) + 1
-                    times = min(times, 5)
+                    times = min(times, 10)
                 for i in range(0, times):
                     if self.sample_strategy == 1:
                         k = max(random.choice(range(0, len(item_list))), random.choice(range(0, len(item_list))))
