@@ -13,28 +13,31 @@
 # limitations under the License.
 
 runner:
-  train_data_dir: "data/train-0614"
+  train_data_dir: "data/240116-train"
   train_reader_path: "mind_reader" # importlib format
   use_gpu: False
   use_auc: False
   train_batch_size: 128
-  epochs: 300
-  print_interval: 10
-  model_save_path: "output_model_mind_0614_more"
+  epochs: 500
+  print_interval: 100
+  model_save_path: "output_model_mind_240116"
   infer_batch_size: 1
   infer_reader_path: "mind_infer_reader_new" # importlib format
-  test_data_dir: "data/valid-0614"
-  infer_load_path: "output_model_mind_0614_more"
-  infer_start_epoch: 117
-  infer_end_epoch: 118
+  test_data_dir: "data/240116-valid"
+  infer_load_path: "output_model_mind_240116"
+  infer_start_epoch: 30
+  infer_end_epoch: 31
   batches_per_epoch: 1000
-  author_country_map_path: "data/author-0614/author_country_seq.txt"
-  author_id_map_path: "data/author-0614/author_id_map.txt"
+  shuffle_data: False
+  author_country_map_path: "data/240116-author/author_country_id_map.txt"
+  author_id_map_path: "data/240116-author/author_id_map.txt"
   country_id_map_path: "data/country_code_id_map.txt"
-  brand_id_map_path: "data/author-0614/brand_id_map.txt"
-  ads_group_id_map_path: "data/author-0614/group_id_map.txt"
-  phone_model_id_map_path: "data/author-0614/model_id_map.txt"
-  phone_height_id_map_path: "data/author-0614/model_height_id_map.txt"
+  brand_id_map_path: "data/240116-author/brand_id_map.txt"
+  ads_campaign_id_map_path: "data/240116-author/campaign_id_map.txt"
+  ads_group_id_map_path: "data/240116-author/group_id_map.txt"
+  phone_model_id_map_path: "data/240116-author/model_id_map.txt"
+  phone_height_id_map_path: "data/240116-author/model_height_id_map.txt"
+  product_id_map_path: "data/240116-author/product_id_map.txt"
 
   # distribute_config
   # sync_mode: "async"
@@ -50,13 +53,15 @@ hyper_parameters:
     learning_rate: 0.0003
     # strategy: async
   # user-defined <key, value> pairs
-  item_count: 7019
-  country_count: 41
+  item_count: 5000
+  country_count: 48
   user_country_count: 227
-  ads_group_count: 200
-  brand_count: 50
-  phone_model_count: 1300
-  height_count: 8
+  ads_campaign_count: 200
+  ads_group_count: 320
+  brand_count: 100
+  phone_model_count: 3000
+  product_count: 14
+  height_count: 9
   embedding_dim: 64
   hidden_size: 64
   neg_samples: 256
@@ -69,3 +74,4 @@ hyper_parameters:
   sample_strategy: 3
   long_seq_strategy: 1
   more_features: True
+  more_dropout: False
