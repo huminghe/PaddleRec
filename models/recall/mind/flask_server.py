@@ -55,6 +55,8 @@ def recommend_v2():
                     ", country: " + str(country) + ", brand: " + str(brand) + ", model: " + str(model) +
                     ", ads_campaign: " + str(ads_campaign) + ", ads_group: " + str(ads_group) +
                     ", product: " + str(product) + ", num: " + str(num))
+    if brand.lower() == 'redmi':
+        brand = 'xiaomi'
 
     result = predict.predict_author_result(history_list, history_country_list, country, ads_campaign, ads_group,
                                            brand, model, product, num)
