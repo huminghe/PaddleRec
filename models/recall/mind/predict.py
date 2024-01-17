@@ -196,7 +196,7 @@ def create_predict_data(author_list, history_country_list, country, ads_campaign
 
 def predict_author_result(author_list, history_country_list, country, ads_campaign, ads_group,
                           brand, phone_model, product, top_n):
-    threshold = -0.75
+    threshold = -0.8
     batch_data = create_predict_data(author_list, history_country_list, country, ads_campaign, ads_group,
                                      brand, phone_model, product)
     logger.info("batch data: " + str(batch_data))
