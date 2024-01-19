@@ -9,13 +9,23 @@ from flask import Flask, request
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
+
+server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+os.makedirs(server_logs_dir, exist_ok=True)
+logging.root.setLevel(logging.NOTSET)
+handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'paid_server.log'), when="MIDNIGHT",
+                                   encoding='UTF-8', backupCount=10)
+logging_format = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+handler.setFormatter(logging_format)
+logging.root.addHandler(handler)
+
 import json
 import sys
 import predict_paid
 from gevent import pywsgi
 
 app = Flask(__name__)
-server_logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 predictor = predict_paid.Predictor()
 
 
@@ -65,17 +75,7 @@ def update_online_cg():
 
 
 if __name__ == '__main__':
-    os.makedirs(server_logs_dir, exist_ok=True)
     port = int(sys.argv[1])
-
-    logging.root.setLevel(logging.NOTSET)
-    handler = TimedRotatingFileHandler(os.path.join(server_logs_dir, 'paid_server.log'), when="MIDNIGHT",
-                                       encoding='UTF-8', backupCount=10)
-    handler.setLevel(logging.INFO)
-    logging_format = logging.Formatter(
-        '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
-    handler.setFormatter(logging_format)
-    app.logger.addHandler(handler)
     app.logger.info('deploy server started.')
 
     server = pywsgi.WSGIServer(('0.0.0.0', port), app, log=app.logger, error_log=app.logger)

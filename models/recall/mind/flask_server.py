@@ -20,9 +20,6 @@ logging_format = logging.Formatter(
 handler.setFormatter(logging_format)
 logging.root.addHandler(handler)
 
-import inspect
-import random
-import string
 import json
 import sys
 import predict
