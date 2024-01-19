@@ -41,6 +41,7 @@ class RecDataset(IterableDataset):
         self.shuffle_data = config.get("runner.shuffle_data", False)
         self.deduplicate_data = config.get("runner.deduplicate_data", False)
         self.sample_weights = config.get("runner.sample_weights", False)
+        self.sample_pow = config.get("runner.sample_pow", 0.5)
         self.unk = 1
 
         self.init()
@@ -93,7 +94,7 @@ class RecDataset(IterableDataset):
             self.graph[user_id] = [(x[0], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9]) for x in value]
         self.users = list(self.users)
         self.items = list(self.items)
-        self.weights = [math.floor(math.sqrt(len(self.graph[x]))) for x in self.users]
+        self.weights = [math.floor(math.pow(len(self.graph[x]), self.sample_pow)) for x in self.users]
 
     def __iter__(self):
         # random.seed(12345)
