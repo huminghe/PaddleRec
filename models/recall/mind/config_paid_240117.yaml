@@ -19,14 +19,14 @@ runner:
   use_auc: False
   train_batch_size: 128
   epochs: 500
-  print_interval: 100
+  print_interval: 300
   model_save_path: "output_model_mind_paid_240117"
   infer_batch_size: 128
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/240117-paid-valid"
   infer_load_path: "output_model_mind_paid_240117"
   infer_start_epoch: 1
-  infer_end_epoch: 300
+  infer_end_epoch: 130
   batches_per_epoch: 1000
   shuffle_data: False
   deduplicate_data: True
