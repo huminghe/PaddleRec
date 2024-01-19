@@ -20,13 +20,13 @@ runner:
   train_batch_size: 128
   epochs: 500
   print_interval: 100
-  model_save_path: "output_model_mind_240116"
+  model_save_path: "output_model_mind_240119"
   infer_batch_size: 1
   infer_reader_path: "mind_infer_reader_new" # importlib format
   test_data_dir: "data/240116-valid"
-  infer_load_path: "output_model_mind_240116"
-  infer_start_epoch: 30
-  infer_end_epoch: 31
+  infer_load_path: "output_model_mind_240119"
+  infer_start_epoch: 47
+  infer_end_epoch: 48
   batches_per_epoch: 1000
   shuffle_data: False
   author_country_map_path: "data/240116-author/author_country_id_map.txt"
@@ -60,7 +60,7 @@ hyper_parameters:
   ads_group_count: 320
   brand_count: 100
   phone_model_count: 3000
-  product_count: 14
+  product_count: 10
   height_count: 9
   embedding_dim: 64
   hidden_size: 64
