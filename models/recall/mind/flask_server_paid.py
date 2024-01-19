@@ -30,16 +30,24 @@ def response_return_template(code, message, result=None):
 def recommend_v2():
     data = request.json
     history_list = data['history']
+    history_country_list = data['history_country']
     country = data['country']
     brand = data['brand']
     model = data['model']
+    ads_campaign = data['ads_campaign']
     ads_group = data['ads_group']
+    product = data['product']
     num = data['num']
 
-    app.logger.info("history: " + str(history_list) + ",   country: " + str(country) + ",   brand: " + str(brand) +
-                    ",   model: " + str(model) + ",   ads_group: " + str(ads_group) + ",   num: " + str(num))
+    app.logger.info("history: " + str(history_list) + ", country history: " + str(history_country_list) +
+                    ", country: " + str(country) + ", brand: " + str(brand) + ", model: " + str(model) +
+                    ", ads_campaign: " + str(ads_campaign) + ", ads_group: " + str(ads_group) +
+                    ", product: " + str(product) + ", num: " + str(num))
+    if brand.lower() == 'redmi':
+        brand = 'xiaomi'
 
-    result = predictor.predict_author_result(history_list, country, ads_group, brand, model, num, app.logger)
+    result = predictor.predict_author_result(history_list, history_country_list, country, ads_campaign, ads_group,
+                                             brand, model, product, num)
     result = [{'authorId': str(x[0]), 'score': str(x[1])} for x in result]
 
     return_value = response_return_template(200, 'OK', result)
@@ -51,7 +59,7 @@ def update_online_cg():
     data = request.json
     cg_list = data['cg_list']
     app.logger.info("update online cg, cg list: " + str(cg_list))
-    result = predictor.update_online_cg(cg_list, app.logger)
+    result = predictor.update_online_cg(cg_list)
     return_value = response_return_template(200, 'OK', result)
     return json.dumps(return_value, ensure_ascii=False)
 
