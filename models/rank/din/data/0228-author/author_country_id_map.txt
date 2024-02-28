@@ -1,0 +1,63 @@
+[PAD]	0
+[NULL]	1
+venezuela	2
+philippines	3
+vietnam	4
+columbia	5
+ukraine	6
+bangladesh	7
+india	8
+global	9
+america	10
+nigeria	11
+russia	12
+brazil	13
+indonesia	14
+peru	15
+morocco	16
+argentina	17
+pakistan	18
+kenya	19
+germany	20
+saudiarabia	21
+mexico	22
+globalblackhair	23
+turkey	24
+chile	25
+canada	26
+britain	27
+bulgaria	28
+spain	29
+italy	30
+ghana	31
+colombia	32
+kuwait	33
+portugal	34
+eastasia	35
+united states	36
+unitedarabemirates	37
+egypt	38
+japan	39
+france	40
+greece	41
+southafrica	42
+united kingdom	43
+thailand	44
+china	45
+malaysia	46
+bahrain	47
+southkorea	48
+costa rica	49
+madagascar	50
+netherlands	51
+qatar	52
+singapore	53
+oman	54
+ecuador	55
+romania	56
+bosnia and herzegovina	57
+belarus	58
+bolivia	59
+united arab emirates	60
+niger	61
+poland	62

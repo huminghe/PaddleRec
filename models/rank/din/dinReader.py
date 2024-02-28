@@ -77,7 +77,7 @@ class RecDataset(IterableDataset):
                     b = sortb[i:i + batch_size]
                     max_len = max(len(x[0]) for x in b)
                     if max_len < 1:
-                        continue
+                        max_len = 1
 
                     itemInput = [x[0] for x in b]
                     itemRes0 = np.array(
@@ -121,7 +121,7 @@ class RecDataset(IterableDataset):
 
                 max_len = max(len(x[0]) for x in b)
                 if max_len < 1:
-                    continue
+                    max_len = 1
 
                 itemInput = [x[0] for x in b]
                 itemRes0 = np.array(

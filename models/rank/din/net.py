@@ -32,6 +32,7 @@ class DINLayer(nn.Layer):
         self.cat_count = cat_count
         self.dropout = dropout
         self.dropout_type = dropout_type
+        self.dropout_layer = nn.Dropout(p=dropout)
 
         self.hist_item_emb_attr = paddle.nn.Embedding(
             self.item_count,
@@ -163,21 +164,9 @@ class DINLayer(nn.Layer):
         target_concat = paddle.concat(
             [target_item_emb, target_cat_emb], axis=1)
         if self.dropout_type > 1:
-            hist_seq_concat = F.dropout(
-                hist_seq_concat,
-                self.dropout,
-                training=self.training,
-                mode="upscale_in_train")
-            target_seq_concat = F.dropout(
-                target_seq_concat,
-                self.dropout,
-                training=self.training,
-                mode="upscale_in_train")
-            target_concat = F.dropout(
-                target_concat,
-                self.dropout,
-                training=self.training,
-                mode="upscale_in_train")
+            hist_seq_concat = self.dropout_layer(hist_seq_concat)
+            target_seq_concat = self.dropout_layer(target_seq_concat)
+            target_concat = self.dropout_layer(target_concat)
 
         concat = paddle.concat(
             [
@@ -189,11 +178,7 @@ class DINLayer(nn.Layer):
 
         for i, attlayer in enumerate(self.attention_layer):
             if i % 2 == 0 and self.dropout_type <= 1:
-                concat = F.dropout(
-                    concat,
-                    self.dropout,
-                    training=self.training,
-                    mode="upscale_in_train")
+                concat = self.dropout_layer(concat)
             concat = attlayer(concat)
 
         atten_fc3 = concat + mask
@@ -207,22 +192,14 @@ class DINLayer(nn.Layer):
 
         for firLayer in self.con_layer[:1]:
             if self.dropout_type <= 1:
-                output = F.dropout(
-                    output,
-                    self.dropout,
-                    training=self.training,
-                    mode="upscale_in_train")
+                output = self.dropout_layer(output)
             concat = firLayer(output)
 
         embedding_concat = paddle.concat([concat, target_concat], axis=1)
 
         for i, colayer in enumerate(self.con_layer[1:]):
             if i % 2 == 0 and self.dropout_type <= 1:
-                embedding_concat = F.dropout(
-                    embedding_concat,
-                    self.dropout,
-                    training=self.training,
-                    mode="upscale_in_train")
+                embedding_concat = self.dropout_layer(embedding_concat)
             embedding_concat = colayer(embedding_concat)
 
         logit = embedding_concat + item_b
